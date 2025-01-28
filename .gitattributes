@@ -1,0 +1,1 @@
+.config/chatgpt/openai*.vsix filter=lfs diff=lfs merge=lfs -text
