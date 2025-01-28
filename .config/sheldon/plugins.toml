@@ -1,0 +1,59 @@
+# `sheldon` configuration file
+# ----------------------------
+#
+# You can modify this file directly or you can use one of the following
+# `sheldon` commands which are provided to assist in editing the config file:
+#
+# - `sheldon add` to add a new plugin to the config file
+# - `sheldon edit` to open up the config file in the default editor
+# - `sheldon remove` to remove a plugin from the config file
+#
+# See the documentation for more https://github.com/rossmacarthur/sheldon#readme
+
+shell = "zsh"
+
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
+use = ["{{ name }}.plugin.zsh"]
+
+[plugins.zsh-abbr]
+github = "olets/zsh-abbr"
+use = ["zsh-abbr.zsh"]
+
+[plugins.zsh-abbr.hooks]
+post = '''
+ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('"${(j:|:)${(k)ABBR_REGULAR_USER_ABBREVIATIONS}}"')$' fg=blue,bold)
+ZSH_HIGHLIGHT_REGEXP+=('\<('"${(j:|:)${(k)ABBR_GLOBAL_USER_ABBREVIATIONS}}"')$' fg=blue,bold)
+'''
+
+[plugins.fast-syntax-highlighting]
+github = "zdharma/fast-syntax-highlighting"
+use = ["F-Sy-H.plugin.zsh"]
+
+[plugins.abbr-highlighting]
+local = "~/.zsh/plugins"
+use = ["abbr-highlighting.zsh"]
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
+
+[plugins.fzf]
+github = "junegunn/fzf"
+apply = ['fzf-install', 'fzf-source']
+
+[plugins.fzf-commands]
+local = "~/.zsh/plugins"
+use = ["fzf-commands.zsh"]
+
+[plugins.mise]
+inline = 'eval "$(~/.local/bin/mise activate zsh)"'
+
+[plugins.starship]
+inline = 'eval "$(starship init zsh)"'
+
+[templates]
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+fzf-install = "{{ dir }}/install --bin > /dev/null \n[[ ! $PATH =~ {{ dir }} ]] && export PATH=\"$PATH:{{ dir }}/bin\"\n"
+fzf-source = "{% for file in files %}source \"{{ file }}\"\n{% endfor %}"
