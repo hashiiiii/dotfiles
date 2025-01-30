@@ -12,7 +12,7 @@ OS=$(uname -s)
 if [[ "$OS" == "Linux" ]]; then
   if grep -q WSL /proc/version; then
     logOK "WSL is detected."
-    # ./install-wsl.sh
+    "$DOTFILE_HOME/scripts/install-wsl.sh"
   else
     logErr "Linux is detected, but currently, only WSL is supported."
     exit 1
