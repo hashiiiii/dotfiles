@@ -15,8 +15,10 @@ setup: ## Sets the executable permission for all .sh files.
 	@find . -type f -name "*.sh" -exec chmod +x {} \; -exec echo "✓ Set executable: {}" \;
 	@echo "Done!"
 
+.PHONY: install
+install: ## Run the install.sh script.
+	@DOTFILE_HOME="$$(pwd)" ./scripts/install.sh
+
 .PHONY: clean
-clean: ## Cleanup build artifacts.
-	@echo "Cleaning up..."
-	@rm -rf build
-	@echo "Done!"
+clean: ## Revert dotfiles installation.
+	@DOTFILE_HOME="$$(pwd)" ./scripts/clean.sh

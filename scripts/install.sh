@@ -2,19 +2,20 @@
 
 set -e
 
-DOTFILE_HOME="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export DOTFILE_HOME
-
 source "$DOTFILE_HOME/lib/log.sh"
+
+logInfo 'Running install.sh...'
 
 OS=$(uname -s)
 
 if [[ "$OS" == "Linux" ]]; then
-  if grep -q WSL /proc/version; then
-    logOK "WSL is detected."
-    "$DOTFILE_HOME/scripts/install-wsl.sh"
+  source /etc/os-release
+
+  if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -q "debian"; then
+    logOK 'Debian is detected.'
+    "$DOTFILE_HOME/scripts/debian.sh"
   else
-    logErr "Linux is detected, but currently, only WSL is supported."
+    logErr "Other Linux distribution: $ID"
     exit 1
   fi
 elif [[ "$OS" == "Darwin" ]]; then

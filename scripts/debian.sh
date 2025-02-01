@@ -3,15 +3,17 @@
 set -e
 
 source "$DOTFILE_HOME/lib/log.sh"
+source "$DOTFILE_HOME/dotfiles.conf"
 
-logInfo "Installing dotfiles for WSL..."
+for file in "${DOTFILES[@]}"; do
+  backup="$HOME/$file.backup"
+  if [ -e "$backup" ]; then
+    logErr "Backup file $backup already exists. Please run 'make clean' before installing."
+    exit 1
+  fi
+done
 
-DOTFILES=(
-  .config
-  .zsh
-  .Brewfile
-  .zshrc
-)
+logInfo 'Running debian.sh...'
 
 for file in "${DOTFILES[@]}"; do
   src="$DOTFILE_HOME/$file"
@@ -28,7 +30,7 @@ for file in "${DOTFILES[@]}"; do
   fi
 
   ln -s "$src" "$dest"
-  logOK "Linked $src to $dest"
+  logInfo "Linked $src to $dest"
 done
 
-logOK "WSL dotfiles installation completed!"
+logOK "dotfiles for Debian installation completed!"
