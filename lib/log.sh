@@ -6,7 +6,7 @@
 logOK()   { _log "$GREEN"  "OK$EMOJI_DOG" "$@"; }
 logWarn() { _log "$YELLOW" "WARN"         "$@"; }
 logErr()  { _log "$RED"    "ERR_"         "$@"; }
-logInfo() { _log "$PLANE"  "INFO"         "$@"; }
+logInfo() { _log "$BLUE"  "INFO"         "$@"; }
 
 # base method
 _log() {
@@ -21,10 +21,10 @@ _log() {
 RED="\e[38;2;247;118;142m"     # ERROR
 GREEN="\e[38;2;158;206;106m"   # OK
 YELLOW="\e[38;2;224;175;104m"  # WARNING
+BLUE="\e[38;2;122;162;247m"    # INFO
 PLANE="\e[38;2;192;202;245m"   # Plane color
 WHITE="\e[0m"                  # Unused
 BLACK="\e[38;2;36;40;59m"      # Unused
-BLUE="\e[38;2;122;162;247m"    # Unused
 MAGENTA="\e[38;2;187;154;247m" # Unused
 CYAN="\e[38;2;42;195;222m"     # Unused
 
