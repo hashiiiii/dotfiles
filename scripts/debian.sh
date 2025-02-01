@@ -17,6 +17,8 @@ for pkg in "${APT_PACKAGES[@]}"; do
 done
 logOK "All required apt packages have been installed."
 
+
+
 for file in "${DOTFILES[@]}"; do
   backup="$HOME/$file.backup"
   if [ -e "$backup" ]; then
