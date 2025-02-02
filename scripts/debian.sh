@@ -6,18 +6,21 @@ source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/dotfiles.conf"
 
 logInfo 'Running debian.sh...'
-
 logInfo "Updating package list..."
+
 sudo apt update
 
 logInfo "Installing apt packages..."
+
 for pkg in "${APT_PACKAGES[@]}"; do
   logInfo "Installing $pkg..."
   sudo apt install -y "$pkg"
 done
+
 logOK "All required apt packages have been installed."
 
-
+logInfo "Executing common.sh..."
+"$DOTFILE_HOME/common.sh"
 
 for file in "${DOTFILES[@]}"; do
   backup="$HOME/$file.backup"
