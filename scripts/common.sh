@@ -17,3 +17,7 @@ else
   logErr ".Brewfile not found at $BREWFILE."
   exit 1
 fi
+
+logInfo "Installing mise..."
+curl https://mise.run | sh
+logOK "mise installation completed."

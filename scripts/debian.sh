@@ -22,6 +22,10 @@ logOK "All required apt packages have been installed."
 logInfo "Executing common.sh..."
 "$DOTFILE_HOME/common.sh"
 
+logInfo "Installing Nerd Fonts..."
+curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s
+logOK "Nerd Fonts installation completed."
+
 for file in "${DOTFILES[@]}"; do
   backup="$HOME/$file.backup"
   if [ -e "$backup" ]; then
@@ -49,3 +53,9 @@ for file in "${DOTFILES[@]}"; do
 done
 
 logOK "dotfiles for Debian installation completed!"
+
+logInfo "Changing login shell to zsh..."
+chsh -s "$(command -v zsh)"
+
+logOK "Login shell changed to zsh."
+logInfo "Please restart your terminal (or log out and back in) to start using zsh."
