@@ -10,7 +10,6 @@ OS=$(uname -s)
 
 if [[ "$OS" == "Linux" ]]; then
   source /etc/os-release
-
   if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -q "debian"; then
     logOK 'Debian is detected.'
     "$DOTFILE_HOME/scripts/debian.sh"
