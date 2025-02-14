@@ -9,7 +9,7 @@ help:
 	}' $(MAKEFILE_LIST)
 	@echo "--------------------------------------------------------------------------"
 
-.PHONY: setup
+.PHONY: chmod
 setup: ## Sets the executable permission for all .sh files.
 	@echo "Setting execute permissions for all .sh files..."
 	@find . -type f -name "*.sh" -exec chmod +x {} \; -exec echo "✓ Set executable: {}" \;
