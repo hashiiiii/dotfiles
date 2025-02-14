@@ -20,7 +20,7 @@ done
 logOK "All required apt packages have been installed."
 
 logInfo "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 logInfo "Executing common.sh..."
