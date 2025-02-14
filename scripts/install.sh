@@ -1,13 +1,13 @@
 #!/bin/bash
 
+set -e
+
+source "$DOTFILE_HOME/lib/log.sh"
+
 if [ "$(id -u)" -eq 0 ]; then
   logErr "Please do not run this script as root. Run it as a regular user."
   exit 1
 fi
-
-set -e
-
-source "$DOTFILE_HOME/lib/log.sh"
 
 logInfo 'Running install.sh...'
 
