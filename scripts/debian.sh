@@ -20,7 +20,7 @@ done
 logOK "All required apt packages have been installed."
 
 logInfo "Executing common.sh..."
-"$DOTFILE_HOME/common.sh"
+"$DOTFILE_HOME/scripts/common.sh"
 
 logInfo "Installing Nerd Fonts..."
 curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s
