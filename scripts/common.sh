@@ -7,6 +7,9 @@ source "$DOTFILE_HOME/dotfiles.conf"
 
 logInfo 'Running common.sh...'
 
+logInfo "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 BREWFILE="$DOTFILE_HOME/.Brewfile"
 
 if [ -f "$BREWFILE" ]; then
