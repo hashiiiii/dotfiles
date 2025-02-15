@@ -24,7 +24,7 @@ if [[ "$OS" == "Linux" ]]; then
   fi
 elif [[ "$OS" == "Darwin" ]]; then
   logOK "MacOSX is detected."
-  # ./install-mac.sh
+  "$DOTFILE_HOME/scripts/macosx.sh"
 else
   logErr "Unsupported OS: $OS"
   exit 1
