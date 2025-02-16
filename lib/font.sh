@@ -80,6 +80,23 @@ install_nerd_fonts() {
         logImportant "6. Click 'Save'"
         logImportant "=========================================="
         echo ""
+    elif [[ "$(uname)" == "Darwin" ]]; then
+        echo ""
+        logImportant "=== Terminal Configuration Required ==="
+        logImportant "Configure iTerm2:"
+        logImportant "1. Open iTerm2 Preferences (Cmd+,)"
+        logImportant "2. Go to 'Profiles' -> 'Text'"
+        logImportant "3. Click 'Font' and select '${NERD_FONT} Nerd Font'"
+        logImportant ""
+        logImportant "Or configure Terminal.app:"
+        logImportant "1. Open Terminal Preferences (Cmd+,)"
+        logImportant "2. Go to 'Profiles'"
+        logImportant "3. Select your profile"
+        logImportant "4. Click 'Text' tab"
+        logImportant "5. Click 'Change...' next to font"
+        logImportant "6. Select '${NERD_FONT} Nerd Font'"
+        logImportant "=========================================="
+        echo ""
     fi
     
     return 0
