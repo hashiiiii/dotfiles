@@ -44,7 +44,11 @@ declare -A abbreviations=(
   [co]="git checkout"
   [br]="git branch"
   ## cd
-  [wo]="cd /mnt/d/Workspace"
+  # Dynamic workspace path based on OS:
+  # - MacOS: Uses ~/Workspace (in user's home directory)
+  # - Linux: Uses /mnt/d/Workspace (Windows WSL mounted path)
+  # You can modify these paths according to your environment
+  [wo]="if [[ \"$(uname)\" == \"Darwin\" ]]; then cd ~/Workspace; else cd /mnt/d/Workspace; fi"
   ## eza
   [ls]="eza --icons --git"
   [la]="eza -a --icons --git"
