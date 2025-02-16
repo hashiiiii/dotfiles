@@ -7,6 +7,13 @@ source "$DOTFILE_HOME/dotfiles.conf"
 
 logInfo 'Running clean.sh...'
 
+# Clean up nerd-font-setup cache
+NERD_FONT_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/nerd-font-setup"
+if [ -d "$NERD_FONT_CACHE" ]; then
+    rm -rf "$NERD_FONT_CACHE"
+    echo "Removed nerd-font-setup cache: $NERD_FONT_CACHE"
+fi
+
 for file in "${DOTFILES[@]}"; do
   dest="$HOME/$file"
   backup="$dest.backup"

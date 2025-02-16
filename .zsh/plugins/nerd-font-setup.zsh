@@ -2,26 +2,27 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Nerd Font setup status (0: not done, 1: done)
-export NERD_FONT_SETUP_SHOWN=0
+# Setup cache directory
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/nerd-font-setup"
+mkdir -p "$CACHE_DIR"
+
+# Load or initialize setup status
+if [[ -f "$CACHE_DIR/setup_done" ]]; then
+    export NERD_FONT_SETUP_DONE=1
+else
+    export NERD_FONT_SETUP_DONE=0
+fi
 
 # Function to mark font setup as complete
 nerd_font_done() {
-    local zshrc="$HOME/.zshrc"
-    if [[ -f "$zshrc" ]]; then
-        # Update the variable in the plugin file instead
-        local plugin_file="${${(%):-%x}:A}"
-        if [[ -f "$plugin_file" ]]; then
-            sed -i 's/^export NERD_FONT_SETUP_SHOWN=0/export NERD_FONT_SETUP_SHOWN=1/' "$plugin_file"
-            export NERD_FONT_SETUP_SHOWN=1
-            echo "\033[1;32m✓\033[0m Font setup message hidden"
-            echo "Please restart your terminal or run: source ~/.zshrc"
-        fi
-    fi
+    export NERD_FONT_SETUP_DONE=1
+    touch "$CACHE_DIR/setup_done"
+    echo "\033[1;32m✓\033[0m Font setup message hidden"
+    echo "Please edit your .zshrc and change NERD_FONT_SETUP_DONE=0 to 1 to make this permanent"
 }
 
-# Show font setup message once
-if [[ "$NERD_FONT_SETUP_SHOWN" != "1" ]]; then
+# Show font setup message if not done
+if [[ "$NERD_FONT_SETUP_DONE" != "1" ]]; then
     echo "\033[1;34mℹ️  Terminal Font Setup\033[0m"
     echo "Please set \033[1mJetBrainsMono Nerd Font\033[0m in your terminal:"
     
