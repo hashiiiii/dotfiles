@@ -11,8 +11,8 @@ help:
 
 .PHONY: chmod
 setup: ## Sets the executable permission for all .sh files.
-	@echo "Setting execute permissions for all .sh files..."
-	@find . -type f -name "*.sh" -exec chmod +x {} \; -exec echo "✓ Set executable: {}" \;
+	@echo "Setting permissions (755) for all .sh files..."
+	@find . -type f -name "*.sh" -exec chmod 755 {} \; -exec echo "✓ Set 755: {}" \;
 	@echo "Done!"
 
 .PHONY: install
