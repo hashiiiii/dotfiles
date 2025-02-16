@@ -20,5 +20,5 @@ install: ## Run the install.sh script.
 	@DOTFILE_HOME="$$(pwd)" ./scripts/install.sh
 
 .PHONY: restore
-restore: ## Restore dotfiles from backup. Optional: specify BACKUP=timestamp
-	@DOTFILE_HOME="$$(pwd)" BACKUP_TIMESTAMP="$(BACKUP)" ./scripts/restore.sh
+restore: ## Restore dotfiles from backup.
+	@DOTFILE_HOME="$$(pwd)" ./scripts/restore.sh
