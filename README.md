@@ -6,6 +6,10 @@
 
 A powerful dotfiles management system designed for developers who work across multiple platforms. Seamlessly manages your development environment across Debian-based Linux (including WSL2), and macOS.
 
+<p align="center">
+  <img width="100%" src="Documentation/Images/top.gif" alt="ConceptMovie">
+</p>
+
 ## ✨ Key Features
 
 ### 🔄 Cross-Platform Compatibility
