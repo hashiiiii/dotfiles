@@ -23,15 +23,18 @@ fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-# Check if icons are displaying correctly and show font setup reminder if needed
-if ! echo -e "\uf015 \uf07b" | grep -q ''; then
-    echo "\033[1;33m⚠️  Nerd Font not detected\033[0m"
+# Show font setup message once per session
+if [[ -z "$NERD_FONT_SETUP_SHOWN" ]]; then
+    export NERD_FONT_SETUP_SHOWN=1
+    echo "\033[1;34mℹ️  Font Setup:\033[0m If icons appear as boxes, set \033[1mJetBrainsMono Nerd Font\033[0m in your terminal:"
     if [[ -d "/mnt/c/Windows" ]]; then
-        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in Windows Terminal: Settings (Ctrl+,) → WSL Profile → Appearance"
+        echo "   Windows Terminal: Settings (Ctrl+,) → WSL Profile → Appearance"
     elif [[ "$(uname)" == "Darwin" ]]; then
-        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in terminal preferences"
-    else
-        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in your terminal settings"
+        if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+            echo "   iTerm2: Preferences (⌘,) → Profiles → Text → Font"
+        else
+            echo "   Terminal.app: Preferences (⌘,) → Profiles → Text → Change Font"
+        fi
     fi
 fi
 
