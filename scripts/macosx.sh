@@ -86,7 +86,7 @@ logInfo "Executing common.sh..."
 "$DOTFILE_HOME/scripts/common.sh"
 
 logInfo "Installing Nerd Fonts..."
-source "$DOTFILE_HOME/lib/install_fonts.sh"
+source "$DOTFILE_HOME/lib/font.sh"
 install_nerd_fonts "$NERD_FONT"
 logOK "Nerd Fonts installation completed."
 
