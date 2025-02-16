@@ -1,95 +1,90 @@
-# クロスプラットフォーム dotfiles
+# 🚀 Cross-Platform Dotfiles
 
-Debian系LinuxディストリビューションとmacOS間で一貫した開発環境を提供するdotfiles管理システムです。OSに依存せず、同じ開発体験を実現します。
+[![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
-## 特徴
+**ドキュメント ( [English](README.md), [Japanese](README_JA.md) )**
 
-- 🔄 クロスプラットフォーム対応（Debian系LinuxとmacOS）
-- 🔒 既存設定の安全なバックアップ機能
-- 🛠 開発環境の自動セットアップ
-- 📦 パッケージ管理（Debian用apt、両プラットフォーム用Homebrew）
-- 🎨 ZSHによるターミナルカスタマイズ
-- 🔤 Nerd Fontsのインストール
+複数のプラットフォームで作業する開発者向けに設計された強力な dotfiles 管理システムです。Debian ベースの Linux（WSL2 を含む）と macOS の開発環境をシームレスに管理します。
 
-## 前提条件
+## ✨ 主な機能
 
-### Debian系Linux
-- sudo権限
-- 基本的な開発ツール（`curl`、`git`）
+### 🔄 クロスプラットフォーム対応
+- **WSL2**: Windows Subsystem for Linux の完全サポート
+- **Debian ベース Linux**: Debian と Ubuntu のネイティブサポート
+- **macOS**: Apple Silicon と Intel プロセッサの両方に対応
 
-### macOS
-- 管理者権限
-- Xcode Command Line Tools（未インストールの場合は自動的にインストール）
-- Apple SiliconまたはIntelプロセッサ（自動検出）
+### 🛡 安全な設定管理
+- **自動バックアップ**: 既存の設定は変更前に自動的にバックアップ
+- **簡単な復元**: 以下のコマンド一つで以前の設定を復元
+  ```bash
+  make restore
+  ```
 
-## インストール方法
+### 🎯 パッケージ管理
+- **Sheldon 統合**: `plugins.toml` を使用したモダンなプラグイン管理
+  - 一元化されたプラグイン設定
+  - 高速な非同期プラグインローディング
+  - メンテナンスとアップデートが容易
+- **プラットフォーム固有のパッケージ管理**:
+  - macOS と Linux 用の Homebrew
+  - Debian ベースシステム用の apt
 
-1. リポジトリのクローン：
+### ⚡️ fzf ベースのツール類
+- **FZF 統合**:
+  - クイックファイル検索（`Ctrl+T`）
+  - コマンド履歴検索（`Ctrl+R`）
+  - ディレクトリナビゲーション（`Alt+C`）
+- **カスタム FZF コマンド**:
+  - `fb`: インタラクティブな Git ブランチ切り替え
+  - `sf`: プレビュー付きファイル内容検索
+  - `fd`: ファイル選択によるクイックディレクトリ移動
+
+### 🎨 ターミナルカスタマイズ
+- **Nerd Fonts サポート**: 自動インストールと設定
+  - Windows（Scoop 経由）
+  - macOS（Homebrew 経由）
+- **ターミナル固有の設定**:
+  - Windows Terminal
+  - iTerm2
+  - Terminal.app
+
+## 🚀 クイックスタート
+
+1. **リポジトリのクローン**:
    ```bash
    git clone https://github.com/yourusername/dotfiles.git
    cd dotfiles
    ```
 
-2. Makefileの実行：
+2. **インストール**:
    ```bash
-   make setup
    make install
    ```
 
-スクリプトが自動的にOSを検出し、適切なセットアップを実行します。
+## 📦 含まれるもの
 
-## ディレクトリ構成
+### コアツール
+- **シェル**: Sheldon プラグイン管理を使用したモダンな ZSH 設定
+- **Git**: 便利なエイリアスを含む最適化された Git 設定
+- **ターミナル**: プラットフォーム固有のターミナル設定
+- **フォント**: 一貫した見た目のための JetBrainsMono Nerd Font
 
-```
-.
-├── .config/          # アプリケーション設定
-├── .zsh/             # ZSHカスタマイズ
-├── lib/              # ヘルパースクリプト
-│   ├── backup.sh     # バックアップ機能
-│   └── log.sh        # ログ機能
-├── scripts/          # インストールスクリプト
-│   ├── install.sh    # メインインストールスクリプト
-│   ├── common.sh     # 共通セットアップ
-│   ├── debian.sh     # Debian固有セットアップ
-│   └── macosx.sh     # macOS固有セットアップ
-└── dotfiles.conf     # メイン設定ファイル
-```
+## 🔄 バックアップと復元
 
-## 設定ファイル
+### 自動バックアップ
+- インストール前に既存の設定は自動的にバックアップ
+- バックアップは `~/{fileName}.backup` に保存
 
-- `dotfiles.conf`: dotfilesとDebianパッケージを定義するメイン設定ファイル
-- `dotfiles.macosx.conf`: macOS固有のHomebrewパッケージとCasks設定
-- `.Brewfile`: 両プラットフォーム共通のHomebrewパッケージ
-
-## バックアップと復元
-
-インストール時に既存の設定ファイルは`.backup`拡張子で自動的にバックアップされます。
-バックアップの削除は以下のコマンドで実行できます：
-
+### 以前の設定の復元
 ```bash
-make clean
+make restore
 ```
 
-## トラブルシューティング
+## 📝 ライセンス
 
-### Debian系Linux
-- `sudo`コマンドでエラーが発生する場合は、ユーザーが`sudo`グループに所属しているか確認してください
-- パッケージのインストールに失敗する場合は、`sudo apt update`を実行してパッケージリストを更新してください
+MIT © [hashiiiii](LICENSE.md)
 
-### macOS
-- Homebrewのインストールに失敗する場合は、XcodeとCommand Line Toolsが正しくインストールされているか確認してください
-- Apple SiliconマシンでIntel用バイナリを使用する場合は、Rosetta 2が正しくインストールされているか確認してください
+---
+💡 **ヒント**: 利用可能なコマンドとその説明を見るには `make help` を実行してください。
 
-## 注意事項
-
-- 既存の設定ファイルは自動的にバックアップされますが、重要なファイルは事前に手動でバックアップすることを推奨します
-- システム環境設定の変更には管理者権限が必要です
-- macOSのバージョンによって一部の機能が利用できない場合があります
-
-## コントリビューション
-
-バグ修正や機能改善のIssueやPull Requestは大歓迎です。
-
-## ライセンス
-
-MIT License - 自由に使用・改変していただけます。
+*この README は AI（Codeium）によって作成されています。*
