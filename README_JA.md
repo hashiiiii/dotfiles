@@ -6,6 +6,10 @@
 
 複数のプラットフォームで作業する開発者向けに設計された強力な dotfiles 管理システムです。Debian ベースの Linux（WSL2 を含む）と macOS の開発環境をシームレスに管理します。
 
+<p align="center">
+  <img width="100%" src="Documentation/Images/top.gif" alt="ConceptMovie">
+</p>
+
 ## ✨ 主な機能
 
 ### 🔄 クロスプラットフォーム対応
