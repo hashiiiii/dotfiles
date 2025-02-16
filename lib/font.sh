@@ -65,7 +65,12 @@ install_nerd_fonts() {
     
     # Show additional instructions for WSL2
     if [[ -d "/mnt/c/Windows" ]]; then
-        logInfo "Note: You may need to restart Windows applications to use the new fonts"
+        echo ""
+        logWarn "=== Windows Font Installation Required ==="
+        logBom "Please run the following command in PowerShell:"
+        logBom "powershell -ExecutionPolicy Bypass -File \"$(pwd)/lib/Install-NerdFonts.ps1\" -Username $(whoami)"
+        logWarn "=========================================="
+        echo ""
     fi
 }
 
