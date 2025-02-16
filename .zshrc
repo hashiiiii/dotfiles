@@ -19,18 +19,19 @@ fi
 #################################################
 # terminal
 #################################################
-# Enable UTF-8 for icons
+# Enable UTF-8 for icons and Nerd Font support
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-# Configure terminal to use Nerd Font
-if [[ -n "$TERMINAL_EMULATOR" ]] || [[ -n "$TERM_PROGRAM" ]]; then
-    # Set terminal font (this is just informational, you need to set this in your terminal emulator)
-    if [[ "$(uname)" == "Darwin" ]]; then
-        # macOS terminal font setting reminder
-        : # JetBrainsMono Nerd Font needs to be set in Terminal.app or iTerm2 preferences
+
+# Check if icons are displaying correctly and show font setup reminder if needed
+if ! echo -e "\uf015 \uf07b" | grep -q ''; then
+    echo "\033[1;33m⚠️  Nerd Font not detected\033[0m"
+    if [[ -d "/mnt/c/Windows" ]]; then
+        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in Windows Terminal: Settings (Ctrl+,) → WSL Profile → Appearance"
+    elif [[ "$(uname)" == "Darwin" ]]; then
+        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in terminal preferences"
     else
-        # Linux/WSL terminal font setting reminder
-        : # JetBrainsMono Nerd Font needs to be set in your terminal emulator settings
+        echo "   Set \033[1mJetBrainsMono Nerd Font\033[0m in your terminal settings"
     fi
 fi
 
