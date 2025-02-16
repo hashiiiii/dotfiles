@@ -35,43 +35,54 @@ install_nerd_fonts() {
         logInfo "Font $font_name is already installed. Checking for updates..."
         "$getnf_path" -U
         logOK "Font check and update completed."
-        return 0
-    fi
-
-    # Verify font exists in available fonts
-    if ! "$getnf_path" -L | grep -q "$font_name"; then
-        logError "Font $font_name not found in available Nerd Fonts"
-        logInfo "Available fonts can be listed with 'getnf -L'"
-        return 1
-    fi
-
-    # Install the font using getnf
-    logInfo "Installing $font_name font..."
-    if [[ -d "/mnt/c/Windows" ]]; then
-        # WSL2 environment - install for all users
-        "$getnf_path" -gi "$font_name"
     else
-        # macOS or Linux - install for current user
-        "$getnf_path" -i "$font_name"
-    fi
+        # Verify font exists in available fonts
+        if ! "$getnf_path" -L | grep -q "$font_name"; then
+            logError "Font $font_name not found in available Nerd Fonts"
+            logInfo "Available fonts can be listed with 'getnf -L'"
+            return 1
+        fi
 
-    # Verify installation
-    if "$getnf_path" -l | grep -q "$font_name"; then
+        # Install the font using getnf
+        logInfo "Installing $font_name font..."
+        if [[ -d "/mnt/c/Windows" ]]; then
+            # WSL2 environment - install for all users
+            "$getnf_path" -gi "$font_name"
+        else
+            # macOS or Linux - install for current user
+            "$getnf_path" -i "$font_name"
+        fi
+
+        # Verify installation
+        if ! "$getnf_path" -l | grep -q "$font_name"; then
+            logError "Font installation may have failed. Please check 'getnf -l' for installed fonts."
+            return 1
+        fi
         logOK "Nerd Font installation completed successfully!"
-    else
-        logError "Font installation may have failed. Please check 'getnf -l' for installed fonts."
-        return 1
     fi
-    
+
     # Show additional instructions for WSL2
     if [[ -d "/mnt/c/Windows" ]]; then
         echo ""
-        logWarn "=== Windows Font Installation Required ==="
-        logBom "Please run the following command in PowerShell:"
-        logBom "powershell -ExecutionPolicy Bypass -File \"$(pwd)/lib/Install-NerdFonts.ps1\" -Username $(whoami)"
-        logWarn "=========================================="
+        logImportant "=== Windows Font Installation Required ==="
+        logImportant "Please run the following command in PowerShell (as Administrator):"
+        logImportant "Start-Process pwsh -Verb RunAs -ArgumentList '-ExecutionPolicy Bypass -File \"\\\\wsl\$\\Debian$DOTFILE_HOME/lib/Install-NerdFonts.ps1\"'"
+        logImportant "Or install manually using Scoop:"
+        logImportant "1. scoop bucket add nerd-fonts"
+        logImportant "2. scoop install ${NERD_FONT}-NF"
+        logImportant ""
+        logImportant "After installation, set up Windows Terminal:"
+        logImportant "1. Open Windows Terminal"
+        logImportant "2. Press Ctrl+Shift+, to open settings"
+        logImportant "3. Click on your profile (e.g., Ubuntu)"
+        logImportant "4. Go to 'Additional Settings' -> 'Appearance'"
+        logImportant "5. Change 'Font face' to '${NERD_FONT} NF'"
+        logImportant "6. Click 'Save'"
+        logImportant "=========================================="
         echo ""
     fi
+    
+    return 0
 }
 
 # If script is run directly (not sourced), install the default font
