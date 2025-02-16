@@ -17,6 +17,24 @@ else
 fi
 
 #################################################
+# terminal
+#################################################
+# Enable UTF-8 for icons
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+# Configure terminal to use Nerd Font
+if [[ -n "$TERMINAL_EMULATOR" ]] || [[ -n "$TERM_PROGRAM" ]]; then
+    # Set terminal font (this is just informational, you need to set this in your terminal emulator)
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # macOS terminal font setting reminder
+        : # JetBrainsMono Nerd Font needs to be set in Terminal.app or iTerm2 preferences
+    else
+        # Linux/WSL terminal font setting reminder
+        : # JetBrainsMono Nerd Font needs to be set in your terminal emulator settings
+    fi
+fi
+
+#################################################
 # sheldon
 #################################################
 # load zsh plugin manager
