@@ -11,7 +11,7 @@ logInfo 'Running restore.sh...'
 NERD_FONT_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/nerd-font-setup"
 if [ -d "$NERD_FONT_CACHE" ]; then
     rm -rf "$NERD_FONT_CACHE"
-    logOK "Removed nerd-font-setup cache: $NERD_FONT_CACHE"
+    logInfo "Removed nerd-font-setup cache: $NERD_FONT_CACHE"
 fi
 
 for file in "${DOTFILES[@]}"; do
@@ -20,12 +20,12 @@ for file in "${DOTFILES[@]}"; do
 
   if [ -L "$dest" ]; then
     rm "$dest"
-    logOK "Removed symlink $dest"
+    logInfo "Removed symlink $dest"
   fi
 
   if [ -e "$backup" ]; then
     mv "$backup" "$dest"
-    logOK "Restored backup $backup to $dest"
+    logInfo "Restored backup $backup to $dest"
   fi
 done
 logOK "Dotfiles reversion completed!"
