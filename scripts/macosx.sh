@@ -86,7 +86,8 @@ logInfo "Executing common.sh..."
 "$DOTFILE_HOME/scripts/common.sh"
 
 logInfo "Installing Nerd Fonts..."
-curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s
+source "$DOTFILE_HOME/lib/install_fonts.sh"
+install_nerd_fonts "$NERD_FONT"
 logOK "Nerd Fonts installation completed."
 
 # Create symlinks for dotfiles using the backup function
