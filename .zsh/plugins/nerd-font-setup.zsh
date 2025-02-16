@@ -18,7 +18,6 @@ nerd_font_done() {
     export NERD_FONT_SETUP_DONE=1
     touch "$CACHE_DIR/setup_done"
     echo "\033[1;32m✓\033[0m Font setup message hidden"
-    echo "Please edit your .zshrc and change NERD_FONT_SETUP_DONE=0 to 1 to make this permanent"
 }
 
 # Show font setup message if not done
