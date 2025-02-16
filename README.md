@@ -1,78 +1,89 @@
-# Cross-Platform Dotfiles
+# 🚀 Cross-Platform Dotfiles
 
-A unified dotfiles management system that works seamlessly across Debian-based Linux distributions and macOS. This repository provides a consistent development environment regardless of the operating system you're using.
+[![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
-## Features
+**Documentation ( [English](README.md), [Japanese](README_JA.md) )**
 
-- 🔄 Cross-platform compatibility (Debian-based Linux and macOS)
-- 🔒 Safe backup system for existing configurations
-- 🛠 Automated development environment setup
-- 📦 Package management (apt for Debian, Homebrew for both platforms)
-- 🎨 Terminal customization with ZSH
-- 🔤 Nerd Fonts installation
+A powerful dotfiles management system designed for developers who work across multiple platforms. Seamlessly manages your development environment across Debian-based Linux (including WSL2), and macOS.
 
-## Prerequisites
+## ✨ Key Features
 
-### Debian-based Linux
-- sudo access
-- Basic development tools (`curl`, `git`)
+### 🔄 Cross-Platform Compatibility
+- **WSL2**: Full support for Windows Subsystem for Linux
+- **Debian-based Linux**: Native support for Debian and Ubuntu
+- **macOS**: Complete support for both Apple Silicon and Intel processors
 
-### macOS
-- Administrator access
-- Xcode Command Line Tools (will be installed automatically if missing)
-- Apple Silicon or Intel processor (automatically detected)
+### 🛡 Safe Configuration Management
+- **Automatic Backups**: Every existing configuration is backed up before modification
+- **Easy Rollback**: Restore your previous configuration with a single command:
+  ```bash
+  make restore
+  ```
 
-## Installation
+### 🎯 Smart Package Management
+- **Sheldon Integration**: Modern plugin management using `plugins.toml`
+  - Centralized plugin configuration
+  - Fast, async plugin loading
+  - Easy to maintain and update
+- **Platform-Specific Package Management**:
+  - Homebrew for macOS and Linux
+  - apt for Debian-based systems
 
-1. Clone the repository:
+### ⚡️ Enhanced Productivity Tools
+- **FZF Integration**:
+  - Quick file search (`Ctrl+T`)
+  - Command history search (`Ctrl+R`)
+- **Custom FZF Commands**:
+  - `fb`: Interactive Git branch switching
+  - `sf`: Search file contents with preview
+  - `fd`: Fast directory navigation based on file selection
+
+### 🎨 Terminal Customization
+- **Nerd Fonts Support**: Automatic installation and configuration
+  - Windows (via Scoop)
+  - macOS (via Homebrew)
+- **Terminal-Specific Setup**:
+  - Windows Terminal
+  - iTerm2
+  - Terminal.app
+
+## 🚀 Quick Start
+
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/yourusername/dotfiles.git
    cd dotfiles
    ```
 
-2. Run Makefile
+2. **Install**:
    ```bash
-   make setup
    make install
    ```
 
-The script will automatically detect your OS and run the appropriate setup.
+## 📦 What's Included
 
-## Directory Structure
+### Core Tools
+- **Shell**: Modern ZSH configuration with Sheldon plugin management
+- **Git**: Optimized Git configuration with useful aliases
+- **Terminal**: Platform-specific terminal configurations
+- **Fonts**: JetBrainsMono Nerd Font for a consistent look
 
-```
-.
-├── .config/          # Application configurations
-├── .zsh/             # ZSH customizations
-├── lib/              # Helper scripts
-│   ├── backup.sh     # Backup functionality
-│   └── log.sh        # Logging utilities
-├── scripts/          # Installation scripts
-│   ├── install.sh    # Main installation script
-│   ├── common.sh     # Common setup for both platforms
-│   ├── debian.sh     # Debian-specific setup
-│   └── macosx.sh     # macOS-specific setup
-└── dotfiles.conf     # Main configuration
-```
+## 🔄 Backup and Restore
 
-## Configuration Files
+### Automatic Backups
+- All existing configurations are automatically backed up before installation
+- Backups are stored in `~/{fileName}.backup`
 
-- `dotfiles.conf`: Main configuration file defining dotfiles and Debian packages
-- `dotfiles.macosx.conf`: macOS-specific configuration for Homebrew packages and casks
-- `.Brewfile`: Homebrew packages common to both platforms
-
-## Backup and Recovery
-
-The installation process automatically backs up existing configurations with a `.backup` extension. To clean up backups:
-
+### Restore Previous Configuration
 ```bash
-make clean
+make restore
 ```
 
-## Contributing
+## 📝 License
 
-Feel free to submit issues and pull requests for improvements or bug fixes.
+MIT © [hashiiiii](LICENSE.md)
 
-## License
+---
+💡 **Tip**: Run `make help` to see all available commands and their descriptions.
 
-MIT License - feel free to use and modify as you like.
+*This README was generated with the assistance of AI (Codeium).*

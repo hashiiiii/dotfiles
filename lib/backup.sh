@@ -8,7 +8,7 @@ backup_dotfile() {
     local backup="${dest}.backup"
 
     if [ -e "$backup" ]; then
-        logErr "Backup file $backup already exists. Please run 'make clean' before installing."
+        logErr "Backup file $backup already exists. Please run 'make restore' before installing."
         return 1
     fi
 

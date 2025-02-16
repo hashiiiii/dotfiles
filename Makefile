@@ -19,6 +19,6 @@ setup: ## Sets the executable permission for all .sh files.
 install: ## Run the install.sh script.
 	@DOTFILE_HOME="$$(pwd)" ./scripts/install.sh
 
-.PHONY: clean
-clean: ## Revert dotfiles installation.
-	@DOTFILE_HOME="$$(pwd)" ./scripts/clean.sh
+.PHONY: restore
+restore: ## Restore dotfiles from backup. Optional: specify BACKUP=timestamp
+	@DOTFILE_HOME="$$(pwd)" BACKUP_TIMESTAMP="$(BACKUP)" ./scripts/restore.sh
