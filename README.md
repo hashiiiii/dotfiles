@@ -17,6 +17,22 @@ A powerful dotfiles management system designed for developers who work across mu
 <!-- param::title::Details:: -->
 <details>
 <summary>Details</summary>
+
+- [✨ Key Features](#-key-features)
+  - [🔄 Cross-Platform Compatibility](#-cross-platform-compatibility)
+  - [🛡 Safe Configuration Management](#-safe-configuration-management)
+  - [🎯 Smart Package Management](#-smart-package-management)
+  - [⚡️ Enhanced Productivity Tools](#%EF%B8%8F-enhanced-productivity-tools)
+  - [🎨 Terminal Customization](#-terminal-customization)
+- [🚀 Quick Start](#-quick-start)
+- [📦 What's Included](#-whats-included)
+  - [Core Tools](#core-tools)
+- [🔄 Backup and Restore](#-backup-and-restore)
+  - [Automatic Backups](#automatic-backups)
+  - [Restore Previous Configuration](#restore-previous-configuration)
+- [🔎 FAQ](#-faq)
+- [📝 License](#-license)
+
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
