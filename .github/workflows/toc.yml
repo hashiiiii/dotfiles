@@ -1,36 +1,15 @@
 on:
   push:
-    paths:
-      - '**.md'
   workflow_dispatch:
-
 name: TOC Generator
-
-permissions:
-  contents: write
-  pull-requests: write
-
 jobs:
   generateTOC:
     name: TOC Generator
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: technote-space/toc-generator@v4
         with:
-          fetch-depth: 0
-
-      - name: Generate TOC
-        uses: technote-space/toc-generator@v4
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TOC_TITLE: Details
           FOLDING: true
+          TOC_TITLE: Details
           CREATE_PR: true
-          COMMIT_MESSAGE: 'docs: update TOC'
-          TARGET_PATHS: '*.md'
-          GITHUB_REPOSITORY: ${{ github.repository }}
-          PR_BRANCH_PREFIX: 'docs/'
-          PR_BRANCH_NAME: 'update-toc'
-          PR_TITLE: 'docs: update TOC'
-          PR_DEFAULT_BRANCH: main
-          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
