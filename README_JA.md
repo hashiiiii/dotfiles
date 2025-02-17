@@ -16,7 +16,23 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <!-- param::title::Details:: -->
 <details>
-<summary>詳細</summary>
+<summary>Details</summary>
+
+- [✨ 主な機能](#-%E4%B8%BB%E3%81%AA%E6%A9%9F%E8%83%BD)
+  - [🔄 クロスプラットフォーム対応](#-%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E5%AF%BE%E5%BF%9C)
+  - [🛡 安全な設定管理](#-%E5%AE%89%E5%85%A8%E3%81%AA%E8%A8%AD%E5%AE%9A%E7%AE%A1%E7%90%86)
+  - [🎯 パッケージ管理](#-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86)
+  - [⚡️ fzf ベースのツール類](#%EF%B8%8F-fzf-%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E9%A1%9E)
+  - [🎨 ターミナルカスタマイズ](#-%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA)
+- [🚀 クイックスタート](#-%E3%82%AF%E3%82%A4%E3%83%83%E3%82%AF%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88)
+- [📦 含まれるもの](#-%E5%90%AB%E3%81%BE%E3%82%8C%E3%82%8B%E3%82%82%E3%81%AE)
+  - [コアツール](#%E3%82%B3%E3%82%A2%E3%83%84%E3%83%BC%E3%83%AB)
+- [🔄 バックアップと復元](#-%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%81%A8%E5%BE%A9%E5%85%83)
+  - [自動バックアップ](#%E8%87%AA%E5%8B%95%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97)
+  - [以前の設定の復元](#%E4%BB%A5%E5%89%8D%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%AE%E5%BE%A9%E5%85%83)
+- [🔎 FAQ](#-faq)
+- [📝 ライセンス](#-%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
+
 </details>
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
