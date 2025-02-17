@@ -5,6 +5,7 @@ set -e
 source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/lib/backup.sh"
 source "$DOTFILE_HOME/lib/font.sh"
+source "$DOTFILE_HOME/lib/package.sh"
 source "$DOTFILE_HOME/dotfiles.conf"
 source "$DOTFILE_HOME/dotfiles.macosx.conf"
 
@@ -46,24 +47,12 @@ fi
 # Package Management
 ############################################
 
-# Install Homebrew if needed
-if ! command -v brew &> /dev/null; then
-    logInfo "Installing Homebrew..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    
-    # Add Homebrew to PATH based on architecture
-    if [[ "$(uname -m)" == "arm64" ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-        eval "$(/usr/local/bin/brew shellenv)"
-    fi
-else
-    logInfo "Homebrew already installed."
-fi
+# Install and configure Homebrew
+install_homebrew
 
 # Install packages and casks
 if [ ${#BREW_PACKAGES[@]} -gt 0 ]; then
-    logInfo "Installing macOS-specific Homebrew packages..."
+    logInfo "Installing MacOS-specific Homebrew packages..."
     for pkg in "${BREW_PACKAGES[@]}"; do
         if ! brew list "$pkg" &> /dev/null; then
             logInfo "Installing $pkg..."
@@ -128,10 +117,10 @@ else
 fi
 
 ############################################
-# macOS System Preferences
+# MacOS System Preferences
 ############################################
 
-logInfo "Configuring macOS system preferences..."
+logInfo "Configuring MacOS system preferences..."
 
 # Keyboard settings
 defaults write NSGlobalDomain KeyRepeat -int 2
@@ -148,4 +137,4 @@ for app in "Finder" "SystemUIServer"; do
     killall "$app" &> /dev/null || true
 done
 
-logOK "macOS system preferences configured."
+logOK "MacOS system preferences configured."
