@@ -51,13 +51,7 @@ install_nerd_fonts() {
 
         # Install the font using getnf
         logInfo "Installing $font_name font..."
-        if [[ -d "/mnt/c/Windows" ]]; then
-            # WSL2 environment - install for all users
-            "$getnf_path" -gi "$font_name"
-        else
-            # macOS or Linux - install for current user
-            "$getnf_path" -i "$font_name"
-        fi
+        "$getnf_path" -i "$font_name"  # Always use user install
 
         # Verify installation
         if ! "$getnf_path" -l | grep -q "$font_name"; then
