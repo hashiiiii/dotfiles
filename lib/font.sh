@@ -31,7 +31,7 @@ install_nerd_fonts() {
         if [ -x "$getnf_path" ]; then
             alias getnf="$getnf_path"
         else
-            logError "Failed to install getnf"
+            logErr "Failed to install getnf"
             return 1
         fi
     fi
@@ -44,7 +44,7 @@ install_nerd_fonts() {
     else
         # Verify font exists in available fonts
         if ! "$getnf_path" -L | grep -q "$font_name"; then
-            logError "Font $font_name not found in available Nerd Fonts"
+            logErr "Font $font_name not found in available Nerd Fonts"
             logInfo "Available fonts can be listed with 'getnf -L'"
             return 1
         fi
@@ -61,7 +61,7 @@ install_nerd_fonts() {
 
         # Verify installation
         if ! "$getnf_path" -l | grep -q "$font_name"; then
-            logError "Font installation may have failed. Please check 'getnf -l' for installed fonts."
+            logErr "Font installation may have failed. Please check 'getnf -l' for installed fonts."
             return 1
         fi
         logOK "Nerd Font installation completed successfully!"
