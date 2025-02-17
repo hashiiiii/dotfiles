@@ -2,9 +2,6 @@
 
 set -e
 
-# Error handling
-trap 'echo "Error occurred at line $LINENO. Previous command exited with status: $?"' ERR
-
 source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/lib/backup.sh"
 source "$DOTFILE_HOME/lib/font.sh"
