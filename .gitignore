@@ -78,3 +78,6 @@ fabric.properties
 
 # Font cache
 .cache/nerd-font-setup/
+
+# GitHub CLI
+.config/gh/hosts.yml

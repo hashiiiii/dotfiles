@@ -1,6 +1,7 @@
 tap "homebrew/bundle"
 brew "eza"
 brew "gcc"
+brew "gh"
 brew "ripgrep"
 brew "sheldon"
 brew "starship"
