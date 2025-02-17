@@ -19,3 +19,6 @@ jobs:
           COMMIT_MESSAGE: 'docs: update TOC'
           PR_TITLE: 'docs: update TOC'
           TARGET_PATHS: '*.md'
+          BRANCH_NAME: 'docs/update-toc'
+          COMMIT_NAME: 'GitHub Actions'
+          COMMIT_EMAIL: '41898282+github-actions[bot]@users.noreply.github.com'
