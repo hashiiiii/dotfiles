@@ -10,6 +10,16 @@
   <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
 </p>
 
+## 📚 Overview
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- param::title::Details:: -->
+<details>
+<summary>詳細</summary>
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## ✨ 主な機能
 
 ### 🔄 クロスプラットフォーム対応
@@ -107,8 +117,15 @@ make restore
    お好みですが、`.zsh/plugins` 配下に `foo.zsh` のように plugin という形で .zshrc から逃がすことをおすすめします。
 
 ## 📝 ライセンス
+本ソフトウェアはMITライセンスで公開しています。
 
-MIT © [hashiiiii](LICENSE.md)
+* [LICENSE.md](LICENSE.md)
+
+また、本ドキュメントの目次は以下のソフトウェアを使用して作成されています。
+
+* [toc-generator](https://github.com/technote-space/toc-generator)
+
+toc-generatorのライセンスの詳細は [Third Party Notices.md](Thirs%20Party%20Notices.md) を参照してください。
 
 ---
 💡 **ヒント**: 利用可能なコマンドとその説明を見るには `make help` を実行してください。

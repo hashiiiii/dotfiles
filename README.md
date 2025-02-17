@@ -10,6 +10,16 @@ A powerful dotfiles management system designed for developers who work across mu
   <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
 </p>
 
+## 📚 Overview
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<!-- param::title::Details:: -->
+<details>
+<summary>Details</summary>
+</details>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## ✨ Key Features
 
 ### 🔄 Cross-Platform Compatibility
@@ -106,8 +116,16 @@ make restore
    It's recommended to add your custom functions as plugins in the `.zsh/plugins` directory with names like `foo.zsh`, keeping them separate from .zshrc.
 
 ## 📝 License
+This software is released under the MIT License.  
+You are free to use it within the scope of the license, but you must include the following copyright notice and license text when using this software:
 
-MIT © [hashiiiii](LICENSE.md)
+* [LICENSE.md](LICENSE.md)
+
+Additionally, the table of contents in this document was generated using the following software:
+
+* [toc-generator](https://github.com/technote-space/toc-generator)
+
+For details on the toc-generator license, please see [Third Party Notices.md](Third%20Party%20Notices.md).
 
 ---
 💡 **Tip**: Run `make help` to see all available commands and their descriptions.
