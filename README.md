@@ -142,6 +142,3 @@ Additionally, the table of contents in this document was generated using the fol
 * [toc-generator](https://github.com/technote-space/toc-generator)
 
 For details on the toc-generator license, please see [Third Party Notices.md](Third%20Party%20Notices.md).
-
----
-💡 **Tip**: Run `make help` to see all available commands and their descriptions.
