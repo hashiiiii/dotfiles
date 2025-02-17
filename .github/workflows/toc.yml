@@ -10,9 +10,18 @@ jobs:
     name: TOC Generator
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: technote-space/toc-generator@v4
         with:
           FOLDING: true
           TOC_TITLE: Details
           CREATE_PR: true
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMMIT_MESSAGE: 'docs: update TOC'
+          TARGET_PATHS: '*.md'
+          PR_BRANCH_NAME: 'docs/update-toc-${PR_ID}'
+          PR_TITLE: 'docs: update TOC'
+          GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
