@@ -7,7 +7,7 @@
 複数のプラットフォームで作業する開発者向けに設計された強力な dotfiles 管理システムです。Debian ベースの Linux（WSL2 を含む）と macOS の開発環境をシームレスに管理します。
 
 <p align="center">
-  <img width="100%" src="Documentation/Images/top.gif" alt="ConceptMovie">
+  <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
 </p>
 
 ## ✨ 主な機能
@@ -15,7 +15,7 @@
 ### 🔄 クロスプラットフォーム対応
 - **WSL2**: Windows Subsystem for Linux の完全サポート
 - **Debian ベース Linux**: Debian と Ubuntu のネイティブサポート
-- **macOS**: Apple Silicon と Intel プロセッサの両方に対応
+- **MacOSX**: Apple Silicon と Intel プロセッサの両方に対応
 
 ### 🛡 安全な設定管理
 - **自動バックアップ**: 既存の設定は変更前に自動的にバックアップ
@@ -30,7 +30,7 @@
   - 高速な非同期プラグインローディング
   - メンテナンスとアップデートが容易
 - **プラットフォーム固有のパッケージ管理**:
-  - macOS と Linux 用の Homebrew
+  - MacOSX と Linux 用の Homebrew
   - Debian ベースシステム用の apt
 
 ### ⚡️ fzf ベースのツール類
@@ -46,7 +46,7 @@
 ### 🎨 ターミナルカスタマイズ
 - **Nerd Fonts サポート**: 自動インストールと設定
   - Windows（Scoop 経由）
-  - macOS（Homebrew 経由）
+  - MacOSX（Homebrew 経由）
 - **ターミナル固有の設定**:
   - Windows Terminal
   - iTerm2
@@ -63,6 +63,11 @@
 2. **インストール**:
    ```bash
    make install
+   ```
+
+3. **shell の再起動**
+   ```bash
+   exec zsh
    ```
 
 ## 📦 含まれるもの
@@ -84,11 +89,26 @@
 make restore
 ```
 
+## 🔎 FAQ
+1. **Windows Terminal に Nerd Fonts をインストールしたい**
+
+   <p align="left">
+     <img width="90%" src="docs/images/log.png" alt="LogForWindows">
+   </p>
+
+   このように WSL2 ユーザー向けにはログが表示されるようになっています。出力される path を Windows Terminal から実行することで Nerd Fonts をインストールすることが出来ます。
+
+2. **zsh-plugin を追加したい**
+
+   plugin-manager には sheldon を利用しています。`.config/sheldon/plugins.toml` を編集してください。ドキュメントは[こちら](https://sheldon.cli.rs/Introduction.html)。
+
+3. **自作の便利な関数を追加したい**
+
+   お好みですが、`.zsh/plugins` 配下に `foo.zsh` のように plugin という形で .zshrc から逃がすことをおすすめします。
+
 ## 📝 ライセンス
 
 MIT © [hashiiiii](LICENSE.md)
 
 ---
 💡 **ヒント**: 利用可能なコマンドとその説明を見るには `make help` を実行してください。
-
-*この README は AI（Codeium）によって作成されています。*

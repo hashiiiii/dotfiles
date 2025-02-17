@@ -7,7 +7,7 @@
 A powerful dotfiles management system designed for developers who work across multiple platforms. Seamlessly manages your development environment across Debian-based Linux (including WSL2), and macOS.
 
 <p align="center">
-  <img width="100%" src="Documentation/Images/top.gif" alt="ConceptMovie">
+  <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
 </p>
 
 ## ✨ Key Features
@@ -15,7 +15,7 @@ A powerful dotfiles management system designed for developers who work across mu
 ### 🔄 Cross-Platform Compatibility
 - **WSL2**: Full support for Windows Subsystem for Linux
 - **Debian-based Linux**: Native support for Debian and Ubuntu
-- **macOS**: Complete support for both Apple Silicon and Intel processors
+- **MacOSX**: Complete support for both Apple Silicon and Intel processors
 
 ### 🛡 Safe Configuration Management
 - **Automatic Backups**: Every existing configuration is backed up before modification
@@ -30,7 +30,7 @@ A powerful dotfiles management system designed for developers who work across mu
   - Fast, async plugin loading
   - Easy to maintain and update
 - **Platform-Specific Package Management**:
-  - Homebrew for macOS and Linux
+  - Homebrew for MacOSX and Linux
   - apt for Debian-based systems
 
 ### ⚡️ Enhanced Productivity Tools
@@ -45,7 +45,7 @@ A powerful dotfiles management system designed for developers who work across mu
 ### 🎨 Terminal Customization
 - **Nerd Fonts Support**: Automatic installation and configuration
   - Windows (via Scoop)
-  - macOS (via Homebrew)
+  - MacOSX (via Homebrew)
 - **Terminal-Specific Setup**:
   - Windows Terminal
   - iTerm2
@@ -62,6 +62,11 @@ A powerful dotfiles management system designed for developers who work across mu
 2. **Install**:
    ```bash
    make install
+   ```
+
+3. **Restart the shell**
+   ```bash
+   exec zsh
    ```
 
 ## 📦 What's Included
@@ -83,11 +88,26 @@ A powerful dotfiles management system designed for developers who work across mu
 make restore
 ```
 
+## 🔎 FAQ
+1. **Installing Nerd Fonts in Windows Terminal**
+
+   <p align="left">
+     <img width="90%" src="docs/images/log.png" alt="LogForWindows">
+   </p>
+
+   For WSL2 users, logs will be displayed as shown above. You can install Nerd Fonts by executing the displayed path in Windows Terminal.
+
+2. **Adding zsh plugins**
+
+   We use sheldon as the plugin manager. Edit `.config/sheldon/plugins.toml` to add new plugins. Documentation can be found [here](https://sheldon.cli.rs/Introduction.html).
+
+3. **Adding custom utility functions**
+
+   It's recommended to add your custom functions as plugins in the `.zsh/plugins` directory with names like `foo.zsh`, keeping them separate from .zshrc.
+
 ## 📝 License
 
 MIT © [hashiiiii](LICENSE.md)
 
 ---
 💡 **Tip**: Run `make help` to see all available commands and their descriptions.
-
-*This README was generated with the assistance of AI (Codeium).*
