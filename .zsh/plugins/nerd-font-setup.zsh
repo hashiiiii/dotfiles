@@ -3,11 +3,12 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Setup cache directory
-CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/nerd-font-setup"
-mkdir -p "$CACHE_DIR"
+DOTFILES_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
+NERD_FONTS_CACHE="$DOTFILES_CACHE/nerd-fonts"
+mkdir -p "$NERD_FONTS_CACHE"
 
 # Load or initialize setup status
-if [[ -f "$CACHE_DIR/setup_done" ]]; then
+if [[ -f "$NERD_FONTS_CACHE/setup_done" ]]; then
     export NERD_FONT_SETUP_DONE=1
 else
     export NERD_FONT_SETUP_DONE=0
@@ -16,7 +17,8 @@ fi
 # Function to mark font setup as complete
 nerd_font_done() {
     export NERD_FONT_SETUP_DONE=1
-    touch "$CACHE_DIR/setup_done"
+    mkdir -p "$NERD_FONTS_CACHE"
+    touch "$NERD_FONTS_CACHE/setup_done"
     echo "\033[1;32m✓\033[0m Font setup message hidden"
 }
 
