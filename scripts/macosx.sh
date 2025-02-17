@@ -2,15 +2,17 @@
 
 set -e
 
-# Error handling
-trap 'echo "Error occurred at line $LINENO. Previous command exited with status: $?"' ERR
-
 source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/lib/backup.sh"
+source "$DOTFILE_HOME/lib/font.sh"
 source "$DOTFILE_HOME/dotfiles.conf"
 source "$DOTFILE_HOME/dotfiles.macosx.conf"
 
 logInfo 'Running macosx.sh...'
+
+############################################
+# System Requirements Check
+############################################
 
 # System Integrity Protection check
 if ! csrutil status | grep -q 'disabled'; then
@@ -21,7 +23,6 @@ fi
 if ! xcode-select -p &> /dev/null; then
     logInfo "Installing Xcode Command Line Tools..."
     xcode-select --install
-    # Wait for xcode-select to complete
     until xcode-select -p &> /dev/null; do
         sleep 1
     done
@@ -41,7 +42,11 @@ if [[ "$(uname -m)" == "arm64" ]]; then
     fi
 fi
 
-# Install Homebrew if not already installed
+############################################
+# Package Management
+############################################
+
+# Install Homebrew if needed
 if ! command -v brew &> /dev/null; then
     logInfo "Installing Homebrew..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -56,7 +61,7 @@ else
     logInfo "Homebrew already installed."
 fi
 
-# Install macOS-specific Homebrew packages
+# Install packages and casks
 if [ ${#BREW_PACKAGES[@]} -gt 0 ]; then
     logInfo "Installing macOS-specific Homebrew packages..."
     for pkg in "${BREW_PACKAGES[@]}"; do
@@ -69,7 +74,6 @@ if [ ${#BREW_PACKAGES[@]} -gt 0 ]; then
     done
 fi
 
-# Install Homebrew Casks
 if [ ${#BREW_CASKS[@]} -gt 0 ]; then
     logInfo "Installing Homebrew Casks..."
     for cask in "${BREW_CASKS[@]}"; do
@@ -82,24 +86,35 @@ if [ ${#BREW_CASKS[@]} -gt 0 ]; then
     done
 fi
 
+############################################
+# Common Setup and Fonts
+############################################
+
+# Run common setup script
 logInfo "Executing common.sh..."
 "$DOTFILE_HOME/scripts/common.sh"
 
+# Install Nerd Fonts
 logInfo "Installing Nerd Fonts..."
-source "$DOTFILE_HOME/lib/font.sh"
 install_nerd_fonts "$NERD_FONT"
 logOK "Nerd Fonts installation completed."
 
-# Create symlinks for dotfiles using the backup function
+############################################
+# Dotfiles Setup
+############################################
+
+# Create symlinks for dotfiles
 for file in "${DOTFILES[@]}"; do
     backup_dotfile "$DOTFILE_HOME/$file" "$HOME/$file"
 done
-
 logOK "dotfiles for macOS installation completed!"
 
-# Change default shell to zsh (if not already)
+############################################
+# Shell Configuration
+############################################
+
+# Change default shell to zsh if needed
 if [[ "$SHELL" != *"zsh"* ]]; then
-    # Save original shell to cache
     DOTFILES_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
     mkdir -p "$DOTFILES_CACHE"
     echo "$SHELL" > "$DOTFILES_CACHE/original_shell"
@@ -112,23 +127,20 @@ else
     logInfo "Shell is already set to zsh."
 fi
 
-# Configure macOS system preferences
+############################################
+# macOS System Preferences
+############################################
+
 logInfo "Configuring macOS system preferences..."
 
-# Faster key repeat
+# Keyboard settings
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
-
-# Show all file extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Disable press-and-hold for keys in favor of key repeat
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Show hidden files in Finder
+# Finder settings
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder AppleShowAllFiles -bool true
-
-# Show path bar in Finder
 defaults write com.apple.finder ShowPathbar -bool true
 
 # Restart affected applications
