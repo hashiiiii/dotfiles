@@ -11,8 +11,14 @@ install_nerd_fonts() {
     local font_name=${1:-$DEFAULT_FONT}
     local os_type=$(uname)
     local getnf_path="$HOME/.local/bin/getnf"
+    local dotfiles_cache="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
+    local nerd_fonts_cache="$dotfiles_cache/nerd-fonts"
 
     logInfo "Installing Nerd Font: $font_name using getnf"
+
+    # Create cache directory
+    mkdir -p "$nerd_fonts_cache"
+    export GETNF_CACHE_DIR="$nerd_fonts_cache"
 
     # Check if getnf is installed
     if ! command -v getnf &> /dev/null && [ ! -x "$getnf_path" ]; then

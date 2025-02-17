@@ -42,6 +42,12 @@ done
 
 logOK "dotfiles for Debian installation completed!"
 
+# Save original shell to cache
+DOTFILES_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
+mkdir -p "$DOTFILES_CACHE"
+original_shell=$(getent passwd "$USER" | cut -d: -f7)
+echo "$original_shell" > "$DOTFILES_CACHE/original_shell"
+
 logInfo "Changing login shell to zsh..."
 chsh -s "$(command -v zsh)"
 

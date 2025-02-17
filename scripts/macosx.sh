@@ -99,6 +99,11 @@ logOK "dotfiles for macOS installation completed!"
 
 # Change default shell to zsh (if not already)
 if [[ "$SHELL" != *"zsh"* ]]; then
+    # Save original shell to cache
+    DOTFILES_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
+    mkdir -p "$DOTFILES_CACHE"
+    echo "$SHELL" > "$DOTFILES_CACHE/original_shell"
+
     logInfo "Changing login shell to zsh..."
     chsh -s "$(command -v zsh)"
     logOK "Login shell changed to zsh."
