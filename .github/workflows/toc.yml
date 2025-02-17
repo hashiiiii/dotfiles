@@ -12,4 +12,4 @@ jobs:
           FOLDING: true
           TOC_TITLE: Details
           CREATE_PR: true
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
