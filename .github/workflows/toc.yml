@@ -2,6 +2,8 @@ on:
   push:
   workflow_dispatch:
 name: TOC Generator
+permissions:
+  contents: write
 jobs:
   generateTOC:
     name: TOC Generator
