@@ -10,13 +10,13 @@
   <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
 </p>
 
-## 📚 Overview
+## 📚 目次
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <!-- param::title::Details:: -->
 <details>
-<summary>Details</summary>
+<summary>詳細</summary>
 
 - [✨ 主な機能](#-%E4%B8%BB%E3%81%AA%E6%A9%9F%E8%83%BD)
   - [🔄 クロスプラットフォーム対応](#-%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E5%AF%BE%E5%BF%9C)
