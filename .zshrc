@@ -17,13 +17,6 @@ else
 fi
 
 #################################################
-# terminal
-#################################################
-# Enable UTF-8 for icons and Nerd Font support
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-#################################################
 # sheldon
 #################################################
 # load zsh plugin manager
