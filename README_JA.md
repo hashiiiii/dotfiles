@@ -142,6 +142,3 @@ make restore
 * [toc-generator](https://github.com/technote-space/toc-generator)
 
 toc-generatorのライセンスの詳細は [Third Party Notices.md](Thirs%20Party%20Notices.md) を参照してください。
-
----
-💡 **ヒント**: 利用可能なコマンドとその説明を見るには `make help` を実行してください。
