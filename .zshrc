@@ -48,7 +48,7 @@ declare -A abbreviations=(
   # - MacOS: Uses ~/Workspace (in user's home directory)
   # - Linux: Uses /mnt/d/Workspace (Windows WSL mounted path)
   # You can modify these paths according to your environment
-  [wo]="if [[ $(uname) == \"Darwin\" ]]; then cd ~/Workspace; else cd /mnt/d/Workspace; fi"
+  [wo]="if [[ $(uname) == \"Darwin\" ]]; then cd ~/workspace; else cd /mnt/d/Workspace; fi"
   ## eza
   [ls]="eza --icons --git"
   [la]="eza -a --icons --git"
