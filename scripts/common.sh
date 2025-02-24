@@ -11,5 +11,9 @@ logInfo 'Running common.sh...'
 # Install packages from Brewfile
 install_brew_packages "$DOTFILE_HOME/.Brewfile"
 
+# Initialize Git LFS
+logInfo 'Initializing Git LFS...'
+git lfs install
+
 # Install mise version manager
 install_mise
