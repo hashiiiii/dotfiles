@@ -81,3 +81,6 @@ fabric.properties
 
 # GitHub CLI
 .config/gh/hosts.yml
+
+# iTerm2 runtime files
+.config/iterm2/
