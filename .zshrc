@@ -82,3 +82,10 @@ setopt hist_ignore_dups     # grouping duplicate commands
 setopt hist_reduce_blanks   # reduce unnecessary blanks in commands
 # handle history safely
 setopt hist_expire_dups_first # delete duplicate history more older
+
+#################################################
+# Windsurf
+#################################################
+if [[ -d "$HOME/.codeium/windsurf/bin" ]]; then
+    export PATH="$HOME/.codeium/windsurf/bin:$PATH"
+fi
