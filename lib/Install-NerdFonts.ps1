@@ -7,7 +7,7 @@ param(
 )
 
 # Get NERD_FONT from WSL environment
-$nerdFont = wsl bash -c 'source ~/.dotfiles/dotfiles.conf && echo $NERD_FONT'
+$nerdFont = wsl bash -c 'source ~/.dotfiles/debian.conf && echo $NERD_FONT'
 if (-not $nerdFont) {
     $nerdFont = "JetBrainsMono"  # Fallback font if not set
 }

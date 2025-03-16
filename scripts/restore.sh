@@ -3,7 +3,24 @@
 set -e
 
 source "$DOTFILE_HOME/lib/log.sh"
-source "$DOTFILE_HOME/dotfiles.conf"
+
+# Detect OS for loading the appropriate configuration
+OS=$(uname -s)
+if [[ "$OS" == "Linux" ]]; then
+  # For Linux, check if it's Debian-based
+  source /etc/os-release
+  if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -qi "debian"; then
+    source "$DOTFILE_HOME/debian.conf"
+  else
+    logErr "Unsupported Linux distribution: $ID"
+    exit 1
+  fi
+elif [[ "$OS" == "Darwin" ]]; then
+  source "$DOTFILE_HOME/macos.conf"
+else
+  logErr "Unsupported OS: $OS"
+  exit 1
+fi
 
 logInfo 'Running restore.sh...'
 

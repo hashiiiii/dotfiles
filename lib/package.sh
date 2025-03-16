@@ -2,20 +2,6 @@
 
 source "$DOTFILE_HOME/lib/log.sh"
 
-# Install packages from Brewfile
-install_brew_packages() {
-    local brewfile="$1"
-    if [ -f "$brewfile" ]; then
-        logInfo "Installing Homebrew packages from .Brewfile..."
-        brew bundle --file="$brewfile"
-        logOK "Homebrew packages installation completed."
-        return 0
-    else
-        logErr ".Brewfile not found at $brewfile"
-        return 1
-    fi
-}
-
 # Install mise version manager
 install_mise() {
     logInfo "Installing mise..."

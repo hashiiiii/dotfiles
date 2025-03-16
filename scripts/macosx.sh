@@ -6,8 +6,7 @@ source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/lib/backup.sh"
 source "$DOTFILE_HOME/lib/font.sh"
 source "$DOTFILE_HOME/lib/package.sh"
-source "$DOTFILE_HOME/dotfiles.conf"
-source "$DOTFILE_HOME/dotfiles.macosx.conf"
+source "$DOTFILE_HOME/macos.conf"
 
 logInfo 'Running macosx.sh...'
 
@@ -50,13 +49,26 @@ fi
 # Install and configure Homebrew
 install_homebrew
 
+# Install Homebrew taps
+if [ ${#BREW_TAPS[@]} -gt 0 ]; then
+    logInfo "Adding Homebrew taps..."
+    for tap in "${BREW_TAPS[@]}"; do
+        if ! brew tap | grep -q "$tap"; then
+            logInfo "Adding tap: $tap..."
+            brew tap "$tap" || logWarn "Failed to add tap: $tap. Continuing with installation..."
+        else
+            logInfo "Tap $tap already added."
+        fi
+    done
+fi
+
 # Install packages and casks
 if [ ${#BREW_PACKAGES[@]} -gt 0 ]; then
     logInfo "Installing MacOS-specific Homebrew packages..."
     for pkg in "${BREW_PACKAGES[@]}"; do
         if ! brew list "$pkg" &> /dev/null; then
             logInfo "Installing $pkg..."
-            brew install "$pkg"
+            brew install "$pkg" || logWarn "Failed to install $pkg. Continuing with installation..."
         else
             logInfo "$pkg already installed."
         fi
@@ -68,20 +80,46 @@ if [ ${#BREW_CASKS[@]} -gt 0 ]; then
     for cask in "${BREW_CASKS[@]}"; do
         if ! brew list --cask "$cask" &> /dev/null; then
             logInfo "Installing $cask..."
-            brew install --cask "$cask"
+            brew install --cask "$cask" || logWarn "Failed to install cask $cask. Continuing with installation..."
         else
             logInfo "$cask already installed."
         fi
     done
 fi
 
+# Install Mac App Store applications
+if command -v mas &> /dev/null && [ ${#MAS_APPS[@]} -gt 0 ]; then
+    logInfo "Installing Mac App Store applications..."
+    
+    # Check if user is signed in to the App Store
+    if ! mas account &> /dev/null; then
+        logWarn "You are not signed in to the App Store. Please sign in to install Mac App Store applications."
+        logInfo "You can sign in using: mas signin your@email.com"
+    else
+        for app in "${MAS_APPS[@]}"; do
+            app_id=$(echo "$app" | awk '{print $1}')
+            app_name=$(echo "$app" | cut -d' ' -f2-)
+            
+            if mas list | grep -q "^$app_id"; then
+                logInfo "$app_name already installed."
+            else
+                logInfo "Installing $app_name..."
+                mas install "$app_id" || logWarn "Failed to install $app_name. Continuing with installation..."
+            fi
+        done
+    fi
+fi
+
 ############################################
 # Common Setup and Fonts
 ############################################
 
-# Run common setup script
-logInfo "Executing common.sh..."
-"$DOTFILE_HOME/scripts/common.sh"
+# Initialize Git LFS
+logInfo 'Initializing Git LFS...'
+git lfs install
+
+# Install mise version manager
+install_mise
 
 # Install Nerd Fonts
 logInfo "Installing Nerd Fonts..."
