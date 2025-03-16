@@ -104,7 +104,15 @@ if command -v mas &> /dev/null && [ ${#MAS_APPS[@]} -gt 0 ]; then
                 logInfo "$app_name already installed."
             else
                 logInfo "Installing $app_name..."
-                mas install "$app_id" || logWarn "Failed to install $app_name. Continuing with installation..."
+                if ! mas install "$app_id"; then
+                    if [[ $? -eq 1 ]]; then
+                        logWarn "Failed to install $app_name. It might be because this is the first time you're trying to install this app."
+                        logInfo "Please purchase $app_name directly from the App Store first. After purchasing, you can use 'mas install' for reinstallation."
+                        open "macappstore://itunes.apple.com/app/id$app_id"
+                    else
+                        logWarn "Failed to install $app_name. Continuing with installation..."
+                    fi
+                fi
             fi
         done
     fi
