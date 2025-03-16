@@ -91,31 +91,29 @@ fi
 if command -v mas &> /dev/null && [ ${#MAS_APPS[@]} -gt 0 ]; then
     logInfo "Installing Mac App Store applications..."
     
-    # Check if user is signed in to the App Store
-    if ! mas account &> /dev/null; then
-        logWarn "You are not signed in to the App Store. Please sign in to install Mac App Store applications."
-        logInfo "You can sign in using: mas signin your@email.com"
-    else
-        for app in "${MAS_APPS[@]}"; do
-            app_id=$(echo "$app" | awk '{print $1}')
-            app_name=$(echo "$app" | cut -d' ' -f2-)
-            
-            if mas list | grep -q "^$app_id"; then
-                logInfo "$app_name already installed."
-            else
-                logInfo "Installing $app_name..."
-                if ! mas install "$app_id"; then
-                    if [[ $? -eq 1 ]]; then
-                        logWarn "Failed to install $app_name. It might be because this is the first time you're trying to install this app."
-                        logInfo "Please purchase $app_name directly from the App Store first. After purchasing, you can use 'mas install' for reinstallation."
-                        open "macappstore://itunes.apple.com/app/id$app_id"
-                    else
-                        logWarn "Failed to install $app_name. Continuing with installation..."
-                    fi
+    # Note: mas account command is not supported on newer macOS versions
+    # We'll try to install apps directly without checking sign-in status
+    logInfo "Attempting to install Mac App Store applications..."
+    
+    for app in "${MAS_APPS[@]}"; do
+        app_id=$(echo "$app" | awk '{print $1}')
+        app_name=$(echo "$app" | cut -d' ' -f2-)
+        
+        if mas list | grep -q "^$app_id"; then
+            logInfo "$app_name already installed."
+        else
+            logInfo "Installing $app_name..."
+            if ! mas install "$app_id"; then
+                if [[ $? -eq 1 ]]; then
+                    logWarn "Failed to install $app_name. It might be because this is the first time you're trying to install this app."
+                    logInfo "Please purchase $app_name directly from the App Store first. After purchasing, you can use 'mas install' for reinstallation."
+                    open "macappstore://itunes.apple.com/app/id$app_id"
+                else
+                    logWarn "Failed to install $app_name. Continuing with installation..."
                 fi
             fi
-        done
-    fi
+        fi
+    done
 fi
 
 ############################################
