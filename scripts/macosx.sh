@@ -161,6 +161,43 @@ else
 fi
 
 ############################################
+# Xcode Configuration
+############################################
+
+logInfo "Configuring Xcode settings..."
+
+# Create directory for Xcode themes if it doesn't exist
+XCODE_THEMES_DIR="$HOME/Library/Developer/Xcode/UserData/FontAndColorThemes"
+mkdir -p "$XCODE_THEMES_DIR"
+
+# Create symlinks for all theme files in .config/xcode directory
+XCODE_CONFIG_DIR="$DOTFILE_HOME/.config/xcode"
+if [ -d "$XCODE_CONFIG_DIR" ]; then
+    for theme_file in "$XCODE_CONFIG_DIR"/*.xccolortheme; do
+        if [ -f "$theme_file" ]; then
+            theme_name=$(basename "$theme_file")
+            theme_dest="$XCODE_THEMES_DIR/$theme_name"
+            
+            if [ -e "$theme_dest" ] || [ -L "$theme_dest" ]; then
+                if [ ! -L "$theme_dest" ]; then
+                    mv "$theme_dest" "${theme_dest}.backup"
+                    logInfo "Moved existing $theme_dest to ${theme_dest}.backup"
+                else
+                    rm "$theme_dest"
+                    logWarn "Removed existing symlink $theme_dest"
+                fi
+            fi
+            
+            ln -s "$theme_file" "$theme_dest"
+        fi
+    done
+else
+    logWarn "Xcode config directory $XCODE_CONFIG_DIR does not exist. Skipping theme installation."
+fi
+
+logOK "Xcode configuration completed."
+
+############################################
 # MacOS System Preferences
 ############################################
 
