@@ -84,6 +84,9 @@ fabric.properties
 # iTerm2 runtime files
 .config/iterm2/
 
-# Windsurf と Cursor の設定ファイル（ルートディレクトリのみ）
+# copilot
+.config/github-copilot/
+
+# AI-Editor rules
 /.windsurfrules
 /.cursorrules
