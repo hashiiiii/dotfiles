@@ -89,3 +89,8 @@ setopt hist_expire_dups_first # delete duplicate history more older
 if [[ -d "$HOME/.codeium/windsurf/bin" ]]; then
     export PATH="$HOME/.codeium/windsurf/bin:$PATH"
 fi
+
+#################################################
+# Starship
+#################################################
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
