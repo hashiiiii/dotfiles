@@ -1,5 +1,9 @@
 {
     "debug.javascript.defaultRuntimeExecutable": {
         "pwa-node": "/Users/hashiiiii/.local/share/mise/shims/node"
+    },
+    "go.goroot": "/Users/hashiiiii/.local/share/mise/installs/go/1.24.3",
+    "go.alternateTools": {
+        "go": "/Users/hashiiiii/.local/share/mise/shims/go"
     }
 }

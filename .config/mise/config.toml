@@ -3,6 +3,7 @@ dotnet = '8'
 node = '22.14'
 python = '3.10'
 ruby = '3.4.2'
+go = '1.24.3'
 
 [env]
 _.python.venv = '{{env.HOME}}/.venv'
