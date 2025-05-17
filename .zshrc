@@ -94,3 +94,11 @@ fi
 # Starship
 #################################################
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
+
+#################################################
+# Android SDK platform-tools
+#################################################
+ANDROID_SDK_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
+if [ -d "$ANDROID_SDK_PLATFORM_TOOLS" ]; then
+  export PATH="$PATH:$ANDROID_SDK_PLATFORM_TOOLS"
+fi
