@@ -22,13 +22,14 @@ This is a cross-platform dotfiles management system that works across macOS, Deb
 - **debian.conf** - Debian/Ubuntu-specific apt packages and Homebrew packages
 
 ### Core Library System (`lib/` directory)
-The system is built around five interconnected bash libraries:
+The system is built around six interconnected bash libraries:
 
-1. **log.sh** - Centralized logging system with colored output and timestamps
-2. **backup.sh** - Handles dotfile symlinking and backup creation (creates `.backup` files)
+1. **log.sh** - Centralized logging system with colored output, timestamps, and step tracking
+2. **backup.sh** - Handles dotfile symlinking and backup creation with batch processing and validation
 3. **font.sh** - Manages Nerd Fonts installation across platforms
-4. **package.sh** - Installs development tools (mise, Homebrew)
-5. **restore.sh** - Provides complete system rollback functionality
+4. **package.sh** - Unified package installation with error handling across package managers
+5. **restore.sh** - Provides complete system rollback functionality with detailed error reporting
+6. **common.sh** - Shared functions and validation logic used across platform scripts
 
 ### Plugin Management with Sheldon
 The ZSH configuration uses Sheldon as the plugin manager:
@@ -51,7 +52,8 @@ Three custom FZF-powered commands in `.zsh/plugins/fzf-commands.zsh`:
 - All existing files are backed up before modification (`.backup` extension)
 - Complete restoration available via `make restore`
 - Cache directories stored in `$XDG_CACHE_HOME` or `$HOME/.cache/dotfiles`
-- Safe symlink management prevents data loss
+- Safe symlink management with comprehensive error handling prevents data loss
+- Batch processing for multiple dotfiles with detailed success/failure reporting
 
 ### Platform-Specific Features
 - **macOS**: Homebrew casks, Mac App Store integration, Apple Silicon/Intel detection

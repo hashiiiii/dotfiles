@@ -2,22 +2,44 @@
 
 source "$DOTFILE_HOME/lib/log.sh"
 
+# Check if command exists
+_command_exists() {
+    command -v "$1" &> /dev/null
+}
+
 # Restore the original shell from cache
 restore_shell() {
     local dotfiles_cache="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
     local shell_cache="$dotfiles_cache/original_shell"
 
-    if [ -f "$shell_cache" ]; then
-        local original_shell=$(cat "$shell_cache")
-        if [ -x "$original_shell" ]; then
-            logInfo "Changing shell back to $original_shell..."
-            chsh -s "$original_shell"
-            rm "$shell_cache"
-            logOK "Shell restored to $original_shell"
-            logInfo "Please restart your terminal (or log out and back in) for changes to take effect."
-        else
-            logWarn "Original shell $original_shell is not executable or does not exist."
-        fi
+    if [[ ! -f "$shell_cache" ]]; then
+        logInfo "No original shell cache found, skipping shell restoration"
+        return 0
+    fi
+    
+    local original_shell
+    original_shell=$(cat "$shell_cache")
+    
+    if [[ ! -x "$original_shell" ]]; then
+        logWarn "Original shell $original_shell is not executable or does not exist."
+        return 1
+    fi
+    
+    logInfo "Changing shell back to $original_shell..."
+    local chsh_cmd
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        chsh_cmd="chsh -s"
+    else
+        chsh_cmd="sudo chsh -s"
+    fi
+    
+    if $chsh_cmd "$original_shell" ${USER:+"$USER"}; then
+        rm "$shell_cache"
+        logOK "Shell restored to $original_shell"
+        logInfo "Please restart your terminal (or log out and back in) for changes to take effect."
+    else
+        logErr "Failed to restore shell to $original_shell"
+        return 1
     fi
 }
 
@@ -44,23 +66,57 @@ cleanup_cache() {
 
 # Restore original files from backups
 restore_dotfiles() {
-    local dotfiles=("$@")
-
+    local -a dotfiles=("$@")
+    local -a failed_restores=()
+    local -a missing_backups=()
+    
+    if [[ ${#dotfiles[@]} -eq 0 ]]; then
+        logWarn "No dotfiles specified for restoration"
+        return 0
+    fi
+    
+    logInfo "Restoring ${#dotfiles[@]} dotfiles..."
+    
     for file in "${dotfiles[@]}"; do
         local dest="$HOME/$file"
         local backup="$dest.backup"
 
-        if [ -L "$dest" ]; then
-            rm "$dest"
+        # Remove symlink if it exists
+        if [[ -L "$dest" ]]; then
+            if ! rm "$dest"; then
+                logErr "Failed to remove symlink: $dest"
+                failed_restores+=("$file")
+                continue
+            fi
             logInfo "Removed symlink $dest"
+        elif [[ -e "$dest" ]]; then
+            logWarn "File $dest exists but is not a symlink, skipping removal"
         fi
 
-        if [ -e "$backup" ]; then
-            mv "$backup" "$dest"
-            logInfo "Restored backup $backup to $dest"
+        # Restore backup if it exists
+        if [[ -e "$backup" ]]; then
+            if ! mv "$backup" "$dest"; then
+                logErr "Failed to restore backup: $backup -> $dest"
+                failed_restores+=("$file")
+            else
+                logInfo "Restored backup $backup to $dest"
+            fi
+        else
+            missing_backups+=("$file")
         fi
     done
-    logOK "Dotfiles reversion completed!"
+    
+    # Report results
+    if [[ ${#missing_backups[@]} -gt 0 ]]; then
+        logInfo "No backups found for: ${missing_backups[*]}"
+    fi
+    
+    if [[ ${#failed_restores[@]} -gt 0 ]]; then
+        logErr "Failed to restore: ${failed_restores[*]}"
+        return 1
+    fi
+    
+    logOK "Dotfiles restoration completed!"
 }
 
 # Restore everything

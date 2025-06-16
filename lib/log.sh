@@ -9,6 +9,14 @@ logErr()        { _log "$RED"     "ERR_"           "$RED"    "$@"; }
 logInfo()       { _log "$BLUE"    "INFO"           "$PLANE"  "$@"; }
 logImportant()  { _log "$RED"     "IMPORTANT INFO" "$RED"    "$@"; }
 
+# Log with step counter for better progress tracking
+logStep() {
+  local step="$1"
+  local total="$2" 
+  shift 2
+  _log "$BLUE" "[$step/$total]" "$PLANE" "$@"
+}
+
 # base method
 _log() {
   local color="$1"
@@ -16,6 +24,13 @@ _log() {
   local text_color="$3"
   shift 3
   local message="$*"
+  
+  # Validate required parameters
+  [[ -z "$color" || -z "$level" || -z "$text_color" ]] && {
+    printf "${RED}[ERROR] Invalid log parameters${PLANE}\n" >&2
+    return 1
+  }
+  
   printf "${PLANE}[%s] ${color}[%-4s]${text_color} %s\n" "$(date '+%Y-%m-%d %H:%M:%S')" "$level" "$message"
 }
 
