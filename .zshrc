@@ -55,7 +55,7 @@ declare -A abbreviations=(
   [ll]="eza -aahl --icons --git"
   [lt]="eza -T -L 3 -a -I 'node_modules|.git|.cache' --icons"
   ## claude
-  [claude]="~/.claude/local/claude"
+  [cl]="~/.claude/local/claude"
 )
 # get stdout from abbr command
 current_abbr=$(abbr)

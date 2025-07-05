@@ -1,5 +1,5 @@
 abbr "br"="git branch"
-abbr "claude"="~/.claude/local/claude"
+abbr "cl"="~/.claude/local/claude"
 abbr "cm"="git commit"
 abbr "co"="git checkout"
 abbr "fe"="git fetch -p"
