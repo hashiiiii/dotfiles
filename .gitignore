@@ -93,3 +93,6 @@ fabric.properties
 
 # npm
 .config/configstore/
+
+# macOS
+.DS_Store
