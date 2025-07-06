@@ -7,6 +7,9 @@ macos-icon-frame = beige
 font-family = 'JetBrainsMonoNL NFM Regular'
 font-size = 14
 bold-is-bright = true
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
 
 # cursor
 # macOS: option + click
