@@ -1,0 +1,39 @@
+# theme
+theme = tokyonight
+macos-icon = glass
+macos-icon-frame = beige
+
+# font
+font-family = 'JetBrainsMonoNL NFM Regular'
+font-size = 14
+bold-is-bright = true
+
+# cursor
+# macOS: option + click
+cursor-click-to-move = true
+
+# link
+# macOS: cmd + click
+link-url = true
+
+# window
+window-width = 112
+window-height = 32
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+window-inherit-working-directory = true
+window-save-state = always
+
+# clipboard
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = true
+
+# system
+quit-after-last-window-closed = true
+desktop-notifications = true
+
+# security
+macos-auto-secure-input = true
+macos-secure-input-indication = true
