@@ -40,3 +40,6 @@ desktop-notifications = true
 # security
 macos-auto-secure-input = true
 macos-secure-input-indication = true
+
+# keybinds
+keybind = shift+enter=text:\n
