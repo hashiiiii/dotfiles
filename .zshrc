@@ -91,6 +91,13 @@ if [[ -d "$HOME/.codeium/windsurf/bin" ]]; then
 fi
 
 #################################################
+# Kiro
+#################################################
+if [[ -d "$HOME/.kiro" ]]; then
+    [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+fi
+
+#################################################
 # Starship
 #################################################
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
