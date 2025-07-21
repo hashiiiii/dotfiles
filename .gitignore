@@ -96,3 +96,6 @@ fabric.properties
 
 # macOS
 .DS_Store
+
+# exercism
+exercism/

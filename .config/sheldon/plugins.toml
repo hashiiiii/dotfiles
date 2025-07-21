@@ -54,6 +54,10 @@ inline = 'eval "$(~/.local/bin/mise activate zsh)"'
 local = "~/.zsh/plugins"
 use = ["nerd-font-setup.zsh"]
 
+[plugins.util-commands]
+local = "~/.zsh/plugins"
+use = ["util-commands.zsh"]
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
