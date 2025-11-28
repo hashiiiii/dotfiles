@@ -91,10 +91,10 @@ if [[ -d "$HOME/.codeium/windsurf/bin" ]]; then
 fi
 
 #################################################
-# Kiro
+# Antigravity
 #################################################
-if [[ -d "$HOME/.kiro" ]]; then
-    [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+if [[ -d "$HOME/.antigravity" ]]; then
+    export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
 fi
 
 #################################################
