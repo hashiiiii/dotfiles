@@ -11,3 +11,4 @@ _.python.venv = '{{env.HOME}}/.venv'
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
+experimental = true
