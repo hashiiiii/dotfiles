@@ -1,9 +1,8 @@
 [tools]
 dotnet = '8'
-node = '22.14'
 python = '3.10'
 ruby = '3.4.2'
-go = '1.24.3'
+go = '1.26.0'
 rust = "1.91.1"
 
 [env]
