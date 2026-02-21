@@ -16,17 +16,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Architecture and Structure
 
 ### Configuration Management System
-This is a cross-platform dotfiles management system that works across macOS, Debian-based Linux, and WSL2. The system uses a modular architecture with platform-specific configuration files:
+This is a macOS-specific dotfiles management system. The system uses a modular architecture with the following configuration file:
 
 - **macos.conf** - macOS-specific packages, casks, and app store applications
-- **debian.conf** - Debian/Ubuntu-specific apt packages and Homebrew packages
 
 ### Core Library System (`lib/` directory)
 The system is built around five interconnected bash libraries:
 
 1. **log.sh** - Centralized logging system with colored output and timestamps
 2. **backup.sh** - Handles dotfile symlinking and backup creation (creates `.backup` files)
-3. **font.sh** - Manages Nerd Fonts installation across platforms
+3. **font.sh** - Manages Nerd Fonts installation on macOS
 4. **package.sh** - Installs development tools (mise, Homebrew)
 5. **restore.sh** - Provides complete system rollback functionality
 
@@ -55,11 +54,9 @@ Three custom FZF-powered commands in `.zsh/plugins/fzf-commands.zsh`:
 
 ### Platform-Specific Features
 - **macOS**: Homebrew casks, Mac App Store integration, Apple Silicon/Intel detection
-- **Linux**: APT package management, Homebrew on Linux support
-- **WSL2**: Special font installation handling with PowerShell integration
 
 ## File Structure
-- `DOTFILES` array in config files defines which directories are symlinked to `$HOME`
+- `DOTFILES` array in `macos.conf` defines which directories are symlinked to `$HOME`
 - Core configuration directories: `.config`, `.zsh`, `.zshrc`
-- Platform detection automatically loads appropriate configuration
+- `install.sh` enforces macOS-only execution (rejects non-Darwin platforms)
 - Modular design allows easy addition of new tools and configurations
