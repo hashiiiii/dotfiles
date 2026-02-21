@@ -4,59 +4,41 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Common Commands
 
-### Installation and Setup
 - `make install` - Install the complete dotfiles system
 - `make restore` - Restore previous configuration from backups
 - `make setup` - Set executable permissions for all .sh files (must run before install)
 
-### Core Scripts
-- `./scripts/install.sh` - Main installation script (run via `make install`, uses `set -euo pipefail`)
-- `./scripts/restore.sh` - Restoration script (run via `make restore`, delegates to `lib/restore.sh`)
+## Architecture
 
-## Architecture and Structure
+macOS-specific dotfiles management system. Bash scripts with `set -euo pipefail`.
 
-### Configuration Management System
-This is a macOS-specific dotfiles management system. The system uses a modular architecture with the following configuration file:
+### Entry Points
 
-- **macos.conf** - macOS-specific packages, casks, and app store applications
+- `scripts/install.sh` - Main installation script (run via `make install`)
+- `scripts/restore.sh` - Restoration script (run via `make restore`, delegates to `lib/restore.sh`)
 
-### Core Library System (`lib/` directory)
-The system is built around five interconnected bash libraries:
+### Library (`lib/`)
 
-1. **log.sh** - Centralized logging system with colored output and timestamps
-2. **backup.sh** - Handles dotfile symlinking and backup creation (creates `.backup` files)
-3. **font.sh** - Manages Nerd Fonts installation on macOS
-4. **package.sh** - Installs development tools (mise, Homebrew)
-5. **restore.sh** - Provides complete system rollback functionality
+- **log.sh** - Colored logging with timestamps (source guard prevents multiple loading)
+- **backup.sh** - Idempotent dotfile symlinking with `.backup` creation
+- **package.sh** - Homebrew and mise installation
+- **restore.sh** - System rollback from `.backup` files
 
-### Plugin Management with Sheldon
-The ZSH configuration uses Sheldon as the plugin manager:
-- Configuration: `.config/sheldon/plugins.toml`
-- Custom plugins in `.zsh/plugins/` directory
-- Key plugins: zsh-defer, zsh-abbr, fast-syntax-highlighting, zsh-autosuggestions, fzf
+### Configuration
 
-### Development Environment Management
-- **mise** (formerly rtx) manages runtime versions via `.config/mise/config.toml`
-- Pre-configured versions: Node.js 22.14, Python 3.10, Ruby 3.4.2, Go 1.24.3, .NET 8
-- Python virtual environment set to `~/.venv`
+- **Brewfile** - Homebrew packages, casks, Mac App Store apps (native `brew bundle` format)
+- **macos.conf** - `DOTFILES` array defining which `.config/*` subdirectories are symlinked to `$HOME`
 
-### Custom FZF Commands
-Three custom FZF-powered commands in `.zsh/plugins/fzf-commands.zsh`:
-- `fb` - Interactive Git branch switching
-- `sf <search_term>` - Search file contents with preview
-- `fd [query]` - Fast directory navigation based on file selection
+### Key Design Decisions
 
-### Backup and Restore System
-- All existing files are backed up before modification (`.backup` extension)
-- Complete restoration available via `make restore`
-- Cache directories stored in `$XDG_CACHE_HOME` or `$HOME/.cache/dotfiles`
-- Safe symlink management prevents data loss
+- `.config` subdirectories are symlinked individually (not the entire `.config` directory)
+- `backup_dotfile()` is idempotent: skips if symlink already correct, preserves existing `.backup` files
+- `.zshrc` uses static `brew shellenv` instead of `eval` for faster shell startup
+- Fonts installed via `brew cask` (font-jetbrains-mono-nerd-font), not custom scripts
 
-### Platform-Specific Features
-- **macOS**: Homebrew packages installed via `brew bundle`, Mac App Store integration, Apple Silicon/Intel detection
+### ZSH Environment
 
-## File Structure
-- `DOTFILES` array in `macos.conf` defines which directories are symlinked to `$HOME`
-- Core configuration directories: `.config`, `.zsh`, `.zshrc`
-- `install.sh` enforces macOS-only execution (rejects non-Darwin platforms) with strict error handling (`set -euo pipefail`)
-- Modular design allows easy addition of new tools and configurations
+- **Sheldon** for plugin management (`.config/sheldon/plugins.toml`)
+- **zsh-abbr** for abbreviations (`.config/zsh-abbr/user-abbreviations`)
+- **mise** for runtime version management (`.config/mise/config.toml`)
+- Custom FZF commands in `.zsh/plugins/fzf-commands.zsh`: `fb` (branch switch), `sf` (file search), `fd` (directory nav)
