@@ -10,8 +10,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `make setup` - Set executable permissions for all .sh files (must run before install)
 
 ### Core Scripts
-- `./scripts/install.sh` - Main installation script (run via `make install`)
-- `./scripts/restore.sh` - Restoration script (run via `make restore`)
+- `./scripts/install.sh` - Main installation script (run via `make install`, uses `set -euo pipefail`)
+- `./scripts/restore.sh` - Restoration script (run via `make restore`, delegates to `lib/restore.sh`)
 
 ## Architecture and Structure
 
@@ -53,10 +53,10 @@ Three custom FZF-powered commands in `.zsh/plugins/fzf-commands.zsh`:
 - Safe symlink management prevents data loss
 
 ### Platform-Specific Features
-- **macOS**: Homebrew casks, Mac App Store integration, Apple Silicon/Intel detection
+- **macOS**: Homebrew packages installed via `brew bundle`, Mac App Store integration, Apple Silicon/Intel detection
 
 ## File Structure
 - `DOTFILES` array in `macos.conf` defines which directories are symlinked to `$HOME`
 - Core configuration directories: `.config`, `.zsh`, `.zshrc`
-- `install.sh` enforces macOS-only execution (rejects non-Darwin platforms)
+- `install.sh` enforces macOS-only execution (rejects non-Darwin platforms) with strict error handling (`set -euo pipefail`)
 - Modular design allows easy addition of new tools and configurations

@@ -48,7 +48,7 @@ declare -A abbreviations=(
 current_abbr=$(abbr)
 # set alias to abbr
 for key value in "${(@kv)abbreviations}"; do
-  if ! echo "$current_abbr" | grep -q "\"$key\"="; then
+  if [[ "$current_abbr" != *"\"$key\"="* ]]; then
     abbr -f "$key"="$value"
   fi
 done

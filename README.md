@@ -54,7 +54,7 @@ A powerful dotfiles management system designed for macOS developers. Seamlessly 
   - Centralized plugin configuration
   - Fast, async plugin loading
   - Easy to maintain and update
-- **Homebrew**: Package management via Homebrew
+- **Homebrew**: Package management via `brew bundle` for efficient batch installation
 
 ### ⚡️ Enhanced Productivity Tools
 - **FZF Integration**:

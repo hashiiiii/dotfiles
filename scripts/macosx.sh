@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
 
 source "$DOTFILE_HOME/lib/log.sh"
 source "$DOTFILE_HOME/lib/backup.sh"
@@ -49,72 +49,37 @@ fi
 # Install and configure Homebrew
 install_homebrew
 
-# Install Homebrew taps
-if [ ${#BREW_TAPS[@]} -gt 0 ]; then
-    logInfo "Adding Homebrew taps..."
+# Generate temporary Brewfile and install everything via brew bundle
+generate_brewfile() {
+    local brewfile="$1"
+    : > "$brewfile"
+
     for tap in "${BREW_TAPS[@]}"; do
-        if ! brew tap | grep -q "$tap"; then
-            logInfo "Adding tap: $tap..."
-            brew tap "$tap" || logWarn "Failed to add tap: $tap. Continuing with installation..."
-        else
-            logInfo "Tap $tap already added."
-        fi
+        echo "tap \"$tap\"" >> "$brewfile"
     done
-fi
 
-# Install packages and casks
-if [ ${#BREW_PACKAGES[@]} -gt 0 ]; then
-    logInfo "Installing MacOS-specific Homebrew packages..."
     for pkg in "${BREW_PACKAGES[@]}"; do
-        if ! brew list "$pkg" &> /dev/null; then
-            logInfo "Installing $pkg..."
-            brew install "$pkg" || logWarn "Failed to install $pkg. Continuing with installation..."
-        else
-            logInfo "$pkg already installed."
-        fi
+        echo "brew \"$pkg\"" >> "$brewfile"
     done
-fi
 
-if [ ${#BREW_CASKS[@]} -gt 0 ]; then
-    logInfo "Installing Homebrew Casks..."
     for cask in "${BREW_CASKS[@]}"; do
-        if ! brew list --cask "$cask" &> /dev/null; then
-            logInfo "Installing $cask..."
-            brew install --cask "$cask" || logWarn "Failed to install cask $cask. Continuing with installation..."
-        else
-            logInfo "$cask already installed."
-        fi
+        echo "cask \"$cask\"" >> "$brewfile"
     done
-fi
 
-# Install Mac App Store applications
-if command -v mas &> /dev/null && [ ${#MAS_APPS[@]} -gt 0 ]; then
-    logInfo "Installing Mac App Store applications..."
-    
-    # Note: mas account command is not supported on newer macOS versions
-    # We'll try to install apps directly without checking sign-in status
-    logInfo "Attempting to install Mac App Store applications..."
-    
-    for app in "${MAS_APPS[@]}"; do
-        app_id=$(echo "$app" | awk '{print $1}')
-        app_name=$(echo "$app" | cut -d' ' -f2-)
-        
-        if mas list | grep -q "^$app_id"; then
-            logInfo "$app_name already installed."
-        else
-            logInfo "Installing $app_name..."
-            if ! mas install "$app_id"; then
-                if [[ $? -eq 1 ]]; then
-                    logWarn "Failed to install $app_name. It might be because this is the first time you're trying to install this app."
-                    logInfo "Please purchase $app_name directly from the App Store first. After purchasing, you can use 'mas install' for reinstallation."
-                    open "macappstore://itunes.apple.com/app/id$app_id"
-                else
-                    logWarn "Failed to install $app_name. Continuing with installation..."
-                fi
-            fi
-        fi
-    done
-fi
+    if command -v mas &> /dev/null; then
+        for app in "${MAS_APPS[@]}"; do
+            local app_id="${app%% *}"
+            local app_name="${app#* }"
+            echo "mas \"$app_name\", id: $app_id" >> "$brewfile"
+        done
+    fi
+}
+
+logInfo "Installing packages via brew bundle..."
+BREWFILE=$(mktemp "${TMPDIR:-/tmp}/Brewfile.XXXXXX")
+generate_brewfile "$BREWFILE"
+brew bundle --file="$BREWFILE" --no-lock || logWarn "Some packages failed to install. Check output above."
+rm -f "$BREWFILE"
 
 ############################################
 # Common Setup and Fonts

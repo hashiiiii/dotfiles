@@ -16,7 +16,7 @@ _log() {
   local text_color="$3"
   shift 3
   local message="$*"
-  printf "${PLANE}[%s] ${color}[%-4s]${text_color} %s\n" "$(date '+%Y-%m-%d %H:%M:%S')" "$level" "$message"
+  printf "${PLANE}[%(%Y-%m-%d %H:%M:%S)T] ${color}[%-4s]${text_color} %s\n" -1 "$level" "$message"
 }
 
 # color variation
@@ -25,14 +25,10 @@ GREEN="\e[38;2;158;206;106m"   # OK
 YELLOW="\e[38;2;224;175;104m"  # WARNING
 BLUE="\e[38;2;122;162;247m"    # INFO
 PLANE="\e[38;2;192;202;245m"   # Plane color
-WHITE="\e[0m"                  # Unused
-BLACK="\e[38;2;36;40;59m"      # Unused
-CYAN="\e[38;2;42;195;222m"     # Unused
-MAGENTA="\e[38;2;187;154;247m" # Unused
 
 # check support for emoji dog
 SUPPORTS_EMOJI=1
-if ! locale | grep -q "UTF-8"; then
+if [[ "${LANG:-}" != *"UTF-8"* ]] && [[ "${LC_ALL:-}" != *"UTF-8"* ]]; then
   SUPPORTS_EMOJI=0
 fi
 

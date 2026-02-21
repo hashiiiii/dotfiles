@@ -1,6 +1,11 @@
 #!/bin/bash
 
-set -e
+set -euo pipefail
+
+if [[ -z "${DOTFILE_HOME:-}" ]]; then
+    echo "Error: DOTFILE_HOME is not set" >&2
+    exit 1
+fi
 
 source "$DOTFILE_HOME/lib/log.sh"
 
