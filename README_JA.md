@@ -1,4 +1,4 @@
-# macOS Dotfiles
+# dotfiles
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
