@@ -100,3 +100,9 @@ fabric.properties
 # exercism
 exercism/
 .config/exercism/
+
+# JGit (auto-generated)
+.config/jgit/
+
+# 1Password CLI
+.config/op/

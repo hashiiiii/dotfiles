@@ -127,4 +127,4 @@ make restore
 
 * [toc-generator](https://github.com/technote-space/toc-generator)
 
-toc-generatorのライセンスの詳細は [Third Party Notices.md](Thirs%20Party%20Notices.md) を参照してください。
+toc-generatorのライセンスの詳細は [Third Party Notices.md](Third%20Party%20Notices.md) を参照してください。
