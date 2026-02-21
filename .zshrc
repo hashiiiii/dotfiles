@@ -1,12 +1,21 @@
 #################################################
 # homebrew
 #################################################
-# configure homebrew environment variables for the current session
-# MacOS (check for both Apple Silicon and Intel paths)
-if [[ -f "/opt/homebrew/bin/brew" ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -f "/usr/local/bin/brew" ]]; then
-    eval "$(/usr/local/bin/brew shellenv)"
+# Homebrew environment (static, avoids ~20-50ms eval cost)
+if [[ -d "/opt/homebrew" ]]; then
+    export HOMEBREW_PREFIX="/opt/homebrew"
+    export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+    export HOMEBREW_REPOSITORY="/opt/homebrew"
+    export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+    export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+    export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+elif [[ -d "/usr/local/Homebrew" ]]; then
+    export HOMEBREW_PREFIX="/usr/local"
+    export HOMEBREW_CELLAR="/usr/local/Cellar"
+    export HOMEBREW_REPOSITORY="/usr/local/Homebrew"
+    export PATH="/usr/local/bin:/usr/local/sbin${PATH+:$PATH}"
+    export MANPATH="/usr/local/share/man${MANPATH+:$MANPATH}:"
+    export INFOPATH="/usr/local/share/info:${INFOPATH:-}"
 fi
 
 #################################################
@@ -24,34 +33,7 @@ unset EZA_CONFIG_DIR
 # set variables for eza
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
-#################################################
-# alias
-#################################################
-# create map: "key=st, value='git status'"
-declare -A abbreviations=(
-  ## git
-  [st]="git status"
-  [pu]="git pull"
-  [fe]="git fetch -p"
-  [cm]="git commit"
-  [co]="git checkout"
-  [br]="git branch"
-  ## cd
-  [wo]="cd ~/workspace"
-  ## eza
-  [ls]="eza --icons --git"
-  [la]="eza -a --icons --git"
-  [ll]="eza -aahl --icons --git"
-  [lt]="eza -T -L 3 -a -I 'node_modules|.git|.cache' --icons"
-)
-# get stdout from abbr command
-current_abbr=$(abbr)
-# set alias to abbr
-for key value in "${(@kv)abbreviations}"; do
-  if [[ "$current_abbr" != *"\"$key\"="* ]]; then
-    abbr -f "$key"="$value"
-  fi
-done
+# abbreviations are managed by zsh-abbr via .config/zsh-abbr/user-abbreviations
 
 #################################################
 # history

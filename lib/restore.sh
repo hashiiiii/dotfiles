@@ -21,17 +21,6 @@ restore_shell() {
     fi
 }
 
-# Clean up nerd-fonts cache
-cleanup_nerd_fonts() {
-    local dotfiles_cache="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
-    local fonts_cache="$dotfiles_cache/nerd-fonts"
-
-    if [ -d "$fonts_cache" ]; then
-        rm -rf "$fonts_cache"
-        logInfo "Removed nerd-fonts cache"
-    fi
-}
-
 # Clean up the dotfiles cache directory if empty
 cleanup_cache() {
     local dotfiles_cache="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
@@ -66,7 +55,6 @@ restore_dotfiles() {
 # Restore everything
 restore_all() {
     restore_shell
-    cleanup_nerd_fonts
     restore_dotfiles "$@"
     cleanup_cache
 }

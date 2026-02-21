@@ -27,7 +27,7 @@ ZSH_HIGHLIGHT_REGEXP+=('\<('"${(j:|:)${(k)ABBR_GLOBAL_USER_ABBREVIATIONS}}"')$' 
 '''
 
 [plugins.fast-syntax-highlighting]
-github = "zdharma/fast-syntax-highlighting"
+github = "zdharma-continuum/fast-syntax-highlighting"
 use = ["F-Sy-H.plugin.zsh"]
 apply = ["defer"]
 
@@ -52,11 +52,6 @@ apply = ["defer"]
 
 [plugins.mise]
 inline = 'eval "$(~/.local/bin/mise activate zsh)"'
-
-[plugins.nerd-font-setup]
-local = "~/.zsh/plugins"
-use = ["nerd-font-setup.zsh"]
-apply = ["defer"]
 
 [plugins.util-commands]
 local = "~/.zsh/plugins"

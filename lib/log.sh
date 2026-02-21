@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Source guard: prevent multiple loading
+[[ -n "${_LOG_SH_LOADED:-}" ]] && return 0
+_LOG_SH_LOADED=1
+
 ############################################
 # LOG APIs
 ############################################
-logOK()         { _log "$GREEN"   "OK$EMOJI_DOG"   "$PLANE"  "$@"; }
+logOK()         { _log "$GREEN"   "OK🐶"          "$PLANE"  "$@"; }
 logWarn()       { _log "$YELLOW"  "WARN"           "$YELLOW" "$@"; }
 logErr()        { _log "$RED"     "ERR_"           "$RED"    "$@"; }
 logInfo()       { _log "$BLUE"    "INFO"           "$PLANE"  "$@"; }
@@ -25,17 +29,6 @@ GREEN="\e[38;2;158;206;106m"   # OK
 YELLOW="\e[38;2;224;175;104m"  # WARNING
 BLUE="\e[38;2;122;162;247m"    # INFO
 PLANE="\e[38;2;192;202;245m"   # Plane color
-
-# check support for emoji dog
-SUPPORTS_EMOJI=1
-if [[ "${LANG:-}" != *"UTF-8"* ]] && [[ "${LC_ALL:-}" != *"UTF-8"* ]]; then
-  SUPPORTS_EMOJI=0
-fi
-
-EMOJI_DOG="🐶"
-if [[ $SUPPORTS_EMOJI -eq 0 ]]; then
-  EMOJI_DOG="__"
-fi
 
 ############################################
 # Test (Only when executed directly)
