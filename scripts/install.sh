@@ -15,21 +15,10 @@ logInfo 'Running install.sh...'
 # Detect operating system
 OS=$(uname -s)
 
-# Install packages based on OS type
-if [[ "$OS" == "Linux" ]]; then
-  # For Linux, check if it's Debian-based
-  source /etc/os-release
-  if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -qi "debian"; then
-    logOK 'Debian-based system is detected.'
-    "$DOTFILE_HOME/scripts/debian.sh"
-  else
-    logErr "Unsupported Linux distribution: $ID"
-    exit 1
-  fi
-elif [[ "$OS" == "Darwin" ]]; then
+if [[ "$OS" == "Darwin" ]]; then
   logOK "MacOS is detected."
   "$DOTFILE_HOME/scripts/macosx.sh"
 else
-  logErr "Unsupported OS: $OS"
+  logErr "Unsupported OS: $OS. This dotfiles system only supports macOS."
   exit 1
 fi

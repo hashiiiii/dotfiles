@@ -1,10 +1,10 @@
-# 🚀 Cross-Platform Dotfiles
+# 🚀 macOS Dotfiles
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
 **ドキュメント ( [English](README.md), [Japanese](README_JA.md) )**
 
-複数のプラットフォームで作業する開発者向けに設計された強力な dotfiles 管理システムです。Debian ベースの Linux（WSL2 を含む）と macOS の開発環境をシームレスに管理します。
+macOS 開発者向けに設計された強力な dotfiles 管理システムです。Apple Silicon と Intel プロセッサの両方に対応し、開発環境をシームレスに管理します。
 
 <p align="center">
   <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
@@ -19,7 +19,7 @@
 <summary>詳細</summary>
 
 - [✨ 主な機能](#-%E4%B8%BB%E3%81%AA%E6%A9%9F%E8%83%BD)
-  - [🔄 クロスプラットフォーム対応](#-%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E5%AF%BE%E5%BF%9C)
+  - [🍎 macOS サポート](#-macos-%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88)
   - [🛡 安全な設定管理](#-%E5%AE%89%E5%85%A8%E3%81%AA%E8%A8%AD%E5%AE%9A%E7%AE%A1%E7%90%86)
   - [🎯 パッケージ管理](#-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%E7%AE%A1%E7%90%86)
   - [⚡️ fzf ベースのツール類](#%EF%B8%8F-fzf-%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E9%A1%9E)
@@ -38,10 +38,9 @@
 
 ## ✨ 主な機能
 
-### 🔄 クロスプラットフォーム対応
-- **WSL2**: Windows Subsystem for Linux の完全サポート
-- **Debian ベース Linux**: Debian と Ubuntu のネイティブサポート
-- **MacOSX**: Apple Silicon と Intel プロセッサの両方に対応
+### 🍎 macOS サポート
+- **Apple Silicon**: M1/M2/M3/M4 プロセッサの完全サポート
+- **Intel**: Intel ベースの Mac に対応
 
 ### 🛡 安全な設定管理
 - **自動バックアップ**: 既存の設定は変更前に自動的にバックアップ
@@ -55,9 +54,7 @@
   - 一元化されたプラグイン設定
   - 高速な非同期プラグインローディング
   - メンテナンスとアップデートが容易
-- **プラットフォーム固有のパッケージ管理**:
-  - MacOSX と Linux 用の Homebrew
-  - Debian ベースシステム用の apt
+- **Homebrew**: Homebrew によるパッケージ管理
 
 ### ⚡️ fzf ベースのツール類
 - **FZF 統合**:
@@ -71,10 +68,7 @@
 
 ### 🎨 ターミナルカスタマイズ
 - **Nerd Fonts サポート**: 自動インストールと設定
-  - Windows（Scoop 経由）
-  - MacOSX（Homebrew 経由）
 - **ターミナル固有の設定**:
-  - Windows Terminal
   - iTerm2
   - Terminal.app
 
@@ -101,7 +95,7 @@
 ### コアツール
 - **シェル**: Sheldon プラグイン管理を使用したモダンな ZSH 設定
 - **Git**: 便利なエイリアスを含む最適化された Git 設定
-- **ターミナル**: プラットフォーム固有のターミナル設定
+- **ターミナル**: macOS ターミナル設定
 - **フォント**: 一貫した見た目のための JetBrainsMono Nerd Font
 
 ## 🔄 バックアップと復元
@@ -116,19 +110,11 @@ make restore
 ```
 
 ## 🔎 FAQ
-1. **Windows Terminal に Nerd Fonts をインストールしたい**
-
-   <p align="left">
-     <img width="90%" src="docs/images/log.png" alt="LogForWindows">
-   </p>
-
-   このように WSL2 ユーザー向けにはログが表示されるようになっています。出力される path を Windows Terminal から実行することで Nerd Fonts をインストールすることが出来ます。
-
-2. **zsh-plugin を追加したい**
+1. **zsh-plugin を追加したい**
 
    plugin-manager には sheldon を利用しています。`.config/sheldon/plugins.toml` を編集してください。ドキュメントは[こちら](https://sheldon.cli.rs/Introduction.html)。
 
-3. **自作の便利な関数を追加したい**
+2. **自作の便利な関数を追加したい**
 
    お好みですが、`.zsh/plugins` 配下に `foo.zsh` のように plugin という形で .zshrc から逃がすことをおすすめします。
 

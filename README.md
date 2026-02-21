@@ -1,10 +1,10 @@
-# 🚀 Cross-Platform Dotfiles
+# 🚀 macOS Dotfiles
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
 **Documentation ( [English](README.md), [Japanese](README_JA.md) )**
 
-A powerful dotfiles management system designed for developers who work across multiple platforms. Seamlessly manages your development environment across Debian-based Linux (including WSL2), and macOS.
+A powerful dotfiles management system designed for macOS developers. Seamlessly manages your development environment with support for both Apple Silicon and Intel processors.
 
 <p align="center">
   <img width="100%" src="docs/images/top.gif" alt="ConceptMovie">
@@ -19,7 +19,7 @@ A powerful dotfiles management system designed for developers who work across mu
 <summary>Details</summary>
 
 - [✨ Key Features](#-key-features)
-  - [🔄 Cross-Platform Compatibility](#-cross-platform-compatibility)
+  - [🍎 macOS Support](#-macos-support)
   - [🛡 Safe Configuration Management](#-safe-configuration-management)
   - [🎯 Smart Package Management](#-smart-package-management)
   - [⚡️ Enhanced Productivity Tools](#%EF%B8%8F-enhanced-productivity-tools)
@@ -38,10 +38,9 @@ A powerful dotfiles management system designed for developers who work across mu
 
 ## ✨ Key Features
 
-### 🔄 Cross-Platform Compatibility
-- **WSL2**: Full support for Windows Subsystem for Linux
-- **Debian-based Linux**: Native support for Debian and Ubuntu
-- **MacOSX**: Complete support for both Apple Silicon and Intel processors
+### 🍎 macOS Support
+- **Apple Silicon**: Full support for M1/M2/M3/M4 processors
+- **Intel**: Compatible with Intel-based Macs
 
 ### 🛡 Safe Configuration Management
 - **Automatic Backups**: Every existing configuration is backed up before modification
@@ -55,9 +54,7 @@ A powerful dotfiles management system designed for developers who work across mu
   - Centralized plugin configuration
   - Fast, async plugin loading
   - Easy to maintain and update
-- **Platform-Specific Package Management**:
-  - Homebrew for MacOSX and Linux
-  - apt for Debian-based systems
+- **Homebrew**: Package management via Homebrew
 
 ### ⚡️ Enhanced Productivity Tools
 - **FZF Integration**:
@@ -70,10 +67,7 @@ A powerful dotfiles management system designed for developers who work across mu
 
 ### 🎨 Terminal Customization
 - **Nerd Fonts Support**: Automatic installation and configuration
-  - Windows (via Scoop)
-  - MacOSX (via Homebrew)
 - **Terminal-Specific Setup**:
-  - Windows Terminal
   - iTerm2
   - Terminal.app
 
@@ -100,7 +94,7 @@ A powerful dotfiles management system designed for developers who work across mu
 ### Core Tools
 - **Shell**: Modern ZSH configuration with Sheldon plugin management
 - **Git**: Optimized Git configuration with useful aliases
-- **Terminal**: Platform-specific terminal configurations
+- **Terminal**: macOS terminal configurations
 - **Fonts**: JetBrainsMono Nerd Font for a consistent look
 
 ## 🔄 Backup and Restore
@@ -115,24 +109,16 @@ make restore
 ```
 
 ## 🔎 FAQ
-1. **Installing Nerd Fonts in Windows Terminal**
-
-   <p align="left">
-     <img width="90%" src="docs/images/log.png" alt="LogForWindows">
-   </p>
-
-   For WSL2 users, logs will be displayed as shown above. You can install Nerd Fonts by executing the displayed path in Windows Terminal.
-
-2. **Adding zsh plugins**
+1. **Adding zsh plugins**
 
    We use sheldon as the plugin manager. Edit `.config/sheldon/plugins.toml` to add new plugins. Documentation can be found [here](https://sheldon.cli.rs/Introduction.html).
 
-3. **Adding custom utility functions**
+2. **Adding custom utility functions**
 
    It's recommended to add your custom functions as plugins in the `.zsh/plugins` directory with names like `foo.zsh`, keeping them separate from .zshrc.
 
 ## 📝 License
-This software is released under the MIT License.  
+This software is released under the MIT License.
 You are free to use it within the scope of the license, but you must include the following copyright notice and license text when using this software:
 
 * [LICENSE.md](LICENSE.md)

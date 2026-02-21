@@ -2,18 +2,11 @@
 # homebrew
 #################################################
 # configure homebrew environment variables for the current session
-if [[ "$(uname)" == "Darwin" ]]; then
-    # MacOS (check for both Apple Silicon and Intel paths)
-    if [[ -f "/opt/homebrew/bin/brew" ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    elif [[ -f "/usr/local/bin/brew" ]]; then
-        eval "$(/usr/local/bin/brew shellenv)"
-    fi
-else
-    # Linux
-    if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
+# MacOS (check for both Apple Silicon and Intel paths)
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 #################################################
@@ -44,11 +37,7 @@ declare -A abbreviations=(
   [co]="git checkout"
   [br]="git branch"
   ## cd
-  # Dynamic workspace path based on OS:
-  # - MacOS: Uses ~/Workspace (in user's home directory)
-  # - Linux: Uses /mnt/d/Workspace (Windows WSL mounted path)
-  # You can modify these paths according to your environment
-  [wo]="if [[ $(uname) == \"Darwin\" ]]; then cd ~/workspace; else cd /mnt/d/workspace; fi"
+  [wo]="cd ~/workspace"
   ## eza
   [ls]="eza --icons --git"
   [la]="eza -a --icons --git"

@@ -73,24 +73,8 @@ restore_all() {
 
 # If script is run directly (not sourced), perform full restore
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
-    # Detect OS for loading the appropriate configuration
-    OS=$(uname -s)
-    if [[ "$OS" == "Linux" ]]; then
-        # For Linux, check if it's Debian-based
-        source /etc/os-release
-        if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -qi "debian"; then
-            source "$DOTFILE_HOME/debian.conf"
-        else
-            logErr "Unsupported Linux distribution: $ID"
-            exit 1
-        fi
-    elif [[ "$OS" == "Darwin" ]]; then
-        source "$DOTFILE_HOME/macos.conf"
-    else
-        logErr "Unsupported OS: $OS"
-        exit 1
-    fi
-    
+    source "$DOTFILE_HOME/macos.conf"
+
     logInfo 'Running restore...'
     restore_all "${DOTFILES[@]}"
 fi

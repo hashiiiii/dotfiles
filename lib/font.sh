@@ -2,31 +2,13 @@
 
 # Source logging utilities and configuration
 source "$DOTFILE_HOME/lib/log.sh"
-
-# Detect OS for loading the appropriate configuration
-OS=$(uname -s)
-if [[ "$OS" == "Linux" ]]; then
-  # For Linux, check if it's Debian-based
-  source /etc/os-release
-  if [ "$ID" = "debian" ] || echo "$ID_LIKE" | grep -qi "debian"; then
-    source "$DOTFILE_HOME/debian.conf"
-  else
-    logErr "Unsupported Linux distribution: $ID"
-    exit 1
-  fi
-elif [[ "$OS" == "Darwin" ]]; then
-  source "$DOTFILE_HOME/macos.conf"
-else
-  logErr "Unsupported OS: $OS"
-  exit 1
-fi
+source "$DOTFILE_HOME/macos.conf"
 
 # Use NERD_FONT from config, fallback to FiraCode if not set
 DEFAULT_FONT=${NERD_FONT:-"FiraCode"}
 
 install_nerd_fonts() {
     local font_name=${1:-$DEFAULT_FONT}
-    local os_type=$(uname)
     local getnf_path="$HOME/.local/bin/getnf"
     local dotfiles_cache="${XDG_CACHE_HOME:-$HOME/.cache}/dotfiles"
     local nerd_fonts_cache="$dotfiles_cache/nerd-fonts"
@@ -78,44 +60,23 @@ install_nerd_fonts() {
         logOK "Nerd Font installation completed successfully!"
     fi
 
-    # Show additional instructions for WSL2
-    if [[ -d "/mnt/c/Windows" ]]; then
-        echo ""
-        logImportant "=== Windows Font Installation Required ==="
-        logImportant "Please run the following command in PowerShell (as Administrator):"
-        logImportant "Start-Process pwsh -Verb RunAs -ArgumentList '-ExecutionPolicy Bypass -File \"\\\\wsl\$\\Debian$DOTFILE_HOME/lib/Install-NerdFonts.ps1\"'"
-        logImportant "Or install manually using Scoop:"
-        logImportant "1. scoop bucket add nerd-fonts"
-        logImportant "2. scoop install ${NERD_FONT}-NF"
-        logImportant ""
-        logImportant "After installation, set up Windows Terminal:"
-        logImportant "1. Open Windows Terminal"
-        logImportant "2. Press Ctrl+Shift+, to open settings"
-        logImportant "3. Click on your profile (e.g., Ubuntu)"
-        logImportant "4. Go to 'Additional Settings' -> 'Appearance'"
-        logImportant "5. Change 'Font face' to '${NERD_FONT} NF'"
-        logImportant "6. Click 'Save'"
-        logImportant "=========================================="
-        echo ""
-    elif [[ "$(uname)" == "Darwin" ]]; then
-        echo ""
-        logImportant "=== Terminal Configuration Required ==="
-        logImportant "Configure iTerm2:"
-        logImportant "1. Open iTerm2 Preferences (Cmd+,)"
-        logImportant "2. Go to 'Profiles' -> 'Text'"
-        logImportant "3. Click 'Font' and select '${NERD_FONT} Nerd Font'"
-        logImportant ""
-        logImportant "Or configure Terminal.app:"
-        logImportant "1. Open Terminal Preferences (Cmd+,)"
-        logImportant "2. Go to 'Profiles'"
-        logImportant "3. Select your profile"
-        logImportant "4. Click 'Text' tab"
-        logImportant "5. Click 'Change...' next to font"
-        logImportant "6. Select '${NERD_FONT} Nerd Font'"
-        logImportant "=========================================="
-        echo ""
-    fi
-    
+    echo ""
+    logImportant "=== Terminal Configuration Required ==="
+    logImportant "Configure iTerm2:"
+    logImportant "1. Open iTerm2 Preferences (Cmd+,)"
+    logImportant "2. Go to 'Profiles' -> 'Text'"
+    logImportant "3. Click 'Font' and select '${NERD_FONT} Nerd Font'"
+    logImportant ""
+    logImportant "Or configure Terminal.app:"
+    logImportant "1. Open Terminal Preferences (Cmd+,)"
+    logImportant "2. Go to 'Profiles'"
+    logImportant "3. Select your profile"
+    logImportant "4. Click 'Text' tab"
+    logImportant "5. Click 'Change...' next to font"
+    logImportant "6. Select '${NERD_FONT} Nerd Font'"
+    logImportant "=========================================="
+    echo ""
+
     return 0
 }
 

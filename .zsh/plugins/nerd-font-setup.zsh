@@ -26,17 +26,13 @@ nerd_font_done() {
 if [[ "$NERD_FONT_SETUP_DONE" != "1" ]]; then
     echo "\033[1;34mℹ️  Terminal Font Setup\033[0m"
     echo "Please set \033[1mJetBrainsMono Nerd Font\033[0m in your terminal:"
-    
-    if [[ -d "/mnt/c/Windows" ]]; then
-        echo "   Windows Terminal: Settings (Ctrl+,) → WSL Profile → Appearance"
-    elif [[ "$(uname)" == "Darwin" ]]; then
-        if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
-            echo "   iTerm2: Preferences (⌘,) → Profiles → Text → Font"
-        else
-            echo "   Terminal.app: Preferences (⌘,) → Profiles → Text → Change Font"
-        fi
+
+    if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+        echo "   iTerm2: Preferences (⌘,) → Profiles → Text → Font"
+    else
+        echo "   Terminal.app: Preferences (⌘,) → Profiles → Text → Change Font"
     fi
-    
+
     echo "\nAfter setting the font, run this command to hide this message:"
     echo "   \033[1mnerd_font_done\033[0m"
 fi
