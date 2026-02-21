@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
-macOS 向け dotfiles 管理 (Apple Silicon / Intel)。
+macOS 向け dotfiles 管理 (Apple Silicon)。
 
 [English](README.md) | [Japanese](README_JA.md)
 

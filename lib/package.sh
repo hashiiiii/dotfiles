@@ -19,12 +19,7 @@ install_homebrew() {
         logInfo "Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         
-        # Add Homebrew to PATH based on architecture
-        if [[ "$(uname -m)" == "arm64" ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        else
-            eval "$(/usr/local/bin/brew shellenv)"
-        fi
+        eval "$(/opt/homebrew/bin/brew shellenv)"
         logOK "Homebrew installation completed."
     else
         logInfo "Homebrew already installed."

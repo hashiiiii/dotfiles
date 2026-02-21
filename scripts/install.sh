@@ -35,17 +35,6 @@ else
     logInfo "Xcode Command Line Tools already installed."
 fi
 
-# Rosetta 2 (Apple Silicon)
-if [[ "$(uname -m)" == "arm64" ]]; then
-    if ! pkgutil --pkg-info com.apple.pkg.RosettaUpdateAuto > /dev/null 2>&1; then
-        logInfo "Installing Rosetta 2..."
-        softwareupdate --install-rosetta --agree-to-license
-        logOK "Rosetta 2 installation completed."
-    else
-        logInfo "Rosetta 2 already installed."
-    fi
-fi
-
 ############################################
 # Package Management
 ############################################

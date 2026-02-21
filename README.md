@@ -2,7 +2,7 @@
 
 [![license](https://img.shields.io/badge/LICENSE-MIT-green.svg)](LICENSE.md)
 
-Dotfiles management for macOS (Apple Silicon / Intel).
+Dotfiles management for macOS (Apple Silicon).
 
 [English](README.md) | [Japanese](README_JA.md)
 
