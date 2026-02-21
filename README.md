@@ -16,7 +16,7 @@ make install
 
 Restart your terminal after installation.
 
-## What it does
+### Details
 
 - Installs Homebrew packages, casks, and Mac App Store apps via `Brewfile`
 - Symlinks dotfiles (`.config/*`, `.zsh`, `.zshrc`) to `$HOME`
@@ -30,22 +30,6 @@ Existing files are backed up with `.backup` extension before modification.
 
 ```bash
 make restore
-```
-
-## Structure
-
-```
-scripts/install.sh    Main installation script
-lib/
-  log.sh              Logging
-  backup.sh           Symlink and backup management
-  package.sh          Homebrew / mise installation
-  restore.sh          Rollback
-Brewfile              Homebrew packages
-macos.conf            List of dotfiles to symlink
-.config/              Application configurations
-.zsh/                 ZSH plugins and functions
-.zshrc                ZSH configuration
 ```
 
 ## Customization
