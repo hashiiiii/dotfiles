@@ -5,6 +5,7 @@ tap "xcodesorg/made" # For xcodes command
 brew "eza"                    # Modern replacement for ls
 brew "gcc"                    # GNU Compiler Collection
 brew "gh"                     # GitHub CLI
+brew "jq"                     # JSON processor
 brew "libffi"                 # Foreign Function Interface library
 brew "libyaml"                # YAML parser and emitter
 brew "ripgrep"                # Fast search tool
@@ -23,6 +24,7 @@ brew "mysql"                  # MySQL database
 brew "watchman"               # File system event monitoring
 brew "gemini-cli"             # Gemini CLI
 brew "exercism"               # Platform for coding exercises
+brew "mise"                   # Runtime version manager
 brew "deno"                   # JavaScript/TypeScript runtime
 brew "openssl@3"              # Rails dependency: SSL and TLS toolkit
 brew "rust"                   # Rails dependency: Programming language

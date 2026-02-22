@@ -1,0 +1,175 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/Applications/Unity/Hub/Editor/6000.0.5f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/hashiiiii/workspace/kyuzan/eggrypto-x/eggrypto-x-unity -buildTarget iOS -executeMethod UnityEditor.Compilation.CompilationPipeline.RequestScriptCompilation -quit)",
+      "Bash(grep:*)",
+      "Bash(/Applications/Unity/Hub/Editor/6000.0.5f1/Unity.app/Contents/MacOS/Unity:*)",
+      "Bash(-batchmode )",
+      "Bash(-nographics )",
+      "Bash(-projectPath /Users/hashiiiii/workspace/kyuzan/eggrypto-x/eggrypto-x-unity )",
+      "Bash(-buildTarget iOS )",
+      "Bash(-executeMethod UnityEditor.Compilation.CompilationPipeline.RequestScriptCompilation )",
+      "Bash(-quit)",
+      "Bash(git log:*)",
+      "WebFetch(domain:docs.unity3d.com)",
+      "WebSearch",
+      "WebFetch(domain:discussions.unity.com)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:issuetracker.unity3d.com)",
+      "WebFetch(domain:ss64.com)",
+      "WebFetch(domain:www.manpagez.com)",
+      "WebFetch(domain:opensource.apple.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(echo:*)",
+      "Bash(claude logout:*)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "enableAllProjectMcpServers": true,
+  "statusLine": {
+    "type": "command",
+    "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); git_branch=$(cd \"$current_dir\" 2>/dev/null && git branch --show-current 2>/dev/null || echo ''); if [ -n \"$git_branch\" ]; then printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m \\033[35mgit:(%s)\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$git_branch\"; else printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\"; fi"
+  },
+  "language": "Japanese",
+  "skipDangerousModePermissionPrompt": true,
+  "includeCoAuthoredBy": false,
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000,
+            "once": true
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000,
+            "once": true
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 5000,
+            "once": true
+          }
+        ]
+      }
+    ],
+    "Setup": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/hooks.sh",
+            "timeout": 30000
+          }
+        ]
+      }
+    ]
+  }
+}

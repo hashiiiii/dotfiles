@@ -16,26 +16,6 @@ source "$DOTFILE_HOME/macos.conf"
 logInfo 'Running install.sh...'
 
 ############################################
-# System Requirements Check
-############################################
-
-if ! csrutil status | grep -q 'disabled'; then
-    logWarn "System Integrity Protection is enabled. Some features might be restricted."
-fi
-
-# Xcode Command Line Tools
-if ! xcode-select -p &> /dev/null; then
-    logInfo "Installing Xcode Command Line Tools..."
-    xcode-select --install
-    until xcode-select -p &> /dev/null; do
-        sleep 1
-    done
-    logOK "Xcode Command Line Tools installation completed."
-else
-    logInfo "Xcode Command Line Tools already installed."
-fi
-
-############################################
 # Package Management
 ############################################
 
@@ -45,15 +25,6 @@ logInfo "Installing packages via brew bundle..."
 brew bundle --file="$DOTFILE_HOME/Brewfile" --no-lock || logWarn "Some packages failed to install. Check output above."
 
 ############################################
-# Common Setup
-############################################
-
-logInfo 'Initializing Git LFS...'
-git lfs install
-
-install_mise
-
-############################################
 # Dotfiles Setup
 ############################################
 
@@ -61,6 +32,16 @@ for file in "${DOTFILES[@]}"; do
     backup_dotfile "$DOTFILE_HOME/$file" "$HOME/$file"
 done
 logOK "Dotfiles symlink completed."
+
+############################################
+# Claude Code Settings
+############################################
+
+logInfo 'Setting up Claude Code settings...'
+mkdir -p "$HOME/.claude"
+backup_dotfile "$DOTFILE_HOME/claude/settings.json" "$HOME/.claude/settings.json"
+backup_dotfile "$DOTFILE_HOME/claude/hooks" "$HOME/.claude/hooks"
+logOK "Claude Code settings symlink completed."
 
 ############################################
 # Shell Configuration
