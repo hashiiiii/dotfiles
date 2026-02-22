@@ -8,7 +8,11 @@ brew "gh"                     # GitHub CLI
 brew "jq"                     # JSON processor
 brew "libffi"                 # Foreign Function Interface library
 brew "libyaml"                # YAML parser and emitter
+brew "bat"                    # Cat replacement with syntax highlighting
+brew "fd"                     # Fast and user-friendly find replacement
+brew "git-delta"              # Better git diff viewer with syntax highlighting
 brew "ripgrep"                # Fast search tool
+brew "zoxide"                 # Smarter cd command that learns your habits
 brew "sheldon"                # Plugin manager for shells
 brew "starship"               # Cross-shell prompt
 brew "wget"                   # Internet file retriever
