@@ -33,7 +33,7 @@ ZSH_HIGHLIGHT_REGEXP+=('\<('"${(j:|:)${(k)ABBR_GLOBAL_USER_ABBREVIATIONS}}"')$' 
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
-use = ["F-Sy-H.plugin.zsh"]
+use = ["{{ name }}.plugin.zsh"]
 apply = ["defer"]
 
 [plugins.abbr-highlighting]
