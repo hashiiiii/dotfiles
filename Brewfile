@@ -48,11 +48,10 @@ cask "discord"                # Voice and text chat
 cask "karabiner-elements"     # Keyboard customization tool
 cask "git-credential-manager" # Cross-platform Git credential helper
 cask "windows-app"            # Remote desktop
-cask "docker"                 # Docker container manager
+cask "docker-desktop"         # Docker container manager
 cask "licecap"                # GIF screen capture tool
 cask "claude"                 # AI assistant
 cask "ghostty"                # Terminal for AI interactions
-cask "wireguard-tools"        # VPN software
 cask "zulu@17"                # OpenJDK distribution for Java 17
 cask "github-copilot-for-xcode" # Github copilot for Xcode
 cask "claude-code"            # AI coding agent by Anthropic

@@ -20,7 +20,7 @@ _log() {
   local text_color="$3"
   shift 3
   local message="$*"
-  printf "${PLANE}[%(%Y-%m-%d %H:%M:%S)T] ${color}[%-4s]${text_color} %s\n" -1 "$level" "$message"
+  printf "${PLANE}[%s] ${color}[%-4s]${text_color} %s\n" "$(date '+%Y-%m-%d %H:%M:%S')" "$level" "$message"
 }
 
 # color variation

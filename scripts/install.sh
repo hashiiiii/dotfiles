@@ -22,7 +22,7 @@ logInfo 'Running install.sh...'
 install_homebrew
 
 logInfo "Installing packages via brew bundle..."
-brew bundle --file="$DOTFILE_HOME/Brewfile" --no-lock || logWarn "Some packages failed to install. Check output above."
+brew bundle --file="$DOTFILE_HOME/Brewfile" || logWarn "Some packages failed to install. Check output above."
 
 ############################################
 # Dotfiles Setup
