@@ -9,12 +9,16 @@ macOS 向け dotfiles 管理 (Apple Silicon)。
 ## Install
 
 ```bash
-git clone https://github.com/hashiiiii/dotfiles.git
-cd dotfiles
-make install
+curl -sL https://raw.githubusercontent.com/hashiiiii/dotfiles/main/install.sh | bash
 ```
 
-インストール後、ターミナルを再起動してください。
+clone 先を指定する場合:
+
+```bash
+curl -sL https://raw.githubusercontent.com/hashiiiii/dotfiles/main/install.sh | bash -s -- -o ~/path/to/dotfiles
+```
+
+デフォルトは `~/.dotfiles` です。インストール後、ターミナルを再起動してください。
 
 ### Details
 
