@@ -16,6 +16,11 @@ shell = "zsh"
 github = "romkatv/zsh-defer"
 use = ["{{ name }}.plugin.zsh"]
 
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+dir = "src"
+apply = ["fpath"]
+
 [plugins.zsh-abbr]
 github = "olets/zsh-abbr"
 use = ["zsh-abbr.zsh"]
@@ -58,10 +63,25 @@ local = "~/.zsh/plugins"
 use = ["util-commands.zsh"]
 apply = ["defer"]
 
+[plugins.zsh-history-substring-search]
+github = "zsh-users/zsh-history-substring-search"
+use = ["{{ name }}.zsh"]
+apply = ["defer"]
+
+[plugins.zsh-history-substring-search.hooks]
+post = '''
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+'''
+
+[plugins.zoxide]
+inline = 'eval "$(zoxide init zsh)"'
+
 [plugins.starship]
 inline = 'eval "$(starship init zsh)"'
 
 [templates]
 defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
+fpath = "fpath=(\"{{ dir }}\" $fpath)"
 fzf-install = "{{ dir }}/install --bin > /dev/null \n[[ ! $PATH =~ {{ dir }} ]] && export PATH=\"$PATH:{{ dir }}/bin\"\n"
 fzf-source = "{% for file in files %}source \"{{ file }}\"\n{% endfor %}"
