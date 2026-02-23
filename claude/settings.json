@@ -184,9 +184,7 @@
   },
   "language": "Japanese",
   "skipDangerousModePermissionPrompt": true,
-  "spinnerTipsOverride": {
-    "excludeDefault": true
-  },
+  "spinnerTipsEnabled": false,
   "outputStyle": "Explanatory",
   "disableAllHooks": false,
   "attribution": {
