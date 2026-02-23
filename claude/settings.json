@@ -2,29 +2,42 @@
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
-      "Bash(/Applications/Unity/Hub/Editor/6000.0.5f1/Unity.app/Contents/MacOS/Unity -batchmode -nographics -projectPath /Users/hashiiiii/workspace/kyuzan/eggrypto-x/eggrypto-x-unity -buildTarget iOS -executeMethod UnityEditor.Compilation.CompilationPipeline.RequestScriptCompilation -quit)",
-      "Bash(grep:*)",
-      "Bash(/Applications/Unity/Hub/Editor/6000.0.5f1/Unity.app/Contents/MacOS/Unity:*)",
-      "Bash(-batchmode )",
-      "Bash(-nographics )",
-      "Bash(-projectPath /Users/hashiiiii/workspace/kyuzan/eggrypto-x/eggrypto-x-unity )",
-      "Bash(-buildTarget iOS )",
-      "Bash(-executeMethod UnityEditor.Compilation.CompilationPipeline.RequestScriptCompilation )",
-      "Bash(-quit)",
-      "Bash(git log:*)",
-      "WebFetch(domain:docs.unity3d.com)",
+      "Edit(*)",
+      "Write(*)",
+      "NotebookEdit(*)",
+      "Bash",
+      "WebFetch(domain:*)",
       "WebSearch",
-      "WebFetch(domain:discussions.unity.com)",
-      "WebFetch(domain:medium.com)",
-      "WebFetch(domain:issuetracker.unity3d.com)",
-      "WebFetch(domain:ss64.com)",
-      "WebFetch(domain:www.manpagez.com)",
-      "WebFetch(domain:opensource.apple.com)",
-      "WebFetch(domain:github.com)",
-      "Bash(echo:*)",
-      "Bash(claude logout:*)"
+      "mcp__*"
     ],
     "deny": [],
+    "ask": [
+      "Bash(rm *)",
+      "Bash(rmdir *)",
+      "Bash(shred *)",
+      "Bash(unlink *)",
+      "Bash(dd *)",
+      "Bash(mkfs *)",
+      "Bash(fdisk *)",
+      "Bash(chmod *)",
+      "Bash(chown *)",
+      "Bash(git *)",
+      "Bash(gh *)",
+      "Bash(npm *)",
+      "Bash(pip *)",
+      "Bash(pip3 *)",
+      "Bash(yarn *)",
+      "Bash(pnpm *)",
+      "Bash(docker *)",
+      "Bash(kubectl *)",
+      "Bash(firebase *)",
+      "Bash(gcloud *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(kill *)",
+      "Bash(killall *)",
+      "Bash(pkill *)"
+    ],
     "defaultMode": "default"
   },
   "enableAllProjectMcpServers": true,
@@ -170,5 +183,14 @@
     "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); git_branch=$(cd \"$current_dir\" 2>/dev/null && git branch --show-current 2>/dev/null || echo ''); if [ -n \"$git_branch\" ]; then printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m \\033[35mgit:(%s)\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$git_branch\"; else printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\"; fi"
   },
   "language": "Japanese",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "spinnerTipsOverride": {
+    "excludeDefault": true
+  },
+  "outputStyle": "Explanatory",
+  "disableAllHooks": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  }
 }
