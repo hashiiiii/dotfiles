@@ -191,5 +191,8 @@
   "outputStyle": "Explanatory",
   "language": "Japanese",
   "spinnerTipsEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true
+  }
 }
