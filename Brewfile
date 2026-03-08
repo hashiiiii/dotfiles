@@ -1,5 +1,6 @@
 # Tap repositories
-tap "xcodesorg/made" # For xcodes command
+tap "xcodesorg/made"          # For xcodes command
+tap "oven-sh/bun"             # For bun JavaScript runtime
 
 # Base utilities
 brew "eza"                    # Modern replacement for ls
