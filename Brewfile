@@ -41,6 +41,7 @@ brew "findutils"              # GNU find, locate, updatedb, xargs
 brew "gnu-time"               # GNU time
 brew "libpq"                  # PostgreSQL interface
 brew "buf"                    # Protocol Buffers tooling
+brew "bun"                    # JavaScript runtime
 
 # GUI applications
 cask "brave-browser"          # Web browser
