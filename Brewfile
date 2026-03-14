@@ -46,6 +46,7 @@ brew "bun"                    # JavaScript runtime
 
 # GUI applications
 cask "brave-browser"          # Web browser
+cask "google-chrome"          # Web browser
 cask "visual-studio-code"     # Code editor
 cask "jetbrains-toolbox"      # JetBrains tools manager
 cask "unity-hub"              # Unity game engine manager
