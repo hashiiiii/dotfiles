@@ -69,5 +69,4 @@ cast "figma"                  # Layout design
 cask "font-jetbrains-mono-nerd-font"
 
 # Mac App Store applications
-mas "Skitch", id: 425955336       # Screenshot editing and sharing tool
 mas "WireGuard", id: 1451685025   # VPN client and server
