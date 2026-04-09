@@ -15,35 +15,10 @@
       "mcp__*"
     ],
     "deny": [],
-    "ask": [
-      "Bash(rm *)",
-      "Bash(rmdir *)",
-      "Bash(shred *)",
-      "Bash(unlink *)",
-      "Bash(dd *)",
-      "Bash(mkfs *)",
-      "Bash(fdisk *)",
-      "Bash(chmod *)",
-      "Bash(chown *)",
-      "Bash(git *)",
-      "Bash(gh *)",
-      "Bash(npm *)",
-      "Bash(pip *)",
-      "Bash(pip3 *)",
-      "Bash(yarn *)",
-      "Bash(pnpm *)",
-      "Bash(docker *)",
-      "Bash(kubectl *)",
-      "Bash(firebase *)",
-      "Bash(gcloud *)",
-      "Bash(curl *)",
-      "Bash(wget *)",
-      "Bash(kill *)",
-      "Bash(killall *)",
-      "Bash(pkill *)"
-    ],
+    "ask": [],
     "defaultMode": "default"
   },
+  "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
   "hooks": {
     "PreToolUse": [
@@ -193,6 +168,5 @@
   "outputStyle": "Explanatory",
   "language": "Japanese",
   "spinnerTipsEnabled": false,
-  "skipDangerousModePermissionPrompt": true,
-  "model": "opus"
+  "skipDangerousModePermissionPrompt": true
 }
