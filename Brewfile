@@ -47,7 +47,7 @@ brew "bun"                    # JavaScript runtime
 # GUI applications
 cask "brave-browser"          # Web browser
 cask "google-chrome"          # Web browser
-cask "visual-studio-code"     # Code editor
+cask "zed"                    # Code editor
 cask "jetbrains-toolbox"      # JetBrains tools manager
 cask "unity-hub"              # Unity game engine manager
 cask "slack"                  # Team communication
@@ -62,7 +62,6 @@ cask "ghostty"                # Terminal for AI interactions
 cask "zulu@17"                # OpenJDK distribution for Java 17
 cask "github-copilot-for-xcode" # Github copilot for Xcode
 cask "claude-code"            # AI coding agent by Anthropic
-cask "aqua-voice"             # AI voice tool
 cast "figma"                  # Layout design
 
 # Fonts
