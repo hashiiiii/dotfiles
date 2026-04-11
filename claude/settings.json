@@ -168,5 +168,6 @@
   "outputStyle": "Explanatory",
   "language": "Japanese",
   "spinnerTipsEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "effortLevel": "high"
 }

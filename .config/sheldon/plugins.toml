@@ -12,6 +12,10 @@
 
 shell = "zsh"
 
+[plugins.paths]
+local = "~/.zsh/plugins"
+use = ["paths.zsh"]
+
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
 use = ["{{ name }}.plugin.zsh"]

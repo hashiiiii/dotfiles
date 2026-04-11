@@ -46,28 +46,7 @@ setopt hist_reduce_blanks   # reduce unnecessary blanks in commands
 setopt hist_expire_dups_first # delete duplicate history more older
 
 #################################################
-# Windsurf
-#################################################
-if [[ -d "$HOME/.codeium/windsurf/bin" ]]; then
-    export PATH="$HOME/.codeium/windsurf/bin:$PATH"
-fi
-
-#################################################
-# Antigravity
-#################################################
-if [[ -d "$HOME/.antigravity" ]]; then
-    export PATH="$HOME/.antigravity/antigravity/bin:$PATH"
-fi
-
-#################################################
 # Starship
 #################################################
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
-#################################################
-# Android SDK platform-tools
-#################################################
-ANDROID_SDK_PLATFORM_TOOLS="$HOME/Library/Android/sdk/platform-tools"
-if [ -d "$ANDROID_SDK_PLATFORM_TOOLS" ]; then
-  export PATH="$PATH:$ANDROID_SDK_PLATFORM_TOOLS"
-fi
