@@ -23,6 +23,9 @@ exercism/
 # 1Password CLI
 .config/op/
 
+# Docker cagent
+.config/cagent/
+
 # AI-Editor rules
 /.windsurfrules
 /.cursorrules
