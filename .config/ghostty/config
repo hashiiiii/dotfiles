@@ -1,5 +1,7 @@
 # theme
 theme = tokyonight
+selection-background = #adff2f
+selection-foreground = #1a1b26
 macos-icon = glass
 macos-icon-frame = beige
 
