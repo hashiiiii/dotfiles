@@ -12,11 +12,16 @@
       "Bash",
       "WebFetch(domain:*)",
       "WebSearch",
-      "mcp__*"
+      "mcp__*",
+      "Skill(schedule)",
+      "mcp__claude_ai_Github_MCP__list_pull_requests",
+      "mcp__claude_ai_Github_MCP__update_pull_request_branch",
+      "mcp__claude_ai_Github_MCP__add_issue_comment",
+      "mcp__claude_ai_Github_MCP__issue_read"
     ],
     "deny": [],
     "ask": [],
-    "defaultMode": "default"
+    "defaultMode": "bypassPermissions"
   },
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -162,15 +167,16 @@
     "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); git_branch=$(cd \"$current_dir\" 2>/dev/null && git branch --show-current 2>/dev/null || echo ''); if [ -n \"$git_branch\" ]; then printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m \\033[35mgit:(%s)\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$git_branch\"; else printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\"; fi"
   },
   "enabledPlugins": {
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "outputStyle": "Explanatory",
   "language": "Japanese",
   "spinnerTipsEnabled": false,
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
+  "advisorModel": "opus",
+  "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
-  "env": {
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1"
-  },
-  "showThinkingSummaries": true
+  "remoteControlAtStartup": true,
+  "agentPushNotifEnabled": true
 }
