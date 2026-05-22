@@ -26,6 +26,9 @@ exercism/
 # Docker cagent
 .config/cagent/
 
+# Karabiner-Elements auto-generated backups
+.config/karabiner/automatic_backups/
+
 # AI-Editor rules
 /.windsurfrules
 /.cursorrules
