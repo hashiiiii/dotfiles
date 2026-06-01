@@ -64,7 +64,7 @@ cask "zulu@17"                # OpenJDK distribution for Java 17
 cask "github-copilot-for-xcode" # Github copilot for Xcode
 cask "claude-code"            # AI coding agent by Anthropic
 cask "gcloud-cli"             # Google Cloud SDK command line tools
-cast "figma"                  # Layout design
+cask "figma"                  # Layout design
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
