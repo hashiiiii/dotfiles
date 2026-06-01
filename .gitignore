@@ -1,36 +1,47 @@
 # macOS
 .DS_Store
 
-# GitHub CLI
+# ── ~/.config is a whole-directory symlink to THIS repo's .config/ ──
+# (~/.config -> ~/workspace/dotfiles/.config). This repo is PUBLIC, so any tool
+# that writes to ~/.config/<tool>/ writes straight into this working tree.
+# Default-deny everything under .config so a credential-writing tool (gcloud,
+# gh, op, ...) can never be committed by accident. To track a NEW config dir,
+# add an explicit "!.config/<dir>/" allow line below.
+.config/*
+!.config/bat/
+!.config/eza/
+!.config/gh/
+!.config/ghostty/
+!.config/git/
+!.config/karabiner/
+!.config/macos/
+!.config/mise/
+!.config/sheldon/
+!.config/starship/
+!.config/xcode/
+!.config/zed/
+!.config/zellij/
+!.config/zsh-abbr/
+
+# Secrets / auto-generated noise inside ALLOWED dirs (re-excluded after the "!"):
+# GitHub CLI auth token
 .config/gh/hosts.yml
+# Karabiner auto-generated backups
+.config/karabiner/automatic_backups/
 
-# iTerm2 runtime files
+# Explicit credential/runtime ignores (also covered by .config/* above; kept as
+# defense-in-depth so the intent stays readable):
+.config/op/
+.config/gcloud/
+.config/cagent/
 .config/iterm2/
-
-# GitHub Copilot
 .config/github-copilot/
-
-# npm
 .config/configstore/
-
-# exercism
-exercism/
+.config/jgit/
 .config/exercism/
 
-# JGit (auto-generated)
-.config/jgit/
-
-# 1Password CLI
-.config/op/
-
-# Docker cagent
-.config/cagent/
-
-# Google Cloud SDK (contains credentials/tokens)
-.config/gcloud/
-
-# Karabiner-Elements auto-generated backups
-.config/karabiner/automatic_backups/
+# exercism (repo-local practice dir)
+exercism/
 
 # AI-Editor rules
 /.windsurfrules
