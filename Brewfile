@@ -24,6 +24,7 @@ brew "xcodes"                 # Xcode version manager
 brew "gnupg"                  # GNU Privacy Guard
 brew "terraform"              # Infrastructure as Code tool
 brew "awscli"                 # AWS CLI
+brew "cloud-sql-proxy"        # Google Cloud SQL Auth Proxy
 brew "uv"                     # Python package manager
 brew "mysql"                  # MySQL database
 brew "watchman"               # File system event monitoring
@@ -62,6 +63,7 @@ cask "ghostty"                # Terminal for AI interactions
 cask "zulu@17"                # OpenJDK distribution for Java 17
 cask "github-copilot-for-xcode" # Github copilot for Xcode
 cask "claude-code"            # AI coding agent by Anthropic
+cask "gcloud-cli"             # Google Cloud SDK command line tools
 cast "figma"                  # Layout design
 
 # Fonts

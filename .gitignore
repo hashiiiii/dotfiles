@@ -26,6 +26,9 @@ exercism/
 # Docker cagent
 .config/cagent/
 
+# Google Cloud SDK (contains credentials/tokens)
+.config/gcloud/
+
 # Karabiner-Elements auto-generated backups
 .config/karabiner/automatic_backups/
 
