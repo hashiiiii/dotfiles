@@ -65,6 +65,8 @@ cask "github-copilot-for-xcode" # Github copilot for Xcode
 cask "claude-code"            # AI coding agent by Anthropic
 cask "gcloud-cli"             # Google Cloud SDK command line tools
 cask "figma"                  # Layout design
+cask "cursor"                 # AI code editor
+cask "cursor-cli"             # Command-line agent for Cursor
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
