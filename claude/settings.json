@@ -174,11 +174,10 @@
   "language": "Japanese",
   "spinnerTipsEnabled": false,
   "effortLevel": "xhigh",
-  "advisorModel": "opus",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
   "remoteControlAtStartup": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "skipWorkflowUsageWarning": true
+  "skipAutoPermissionPrompt": true
 }
