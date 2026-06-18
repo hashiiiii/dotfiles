@@ -28,6 +28,9 @@
 .config/gh/hosts.yml
 # Karabiner auto-generated backups
 .config/karabiner/automatic_backups/
+# mise: track only the hand-written config; ignore any local state/trust files
+.config/mise/*
+!.config/mise/config.toml
 
 # Explicit credential/runtime ignores (also covered by .config/* above; kept as
 # defense-in-depth so the intent stays readable):

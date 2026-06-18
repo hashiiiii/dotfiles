@@ -60,7 +60,7 @@ use = ["fzf-commands.zsh"]
 apply = ["defer"]
 
 [plugins.mise]
-inline = 'eval "$(~/.local/bin/mise activate zsh)"'
+inline = 'eval "$(mise activate zsh)"'
 
 [plugins.util-commands]
 local = "~/.zsh/plugins"
