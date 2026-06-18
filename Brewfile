@@ -66,7 +66,7 @@ cask "claude"                 # AI assistant
 cask "ghostty"                # Terminal for AI interactions
 cask "zulu@17"                # OpenJDK distribution for Java 17
 cask "github-copilot-for-xcode" # Github copilot for Xcode
-cask "claude-code"            # AI coding agent by Anthropic
+cask "claude-code@latest"     # AI coding agent by Anthropic (latest channel)
 cask "gcloud-cli"             # Google Cloud SDK command line tools
 cask "figma"                  # Layout design
 cask "cursor"                 # AI code editor
