@@ -24,7 +24,7 @@ unset EZA_CONFIG_DIR
 # set variables for eza
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
-# abbreviations are managed by zsh-abbr via .config/zsh-abbr/user-abbreviations
+# command aliases are managed in .zsh/plugins/aliases.zsh (sourced via sheldon)
 
 #################################################
 # history
@@ -44,6 +44,14 @@ setopt hist_ignore_dups     # grouping duplicate commands
 setopt hist_reduce_blanks   # reduce unnecessary blanks in commands
 # handle history safely
 setopt hist_expire_dups_first # delete duplicate history more older
+
+# Up/Down search history by the prefix already typed (replaces
+# zsh-history-substring-search; prefix match instead of substring match)
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
 
 #################################################
 # Starship

@@ -20,29 +20,13 @@ use = ["paths.zsh"]
 github = "romkatv/zsh-defer"
 use = ["{{ name }}.plugin.zsh"]
 
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
-dir = "src"
-apply = ["fpath"]
-
-[plugins.zsh-abbr]
-github = "olets/zsh-abbr"
-use = ["zsh-abbr.zsh"]
-
-[plugins.zsh-abbr.hooks]
-post = '''
-ZSH_HIGHLIGHT_REGEXP+=('^[[:blank:][:space:]]*('"${(j:|:)${(k)ABBR_REGULAR_USER_ABBREVIATIONS}}"')$' fg=blue,bold)
-ZSH_HIGHLIGHT_REGEXP+=('\<('"${(j:|:)${(k)ABBR_GLOBAL_USER_ABBREVIATIONS}}"')$' fg=blue,bold)
-'''
+[plugins.aliases]
+local = "~/.zsh/plugins"
+use = ["aliases.zsh"]
 
 [plugins.fast-syntax-highlighting]
 github = "zdharma-continuum/fast-syntax-highlighting"
 use = ["{{ name }}.plugin.zsh"]
-apply = ["defer"]
-
-[plugins.abbr-highlighting]
-local = "~/.zsh/plugins"
-use = ["abbr-highlighting.zsh"]
 apply = ["defer"]
 
 [plugins.zsh-autosuggestions]
@@ -66,17 +50,6 @@ inline = 'eval "$(mise activate zsh)"'
 local = "~/.zsh/plugins"
 use = ["util-commands.zsh"]
 apply = ["defer"]
-
-[plugins.zsh-history-substring-search]
-github = "zsh-users/zsh-history-substring-search"
-use = ["{{ name }}.zsh"]
-apply = ["defer"]
-
-[plugins.zsh-history-substring-search.hooks]
-post = '''
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-'''
 
 [plugins.zoxide]
 inline = 'eval "$(zoxide init zsh)"'
