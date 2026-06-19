@@ -1,54 +1,26 @@
 # macOS
 .DS_Store
 
-# ── ~/.config is a whole-directory symlink to THIS repo's .config/ ──
-# (~/.config -> ~/workspace/dotfiles/.config). This repo is PUBLIC, so any tool
-# that writes to ~/.config/<tool>/ writes straight into this working tree.
-# Default-deny everything under .config so a credential-writing tool (gcloud,
-# gh, op, ...) can never be committed by accident. To track a NEW config dir,
-# add an explicit "!.config/<dir>/" allow line below.
-.config/*
-!.config/bat/
-!.config/eza/
-!.config/gh/
-!.config/ghostty/
-!.config/git/
-!.config/karabiner/
-!.config/macos/
-!.config/mise/
-!.config/starship/
-!.config/xcode/
-!.config/zed/
-!.config/zellij/
-!.config/zsh-abbr/
-
-# Secrets / auto-generated noise inside ALLOWED dirs (re-excluded after the "!"):
-# GitHub CLI auth token
+# ~/.config → this repo (public). Deny secrets/runtime only; everything else is tracked.
 .config/gh/hosts.yml
-# Karabiner auto-generated backups
 .config/karabiner/automatic_backups/
-# mise: track only the hand-written config; ignore any local state/trust files
 .config/mise/*
 !.config/mise/config.toml
-
-# Explicit credential/runtime ignores (also covered by .config/* above; kept as
-# defense-in-depth so the intent stays readable):
-.config/op/
+.config/zed/prompts/
+.config/iterm2/AppSupport
+.config/iterm2/sockets/
 .config/gcloud/
+.config/op/
 .config/cagent/
-.config/iterm2/
-.config/github-copilot/
 .config/configstore/
-.config/jgit/
+.config/github-copilot/
 .config/exercism/
+.config/jgit/
 
-# exercism (repo-local practice dir)
 exercism/
 
-# AI-Editor rules
 /.windsurfrules
 /.cursorrules
 
-# IDE
 .idea/
 .vscode/

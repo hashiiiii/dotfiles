@@ -1,12 +1,3 @@
-# Pre-commit hooks for this PUBLIC dotfiles repo.
-#
-# The gitleaks hook is a commit-time backstop against accidentally committing
-# secrets — defense-in-depth on top of the .gitignore allowlist. It scans the
-# staged diff and blocks the commit if a secret-shaped string is found.
-#
-# Uses the system gitleaks (installed via the Brewfile) through a `local` repo,
-# so there is no hook version to pin or fetch. Installed by `mise bootstrap`
-# via `pre-commit install --install-hooks`.
 repos:
   - repo: local
     hooks:

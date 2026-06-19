@@ -1,53 +1,39 @@
-# mise bootstrap — single-command machine setup for this dotfiles repo.
-#
-#   mise bootstrap        # converge: packages → dotfiles → macOS defaults →
-#                         #           login shell → tools → bootstrap task
-#   mise bootstrap -n     # dry-run: preview every step, change nothing
-#
-# This file holds ONLY machine-setup declarations. Day-to-day runtime/tool
-# versions live in .config/mise/config.toml (the global mise config), so they
-# are not duplicated here — `mise bootstrap` installs them at the tools step
-# once ~/.config has been symlinked into place.
-
 [settings]
-# `mise bootstrap` and `[dotfiles]` are experimental; this flag is required to
-# run them on a fresh machine before the global config is linked.
 experimental = true
 
-# ── Dotfiles ──────────────────────────────────────────────────────────────────
-# String form ("target" = "source") symlinks by default (`ln -sf`). Sources are
-# resolved relative to this file's directory (config_root). Missing parent dirs
-# of a target are created automatically, and an already-correct symlink is left
-# untouched — so re-running is safe.
 [dotfiles]
-"~/.config"   = ".config"     # whole-directory symlink (matches current setup)
+"~/.config"   = ".config"
 "~/.zshrc"    = ".zshrc"
-"~/.zsh"      = ".zsh"
 "~/.zprofile" = ".zprofile"
-"~/.claude/settings.json" = "home/.claude/settings.json"
-"~/.claude/hooks"         = "home/.claude/hooks"
+"~/.claude/settings.json" = ".config/claude/settings.json"
+"~/.claude/hooks"         = ".config/claude/hooks"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
-# ── macOS defaults ──────────────────────────────────────────────────────────
-# mise infers the `defaults write` type from the TOML value: bool → -bool,
-# integer → -int, float → -float. (Verified: 2.5 emits `-float 2.5`.)
+# Curated sections: semantic keys mise maps to canonical defaults writes.
+[bootstrap.macos.keyboard]
+key_repeat         = 2
+initial_key_repeat = 15
+
+[bootstrap.macos.finder]
+show_pathbar = true
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+
+# Raw writes for keys with no curated section. Captured from this machine's current
+# state — only settings that differ from macOS factory defaults.
 [bootstrap.macos.defaults]
-"NSGlobalDomain"   = { KeyRepeat = 2, InitialKeyRepeat = 15, ApplePressAndHoldEnabled = false, AppleShowAllExtensions = true, "com.apple.mouse.scaling" = 2.5 }
-"com.apple.finder" = { AppleShowAllFiles = true, ShowPathbar = true }
+"NSGlobalDomain"          = { ApplePressAndHoldEnabled = false, AppleShowAllExtensions = true, "com.apple.mouse.scaling" = 2.5, "com.apple.trackpad.scaling" = 0.875, "com.apple.swipescrolldirection" = false, AppleInterfaceStyle = "Dark" }
+"com.apple.finder"        = { AppleShowAllFiles = true, ShowStatusBar = true, FXPreferredViewStyle = "Nlsv" }
+"com.apple.dock"          = { tilesize = 52.0 }
+"com.apple.WindowManager" = { EnableStandardClickToShowDesktop = false }
 
 [bootstrap.hooks.post-defaults]
-run = "killall Finder SystemUIServer || true"   # reload UI so changes take effect
+run = "killall Finder SystemUIServer Dock || true"
 
-# ── Login shell ─────────────────────────────────────────────────────────────
-# macOS ships /bin/zsh and registers it in /etc/shells, so no extra setup needed.
 [bootstrap.user]
 login_shell = "/bin/zsh"
 
-# ── Project setup task ──────────────────────────────────────────────────────
-# Runs on every `mise bootstrap` (step 8) with installed tools on PATH; keep it
-# idempotent. Homebrew packages stay in the Brewfile because the
-# [bootstrap.packages] brew backend only handles formulae (not casks / mas).
-# `brew bundle` and `pre-commit install` are both idempotent.
 [tasks.bootstrap]
 run = [
   "brew bundle --file={{config_root}}/Brewfile",

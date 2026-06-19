@@ -13,9 +13,6 @@ brew "bat"                    # Cat replacement with syntax highlighting
 brew "fd"                     # Fast and user-friendly find replacement
 brew "git-delta"              # Better git diff viewer with syntax highlighting
 brew "ripgrep"                # Fast search tool
-brew "zoxide"                 # Smarter cd command that learns your habits
-brew "starship"               # Cross-shell prompt
-brew "fzf"                    # Fuzzy finder (Ctrl-R history; fb/sf commands)
 brew "zsh-autosuggestions"    # Fish-like history autosuggestions (sourced in .zshrc)
 brew "zsh-fast-syntax-highlighting" # Command-line syntax highlighting (sourced in .zshrc)
 brew "wget"                   # Internet file retriever
