@@ -24,8 +24,8 @@ experimental = true
 "~/.zshrc"    = ".zshrc"
 "~/.zsh"      = ".zsh"
 "~/.zprofile" = ".zprofile"
-"~/.claude/settings.json" = "claude/settings.json"
-"~/.claude/hooks"         = "claude/hooks"
+"~/.claude/settings.json" = "home/.claude/settings.json"
+"~/.claude/hooks"         = "home/.claude/hooks"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # ── macOS defaults ──────────────────────────────────────────────────────────

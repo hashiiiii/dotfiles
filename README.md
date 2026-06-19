@@ -66,9 +66,11 @@ layers guard against accidental leaks:
 - **Packages**: edit `Brewfile`
 - **Runtimes**: edit `.config/mise/config.toml` (`[tools]`)
 - **Machine setup** (dotfiles, macOS defaults, login shell): edit `mise.toml`
-- **ZSH plugins**: edit `.config/sheldon/plugins.toml` ([Sheldon docs](https://sheldon.cli.rs/Introduction.html))
-- **Abbreviations**: edit `.config/zsh-abbr/user-abbreviations`
+- **ZSH plugins**: `brew install <plugin>`, then `source` it in `.zshrc` (no plugin manager)
+- **Aliases**: edit `.zsh/plugins/aliases.zsh`
 - **Custom functions**: add `.zsh/plugins/foo.zsh`
+- **Claude Code config**: edit `home/.claude/settings.json` / `home/.claude/hooks/`
+- **Shell env / PATH**: edit `.zprofile`; interactive shell: edit `.zshrc`
 
 ## Manual recovery
 
