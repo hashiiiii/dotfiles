@@ -20,7 +20,7 @@
     ],
     "deny": [],
     "ask": [],
-    "defaultMode": "auto"
+    "defaultMode": "dontAsk"
   },
   "enableAllProjectMcpServers": true,
   "hooks": {
@@ -160,15 +160,16 @@
       }
     ]
   },
-  "disableAllHooks": false,
+  "disableAllHooks": true,
   "statusLine": {
     "type": "command",
-    "command": "input=$(cat); current_dir=$(echo \"$input\" | jq -r '.workspace.current_dir'); git_branch=$(cd \"$current_dir\" 2>/dev/null && git branch --show-current 2>/dev/null || echo ''); if [ -n \"$git_branch\" ]; then printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m \\033[35mgit:(%s)\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\" \"$git_branch\"; else printf \"\\033[36m%s\\033[0m@\\033[32m%s\\033[0m \\033[34m%s\\033[0m\" \"$(whoami)\" \"$(hostname -s)\" \"$(basename \"$current_dir\")\"; fi"
+    "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
     "frontend-design@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true
   },
   "outputStyle": "Explanatory",
   "language": "Japanese",
@@ -177,7 +178,9 @@
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
-  "remoteControlAtStartup": true,
+  "preferredNotifChannel": "ghostty",
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "skipAutoPermissionPrompt": true,
+  "remoteControlAtStartup": true
 }
