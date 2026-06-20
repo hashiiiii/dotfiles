@@ -1,1 +1,4 @@
 --style=plain
+# Authentic Tokyo Night (folke's .tmTheme in themes/, loaded via `bat cache --build`).
+# Replaces bat's default Monokai so `cat` is fully Tokyo Night.
+--theme="tokyonight_night"

@@ -52,3 +52,33 @@ PROMPT='%F{blue}%~%f${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Authentic Tokyo Night palette for fast-syntax-highlighting (Night variant hexes).
+# Ghostty is truecolor, so fg=#rrggbb renders exactly. Must run AFTER sourcing FSH.
+typeset -A FAST_HIGHLIGHT_STYLES
+FAST_HIGHLIGHT_STYLES[default]='fg=#c0caf5'
+FAST_HIGHLIGHT_STYLES[unknown-token]='fg=#f7768e'
+FAST_HIGHLIGHT_STYLES[reserved-word]='fg=#bb9af7'
+FAST_HIGHLIGHT_STYLES[alias]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[suffix-alias]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[global-alias]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[builtin]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[function]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[command]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[precommand]='fg=#2ac3de'
+FAST_HIGHLIGHT_STYLES[hashed-command]='fg=#7aa2f7'
+FAST_HIGHLIGHT_STYLES[commandseparator]='fg=#89ddff'
+FAST_HIGHLIGHT_STYLES[path]='fg=#c0caf5'
+FAST_HIGHLIGHT_STYLES[path_pathseparator]='fg=#565f89'
+FAST_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#ff9e64'
+FAST_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#ff9e64'
+FAST_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#9ece6a'
+FAST_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#9ece6a'
+FAST_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#9ece6a'
+FAST_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#7dcfff'
+FAST_HIGHLIGHT_STYLES[command-substitution]='fg=#7dcfff'
+FAST_HIGHLIGHT_STYLES[globbing]='fg=#bb9af7'
+FAST_HIGHLIGHT_STYLES[redirection]='fg=#89ddff'
+FAST_HIGHLIGHT_STYLES[variable]='fg=#bb9af7'
+FAST_HIGHLIGHT_STYLES[mathnum]='fg=#ff9e64'
+FAST_HIGHLIGHT_STYLES[comment]='fg=#565f89'
