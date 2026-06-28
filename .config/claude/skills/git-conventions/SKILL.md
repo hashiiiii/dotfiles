@@ -1,5 +1,5 @@
 ---
-name: git-branch-and-commit-conventions
+name: git-conventions
 description: Use when creating a git branch, writing a git commit message, or opening a pull request — at the moment you run `git switch -c` / `git checkout -b`, `git commit`, or `gh pr create`. Symptoms: unsure what to name a branch, which type/prefix to use, how long a commit subject may be, whether to add a commit body, or which label a PR needs.
 ---
 
