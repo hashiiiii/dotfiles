@@ -5,8 +5,12 @@ experimental = true
 "~/.config"   = ".config"
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
+# Agent Skills (SKILL.md) are a cross-harness standard: one source feeds both
+# Claude Code and Cursor (cursor-agent reads ~/.cursor/skills/<name>/SKILL.md).
 "~/.claude/settings.json" = ".config/claude/settings.json"
 "~/.claude/hooks"         = ".config/claude/hooks"
+"~/.claude/skills"        = ".config/claude/skills"
+"~/.cursor/skills"        = ".config/claude/skills"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.
