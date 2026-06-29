@@ -3,7 +3,7 @@ name: git-conventions
 description: Use when creating a git branch or writing a git commit message in any project — at the moment you run `git switch -c` / `git checkout -b` or `git commit`. Symptoms: unsure what to name a branch, which type/prefix to use, how long a commit subject may be, or whether to add a commit body.
 ---
 
-# Git Branch & Commit Conventions
+# Git Conventions
 
 ## Overview
 
@@ -22,10 +22,10 @@ Not for: choosing a branching strategy (git-flow vs trunk), squash/rebase policy
 - English, kebab-case, terse. No issue numbers, no extra prefixes, no personal names, no Japanese.
 - e.g. `feat/yaml-parser`, `fix/nested-override-diff`, `docs/cli-usage`
 
-**Commit** — a single line: `<type>: <日本語 subject>`
-- The subject is **Japanese**, concise, **≤ 50 文字** (全角・半角ともに 1 文字として数える).
+**Commit** — a single line: `<type>: <subject>`
+- The subject is **English**, imperative mood, lowercase first word, no trailing period, **≤ 50 characters**.
 - The message is **exactly one line**. The subject line is the whole message — nothing follows it.
-- e.g. `feat: Unity Prefab 用の YAML パーサを実装`
+- e.g. `feat: add YAML parser for .prefab files`
 
 ## Type vocabulary (shared by branch and commit)
 
@@ -53,8 +53,8 @@ Change: implemented a YAML parser for `.prefab` files.
 # 1. branch — type / english-kebab
 git switch -c feat/yaml-parser
 
-# 2. commit — one line, Japanese subject ≤ 50 文字, no body
-git commit -m "feat: Unity Prefab 用の YAML パーサを実装"
+# 2. commit — one line, English subject ≤ 50 chars, imperative, no body
+git commit -m "feat: add YAML parser for .prefab files"
 ```
 
 ## Common Mistakes
@@ -62,7 +62,7 @@ git commit -m "feat: Unity Prefab 用の YAML パーサを実装"
 | Mistake | Fix |
 |---------|-----|
 | Adding a body / bullet points under the subject | The commit is one line. Keep extra detail out of the commit message. |
-| Writing the subject in English | The subject is Japanese; only the `type:` prefix stays English. |
-| Subject longer than 50 文字 | Trim to the essence. 50 文字 is the hard limit. |
+| Writing the subject in Japanese | The whole message is English — imperative, lowercase first word. |
+| Subject longer than 50 characters | Trim to the essence. 50 chars is the hard limit. |
 | Branch like `feature/…`, `bugfix/…`, `john/…`, or with Japanese | Use a `type` from the table + a short english kebab description. |
 | Inventing a new type | Only the 11 types above exist. Pick the closest. |
