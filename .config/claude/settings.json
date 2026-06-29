@@ -6,19 +6,7 @@
   },
   "includeCoAuthoredBy": false,
   "permissions": {
-    "allow": [
-      "Edit(*)",
-      "Write(*)",
-      "NotebookEdit(*)",
-      "Bash",
-      "WebFetch(domain:*)",
-      "WebSearch",
-      "Skill(schedule)",
-      "mcp__claude_ai_Github_MCP__list_pull_requests",
-      "mcp__claude_ai_Github_MCP__update_pull_request_branch",
-      "mcp__claude_ai_Github_MCP__add_issue_comment",
-      "mcp__claude_ai_Github_MCP__issue_read"
-    ],
+    "allow": [],
     "deny": [],
     "ask": [],
     "defaultMode": "auto"
