@@ -18,6 +18,22 @@ alias lt="eza -T -L 3 -a -I 'node_modules|.git|.cache' --icons"
 # navigation
 alias wo='cd ~/workspace'
 
+# cursor-agent: auto-load the newest installed superpowers plugin (version-proof).
+# Falls back to plain cursor-agent if the plugin isn't present. Use `command
+# cursor-agent` to run without superpowers.
+cursor-agent() {
+  emulate -L zsh
+  setopt local_options null_glob
+  local -a sp
+  sp=( "$HOME"/.claude/plugins/cache/claude-plugins-official/superpowers/*/ )
+  if (( $#sp )); then
+    sp=( ${(On)sp} )   # numeric sort, highest version first
+    command cursor-agent --plugin-dir "${sp[1]%/}" "$@"
+  else
+    command cursor-agent "$@"
+  fi
+}
+
 eval "$(mise activate zsh)"
 
 # dir jumping (replaces zoxide): type a dir name to cd; cd searches these parents

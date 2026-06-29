@@ -11,6 +11,10 @@ experimental = true
 "~/.claude/hooks"         = ".config/claude/hooks"
 "~/.claude/skills"        = ".config/claude/skills"
 "~/.cursor/skills"        = ".config/claude/skills"
+# cursor-agent global MCP. Same JSON schema as Claude's mcpServers, but Claude's
+# live in the monolithic ~/.claude.json (not symlinkable), so this mirrors the
+# secret-free local servers only. Keep tokens OUT of this file (it's committed).
+"~/.cursor/mcp.json"      = ".config/cursor/mcp.json"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.
