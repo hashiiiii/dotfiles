@@ -16,7 +16,6 @@ brew "ripgrep"                # Fast search tool
 brew "zsh-autosuggestions"    # Fish-like history autosuggestions (sourced in .zshrc)
 brew "zsh-fast-syntax-highlighting" # Command-line syntax highlighting (sourced in .zshrc)
 brew "wget"                   # Internet file retriever
-brew "zellij"                 # Terminal workspace
 brew "git-lfs"                # Git extension for large files
 brew "mas"                    # Mac App Store command line interface
 brew "xcodes"                 # Xcode version manager
@@ -43,6 +42,7 @@ brew "gnu-time"               # GNU time
 brew "libpq"                  # PostgreSQL interface
 brew "buf"                    # Protocol Buffers tooling
 brew "bun"                    # JavaScript runtime
+brew "herdr"                  # Agent multiplexer for terminal AI agents
 
 # Security (commit-time secret-leak guard; see .pre-commit-config.yaml)
 brew "gitleaks"               # Secret scanner used by the pre-commit hook
