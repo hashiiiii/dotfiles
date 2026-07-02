@@ -1,177 +1,65 @@
 {
+  "agentPushNotifEnabled": true,
+  "alwaysThinkingEnabled": true,
   "attribution": {
     "commit": "",
     "pr": "",
     "sessionUrl": false
   },
-  "includeCoAuthoredBy": false,
-  "permissions": {
-    "allow": [],
-    "deny": [],
-    "ask": [],
-    "defaultMode": "auto"
+  "autoUpdatesChannel": "latest",
+  "awaySummaryEnabled": true,
+  "cleanupPeriodDays": 365,
+  "effortLevel": "xhigh",
+  "enabledPlugins": {
+    "code-simplifier@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": false,
+    "security-guidance@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
   },
-  "enableAllProjectMcpServers": true,
+  "fallbackModel": ["claude-opus-4-8"],
   "hooks": {
-    "PreToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "PermissionRequest": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "SubagentStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "SubagentStop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000,
-            "once": true
-          }
-        ]
-      }
-    ],
     "SessionStart": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000,
-            "once": true
+            "command": "bash '/Users/hashiiiii/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
           }
-        ]
-      }
-    ],
-    "SessionEnd": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 5000,
-            "once": true
-          }
-        ]
-      }
-    ],
-    "Setup": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/hooks/hooks.sh",
-            "timeout": 30000
-          }
-        ]
+        ],
+        "matcher": "*"
       }
     ]
   },
-  "disableAllHooks": true,
-  "statusLine": {
-    "type": "command",
-    "command": "bash ~/.claude/statusline-command.sh"
-  },
-  "enabledPlugins": {
-    "frontend-design@claude-plugins-official": false,
-    "typescript-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
-  },
-  "outputStyle": "Explanatory",
+  "inputNeededNotifEnabled": true,
   "language": "Japanese",
-  "spinnerTipsEnabled": false,
-  "effortLevel": "xhigh",
-  "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
+  "model": "claude-fable-5[1m]",
+  "outputStyle": "Explanatory",
+  "permissions": {
+    "allow": [],
+    "ask": [],
+    "defaultMode": "auto",
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*_rsa)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.config/gcloud/**)",
+      "Read(~/.config/op/**)"
+    ]
+  },
   "preferredNotifChannel": "ghostty",
   "remoteControlAtStartup": true,
-  "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "spinnerTipsEnabled": false,
+  "statusLine": {
+    "command": "bash ~/.claude/statusline-command.sh",
+    "type": "command"
+  },
   "tui": "fullscreen"
 }
