@@ -2,8 +2,6 @@
 
 Dotfiles for macOS, managed with [mise](https://mise.jdx.dev).
 
-[English](README.md) | [Japanese](README_JA.md)
-
 ## Install
 
 ```bash
