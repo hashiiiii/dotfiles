@@ -24,6 +24,17 @@ cd ~/workspace/dotfiles && mise bootstrap
 
 Use your `DOTFILE_DIR` if you chose a non-default location.
 
+## AI agent configs
+
+Claude Code / cursor-agent configs live in
+[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) and deploy
+themselves:
+
+```bash
+git clone https://github.com/hashiiiii/rules-for-ai.git ~/workspace/rules-for-ai
+cd ~/workspace/rules-for-ai && mise dotfiles apply
+```
+
 Setup: [`mise.toml`](mise.toml)
 Packages: [`Brewfile`](Brewfile)
 Runtimes: [`.config/mise/config.toml`](.config/mise/config.toml)
