@@ -8,6 +8,14 @@ experimental = true
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
 "~/.claude/hooks"         = ".config/claude/hooks"
+# AI agent configs from the rules-for-ai submodule. One skills source feeds
+# both harnesses (Claude Code and cursor-agent read SKILL.md).
+"~/.claude/CLAUDE.md"             = "rules-for-ai/AGENTS.md"
+"~/.claude/settings.json"         = "rules-for-ai/claude/settings.json"
+"~/.claude/statusline-command.sh" = "rules-for-ai/claude/statusline-command.sh"
+"~/.claude/skills"                = "rules-for-ai/skills"
+"~/.cursor/skills"                = "rules-for-ai/skills"
+"~/.cursor/mcp.json"              = "rules-for-ai/cursor/mcp.json"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.
@@ -37,6 +45,7 @@ login_shell = "/bin/zsh"
 
 [tasks.bootstrap]
 run = [
+  "git -C {{config_root}} submodule update --init",
   "brew bundle --file={{config_root}}/Brewfile",
   "pre-commit install --install-hooks",
 ]
