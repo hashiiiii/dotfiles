@@ -8,15 +8,12 @@ experimental = true
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
 # Machine-level agent settings live in this repo; portable rules and skills
-# come from the rules-for-ai submodule. One skills source feeds both
-# harnesses (Claude Code and cursor-agent read SKILL.md).
+# come from the rules-for-ai plugin, pinned declaratively in
+# .config/claude/settings.json (extraKnownMarketplaces + enabledPlugins).
 "~/.claude/hooks"                 = ".config/claude/hooks"
 "~/.claude/settings.json"         = ".config/claude/settings.json"
 "~/.claude/statusline-command.sh" = ".config/claude/statusline-command.sh"
 "~/.cursor/mcp.json"              = ".config/cursor/mcp.json"
-"~/.claude/CLAUDE.md"             = "rules-for-ai/AGENTS.md"
-"~/.claude/skills"                = "rules-for-ai/skills"
-"~/.cursor/skills"                = "rules-for-ai/skills"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.
@@ -38,9 +35,6 @@ tap_to_click = true
 "com.apple.dock"          = { tilesize = 52.0 }
 "com.apple.WindowManager" = { EnableStandardClickToShowDesktop = false }
 
-[bootstrap.hooks.pre-dotfiles]
-run = "git -C {{config_root}} submodule update --init"
-
 [bootstrap.hooks.post-defaults]
 run = "killall Finder SystemUIServer Dock || true"
 
@@ -49,7 +43,6 @@ login_shell = "/bin/zsh"
 
 [tasks.bootstrap]
 run = [
-  "git -C {{config_root}} submodule update --init",
   "brew bundle --file={{config_root}}/Brewfile",
   "pre-commit install --install-hooks",
 ]

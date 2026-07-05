@@ -28,20 +28,17 @@ Use your `DOTFILE_DIR` if you chose a non-default location.
 
 Machine-level settings for Claude Code / cursor-agent (`settings.json`,
 statusline, MCP servers) live in this repo under `.config/claude` /
-`.config/cursor`. Portable rules and skills come from the
-[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) submodule. Both are
-symlinked into `~/.claude` / `~/.cursor` by this repo's `mise.toml`:
-
-```bash
-git submodule update --init
-mise dotfiles apply
-```
+`.config/cursor`, symlinked into `~/.claude` / `~/.cursor` by this repo's
+`mise.toml`. Portable rules and skills come from the
+[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) plugin, pinned
+declaratively in `.config/claude/settings.json` (`extraKnownMarketplaces` +
+`enabledPlugins`) — Claude Code installs it on session start. See the
+rules-for-ai README for Codex / Cursor setup.
 
 To pick up a newer rules-for-ai:
 
-```bash
-git submodule update --remote rules-for-ai
-git add rules-for-ai && git commit -m "chore: bump rules-for-ai"
+```
+/plugin marketplace update rules-for-ai
 ```
 
 Setup: [`mise.toml`](mise.toml)

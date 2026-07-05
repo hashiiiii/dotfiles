@@ -45,9 +45,18 @@
   "enabledPlugins": {
     "code-simplifier@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": false,
+    "rules-for-ai@rules-for-ai": true,
     "security-guidance@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "rules-for-ai": {
+      "source": {
+        "source": "github",
+        "repo": "hashiiiii/rules-for-ai"
+      }
+    }
   },
   "outputStyle": "Explanatory",
   "language": "Japanese",
