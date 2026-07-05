@@ -1,6 +1,20 @@
 {
     "profiles": [
         {
+            "complex_modifications": {
+                "rules": [
+                    {
+                        "description": "Right key to fn modifier",
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "japanese_pc_katakana" },
+                                "to": [{ "key_code": "fn" }],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
             "devices": [
                 {
                     "identifiers": {
@@ -39,6 +53,14 @@
                             "to": [{ "key_code": "caps_lock" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_consumer": true,
+                        "product_id": 3,
+                        "vendor_id": 11240
+                    },
+                    "ignore": false
                 }
             ],
             "name": "Default profile",
