@@ -26,13 +26,20 @@ Use your `DOTFILE_DIR` if you chose a non-default location.
 
 ## AI agent configs
 
-Claude Code / cursor-agent configs live in
-[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) and deploy
-themselves:
+Claude Code / cursor-agent configs come from the
+[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) submodule and are
+symlinked into `~/.claude` / `~/.cursor` by this repo's `mise.toml`:
 
 ```bash
-git clone https://github.com/hashiiiii/rules-for-ai.git ~/workspace/rules-for-ai
-cd ~/workspace/rules-for-ai && mise dotfiles apply
+git submodule update --init
+mise dotfiles apply
+```
+
+To pick up a newer rules-for-ai:
+
+```bash
+git submodule update --remote rules-for-ai
+git add rules-for-ai && git commit -m "chore: bump rules-for-ai"
 ```
 
 Setup: [`mise.toml`](mise.toml)

@@ -36,7 +36,7 @@ if [ -d "$DOTFILE_DIR/.git" ]; then
 else
   info "Cloning into $DOTFILE_DIR..."
   mkdir -p "$(dirname "$DOTFILE_DIR")"
-  git clone "$REPO_URL" "$DOTFILE_DIR"
+  git clone --recurse-submodules "$REPO_URL" "$DOTFILE_DIR"
 fi
 
 # Pre-apply dotfiles so the global ~/.config/mise/config.toml ([tools]) is in place before
@@ -44,6 +44,8 @@ fi
 cd "$DOTFILE_DIR"
 info "Trusting mise config..."
 mise trust
+info "Initializing submodules..."
+git -C "$DOTFILE_DIR" submodule update --init
 info "Applying dotfiles..."
 mise dotfiles apply --yes
 info "Running mise bootstrap..."
