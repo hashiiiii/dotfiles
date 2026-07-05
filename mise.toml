@@ -37,6 +37,9 @@ tap_to_click = true
 "com.apple.dock"          = { tilesize = 52.0 }
 "com.apple.WindowManager" = { EnableStandardClickToShowDesktop = false }
 
+[bootstrap.hooks.pre-dotfiles]
+run = "git -C {{config_root}} submodule update --init"
+
 [bootstrap.hooks.post-defaults]
 run = "killall Finder SystemUIServer Dock || true"
 

@@ -1,3 +1,4 @@
 [submodule "rules-for-ai"]
 	path = rules-for-ai
 	url = https://github.com/hashiiiii/rules-for-ai.git
+	branch = main
