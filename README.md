@@ -26,8 +26,10 @@ Use your `DOTFILE_DIR` if you chose a non-default location.
 
 ## AI agent configs
 
-Claude Code / cursor-agent configs come from the
-[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) submodule and are
+Machine-level settings for Claude Code / cursor-agent (`settings.json`,
+statusline, MCP servers) live in this repo under `.config/claude` /
+`.config/cursor`. Portable rules and skills come from the
+[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) submodule. Both are
 symlinked into `~/.claude` / `~/.cursor` by this repo's `mise.toml`:
 
 ```bash

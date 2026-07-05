@@ -7,15 +7,16 @@ experimental = true
 "~/.config"   = ".config"
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
-"~/.claude/hooks"         = ".config/claude/hooks"
-# AI agent configs from the rules-for-ai submodule. One skills source feeds
-# both harnesses (Claude Code and cursor-agent read SKILL.md).
+# Machine-level agent settings live in this repo; portable rules and skills
+# come from the rules-for-ai submodule. One skills source feeds both
+# harnesses (Claude Code and cursor-agent read SKILL.md).
+"~/.claude/hooks"                 = ".config/claude/hooks"
+"~/.claude/settings.json"         = ".config/claude/settings.json"
+"~/.claude/statusline-command.sh" = ".config/claude/statusline-command.sh"
+"~/.cursor/mcp.json"              = ".config/cursor/mcp.json"
 "~/.claude/CLAUDE.md"             = "rules-for-ai/AGENTS.md"
-"~/.claude/settings.json"         = "rules-for-ai/claude/settings.json"
-"~/.claude/statusline-command.sh" = "rules-for-ai/claude/statusline-command.sh"
 "~/.claude/skills"                = "rules-for-ai/skills"
 "~/.cursor/skills"                = "rules-for-ai/skills"
-"~/.cursor/mcp.json"              = "rules-for-ai/cursor/mcp.json"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.
