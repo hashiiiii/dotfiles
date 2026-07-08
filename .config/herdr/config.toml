@@ -8,7 +8,7 @@ name = "tokyo-night"
 version_check = false
 
 [ui]
-show_agent_labels_on_pane_borders = true
+show_agent_labels_on_pane_borders = false
 agent_panel_sort = "priority"
 prompt_new_tab_name = false
 
