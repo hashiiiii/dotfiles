@@ -1,0 +1,28 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.11.2",
+  "schemes" : [
+    {
+      "if" : {
+        "device" : {
+          "category" : "mouse"
+        }
+      },
+      "pointer" : {
+        "disableAcceleration" : true
+      }
+    },
+    {
+      "if" : {
+        "device" : {
+          "productID" : "0xb041",
+          "vendorID" : "0x46d"
+        }
+      },
+      "pointer" : {
+        "acceleration" : 2,
+        "disableAcceleration" : true,
+        "speed" : 0.1
+      }
+    }
+  ]
+}

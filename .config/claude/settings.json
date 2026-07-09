@@ -20,6 +20,7 @@
     "ask": [],
     "defaultMode": "auto"
   },
+  "model": "opus[1m]",
   "fallbackModel": [
     "claude-opus-4-8"
   ],
@@ -62,6 +63,7 @@
   "spinnerTipsEnabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "advisorModel": "opus",
   "awaySummaryEnabled": true,
   "autoUpdatesChannel": "latest",
   "tui": "fullscreen",
@@ -71,6 +73,5 @@
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true,
-  "model": "sonnet"
+  "skipAutoPermissionPrompt": true
 }

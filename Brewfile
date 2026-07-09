@@ -57,6 +57,7 @@ cask "unity-hub"              # Unity game engine manager
 cask "slack"                  # Team communication
 cask "discord"                # Voice and text chat
 cask "karabiner-elements"     # Keyboard customization tool
+cask "linearmouse"            # Per-device pointer acceleration / speed
 cask "git-credential-manager" # Cross-platform Git credential helper
 cask "windows-app"            # Remote desktop
 cask "docker-desktop"         # Docker container manager
