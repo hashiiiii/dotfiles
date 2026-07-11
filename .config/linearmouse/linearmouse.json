@@ -21,7 +21,7 @@
       "pointer" : {
         "acceleration" : 0,
         "disableAcceleration" : false,
-        "speed" : 0.1
+        "speed" : 0.6
       }
     }
   ]
