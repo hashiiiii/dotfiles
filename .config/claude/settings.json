@@ -20,7 +20,7 @@
     "ask": [],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "fable",
   "fallbackModel": [
     "claude-opus-4-8"
   ],
