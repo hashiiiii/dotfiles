@@ -61,7 +61,7 @@ cask "linearmouse"            # Per-device pointer acceleration / speed
 cask "git-credential-manager" # Cross-platform Git credential helper
 cask "windows-app"            # Remote desktop
 cask "docker-desktop"         # Docker container manager
-cask "licecap"                # GIF screen capture tool
+cask "kap"                    # GIF screen capture tool
 cask "claude"                 # AI assistant
 cask "ghostty"                # Terminal for AI interactions
 cask "zulu@17"                # OpenJDK distribution for Java 17
