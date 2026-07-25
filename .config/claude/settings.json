@@ -20,7 +20,7 @@
     "ask": [],
     "defaultMode": "auto"
   },
-  "model": "fable",
+  "model": "claude-fable-5[1m]",
   "fallbackModel": [
     "claude-opus-4-8"
   ],
@@ -43,12 +43,16 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "code-simplifier@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": false,
     "frontend-design@claude-plugins-official": false,
+    "gopls-lsp@claude-plugins-official": false,
     "security-guidance@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": false,
     "rules-for-ai@hashiiiii": true
+  },
+  "skillOverrides": {
+    "find-skills": "off"
   },
   "extraKnownMarketplaces": {
     "hashiiiii": {
@@ -63,7 +67,6 @@
   "spinnerTipsEnabled": false,
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
-  "advisorModel": "opus",
   "awaySummaryEnabled": true,
   "autoUpdatesChannel": "latest",
   "tui": "fullscreen",
