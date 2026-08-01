@@ -36,6 +36,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'If you write English technical text this turn (documentation, README, GitHub issues, PR titles and descriptions, code comments, commit messages, release notes), invoke and follow the simple-english skill (ASD-STE100).'",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "statusLine": {

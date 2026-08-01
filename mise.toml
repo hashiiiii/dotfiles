@@ -10,8 +10,11 @@ experimental = true
 # Machine-level agent settings live in this repo; portable rules and skills
 # come from the rules-for-ai plugin, pinned declaratively in
 # .config/claude/settings.json (extraKnownMarketplaces + enabledPlugins).
+# Third-party skills vendored under .config/claude/skills get their own
+# per-skill mapping so machine-local skills in ~/.claude/skills stay untouched.
 "~/.claude/hooks"                 = ".config/claude/hooks"
 "~/.claude/settings.json"         = ".config/claude/settings.json"
+"~/.claude/skills/simple-english" = ".config/claude/skills/simple-english"
 "~/.claude/statusline-command.sh" = ".config/claude/statusline-command.sh"
 "~/.cursor/mcp.json"              = ".config/cursor/mcp.json"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
