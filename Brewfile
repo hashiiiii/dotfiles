@@ -72,6 +72,7 @@ cask "figma"                  # Layout design
 cask "cursor"                 # AI code editor
 cask "cursor-cli"             # Command-line agent for Cursor
 cask "codex"                  # AI coding agent by OpenAI
+cask "chatgpt"                # AI assistant
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
