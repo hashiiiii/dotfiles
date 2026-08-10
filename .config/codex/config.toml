@@ -75,7 +75,7 @@ enabled = true
 enabled = true
 
 [plugins."security-guidance@claude-plugins-official"]
-enabled = true
+enabled = false
 
 [plugins."superpowers@claude-plugins-official"]
 enabled = true
@@ -84,61 +84,61 @@ enabled = true
 enabled = true
 
 [plugins."apollo@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."bio-research@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."brand-voice@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."common-room@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."cowork-plugin-management@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."customer-support@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."data@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."design@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."engineering@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."enterprise-search@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."finance@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."human-resources@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."legal@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."marketing@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."operations@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."product-management@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."productivity@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."sales@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."slack-by-salesforce@claude-cowork"]
-enabled = true
+enabled = false
 
 [plugins."computer-use@openai-bundled"]
 enabled = true
@@ -190,4 +190,18 @@ NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "323bc3e687e17d7e377238d9f4c69111c4d0
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/hashiiiii/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 
 [desktop]
-external-agent-import-sync-enabled = true
+external-agent-import-sync-enabled = false
+
+[hooks.state]
+
+[hooks.state."/Users/hashiiiii/.codex/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:f71bea33c37ea7ac8ede652b46a569e76102484ef96ee6848d1730ee7ce8c142"
+
+[hooks.state."/Users/hashiiiii/.codex/hooks.json:user_prompt_submit:0:0"]
+trusted_hash = "sha256:6348ee05b4efcca4770ca4f3b8ba84c20d9563d320cabcb88fd5936d270c7569"
+
+[hooks.state."rules-for-ai@hashiiiii:hooks/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:6fc6a5623a7eb288596f532cbdd29f48dc181eb3fd854b84fc461f504e908294"
+
+[hooks.state."rules-for-ai@hashiiiii:hooks/hooks.json:session_start:0:0"]
+trusted_hash = "sha256:13ab4d2d78aebb1ae8caccebb7ac81cd1756dd3a644b05691ea8770060d3df75"
