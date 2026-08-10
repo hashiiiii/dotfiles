@@ -26,14 +26,19 @@ Use your `DOTFILE_DIR` if you chose a non-default location.
 
 ## AI agent configs
 
-Machine-level settings for Claude Code / cursor-agent (`settings.json`,
-statusline, MCP servers) live in this repo under `.config/claude` /
-`.config/cursor`, symlinked into `~/.claude` / `~/.cursor` by this repo's
-`mise.toml`. Portable rules and skills come from the
-[rules-for-ai](https://github.com/hashiiiii/rules-for-ai) plugin, pinned
-declaratively in `.config/claude/settings.json` (`extraKnownMarketplaces` +
-`enabledPlugins`) — Claude Code installs it on session start. See the
-rules-for-ai README for Codex / Cursor setup.
+Public settings for Claude Code, Codex, and Cursor live below `.config/`.
+`mise.toml` links each settings file into its product directory.
+Runtime directories remain local because they contain credentials, history, caches, and generated state.
+
+Vendored personal skills live in `.agents/skills/`.
+Codex and Cursor load them through `~/.agents/skills/`.
+Claude Code loads the same sources through `~/.claude/skills/`.
+The `stop-ai-slop-jp` snapshot uses [upstream revision `e09d327`](https://github.com/iKora128/stop-ai-slop-jp/commit/e09d32796f253a62693885757cea484c275d06f2).
+Its directory keeps the upstream MIT license.
+
+Portable rules also come from the [rules-for-ai](https://github.com/hashiiiii/rules-for-ai) plugin.
+`.config/claude/settings.json` pins this plugin for Claude Code.
+See the rules-for-ai README for its Codex and Cursor setup.
 
 To pick up a newer rules-for-ai:
 

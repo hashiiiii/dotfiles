@@ -1,0 +1,10 @@
+{
+    "workbench.colorTheme": "Tokyo Night",
+    "window.autoDetectColorScheme": false,
+    "cursor.composer.editorConversationDensity": "compact-all-grouped",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "zig.zls.enabled": "on",
+    "git.confirmSync": false
+}

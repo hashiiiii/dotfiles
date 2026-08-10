@@ -7,16 +7,23 @@ experimental = true
 "~/.config"   = ".config"
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
-# Machine-level agent settings live in this repo; portable rules and skills
-# come from the rules-for-ai plugin, pinned declaratively in
-# .config/claude/settings.json (extraKnownMarketplaces + enabledPlugins).
-# Third-party skills vendored under .config/claude/skills get their own
-# per-skill mapping so machine-local skills in ~/.claude/skills stay untouched.
-"~/.claude/hooks"                 = ".config/claude/hooks"
-"~/.claude/settings.json"         = ".config/claude/settings.json"
-"~/.claude/skills/simple-english" = ".config/claude/skills/simple-english"
-"~/.claude/statusline-command.sh" = ".config/claude/statusline-command.sh"
-"~/.cursor/mcp.json"              = ".config/cursor/mcp.json"
+# Link portable agent settings individually because their runtime directories
+# also contain credentials, history, caches, and generated state.
+"~/.agents/skills/simple-english"     = ".agents/skills/simple-english"
+"~/.agents/skills/stop-ai-slop-jp"    = ".agents/skills/stop-ai-slop-jp"
+"~/.claude/hooks"                     = ".config/claude/hooks"
+"~/.claude/settings.json"             = ".config/claude/settings.json"
+"~/.claude/skills/simple-english"     = ".agents/skills/simple-english"
+"~/.claude/skills/stop-ai-slop-jp"    = ".agents/skills/stop-ai-slop-jp"
+"~/.claude/statusline-command.sh"     = ".config/claude/statusline-command.sh"
+"~/.codex/config.toml"                = ".config/codex/config.toml"
+"~/.codex/herdr-agent-state.sh"       = ".config/codex/herdr-agent-state.sh"
+"~/.codex/hooks.json"                 = ".config/codex/hooks.json"
+"~/.cursor/herdr-agent-state.sh"      = ".config/cursor/herdr-agent-state.sh"
+"~/.cursor/hooks.json"                = ".config/cursor/hooks.json"
+"~/.cursor/mcp.json"                  = ".config/cursor/mcp.json"
+"~/Library/Application Support/Cursor/User/keybindings.json" = ".config/cursor/keybindings.json"
+"~/Library/Application Support/Cursor/User/settings.json"    = ".config/cursor/settings.json"
 "~/Library/Developer/Xcode/UserData/FontAndColorThemes/tokyo-night.xccolortheme" = ".config/xcode/tokyo-night.xccolortheme"
 
 # Curated sections: semantic keys mise maps to canonical defaults writes.

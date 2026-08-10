@@ -1,0 +1,193 @@
+notify = [ "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended" ]
+model = "gpt-5.6-sol"
+model_reasoning_effort = "medium"
+approval_policy = "never"
+sandbox_mode = "workspace-write"
+
+
+[projects."/Users/hashiiiii/workspace/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/jukki/openmoney"]
+trust_level = "trusted"
+
+[features]
+hooks = true
+prevent_idle_sleep = true
+memories = true
+js_repl = false
+
+[marketplaces.openai-bundled]
+last_updated = "2026-08-09T07:59:01Z"
+source_type = "local"
+source = "/Users/hashiiiii/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-08-09T07:57:08Z"
+source_type = "local"
+source = "/Users/hashiiiii/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.claude-plugins-official]
+last_updated = "2026-08-10T00:30:29Z"
+last_revision = "3da105324a27aa7b1f435a3925f8626092891d4e"
+source_type = "git"
+source = "https://github.com/anthropics/claude-plugins-official.git"
+
+[marketplaces.hashiiiii]
+last_updated = "2026-08-09T08:02:56Z"
+last_revision = "1bc528bbe2067cb9df820e780a2bed879536a73f"
+source_type = "git"
+source = "https://github.com/hashiiiii/rules-for-ai.git"
+
+[marketplaces.claude-cowork]
+last_updated = "2026-08-09T21:44:35Z"
+source_type = "local"
+source = "/Users/hashiiiii/.codex/plugins/cache/claude-cowork"
+
+[plugins."sites@openai-bundled"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."visualize@openai-bundled"]
+enabled = true
+
+[plugins."google-calendar@openai-curated"]
+enabled = true
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
+[plugins."security-guidance@claude-plugins-official"]
+enabled = true
+
+[plugins."superpowers@claude-plugins-official"]
+enabled = true
+
+[plugins."rules-for-ai@hashiiiii"]
+enabled = true
+
+[plugins."apollo@claude-cowork"]
+enabled = true
+
+[plugins."bio-research@claude-cowork"]
+enabled = true
+
+[plugins."brand-voice@claude-cowork"]
+enabled = true
+
+[plugins."common-room@claude-cowork"]
+enabled = true
+
+[plugins."cowork-plugin-management@claude-cowork"]
+enabled = true
+
+[plugins."customer-support@claude-cowork"]
+enabled = true
+
+[plugins."data@claude-cowork"]
+enabled = true
+
+[plugins."design@claude-cowork"]
+enabled = true
+
+[plugins."engineering@claude-cowork"]
+enabled = true
+
+[plugins."enterprise-search@claude-cowork"]
+enabled = true
+
+[plugins."finance@claude-cowork"]
+enabled = true
+
+[plugins."human-resources@claude-cowork"]
+enabled = true
+
+[plugins."legal@claude-cowork"]
+enabled = true
+
+[plugins."marketing@claude-cowork"]
+enabled = true
+
+[plugins."operations@claude-cowork"]
+enabled = true
+
+[plugins."product-management@claude-cowork"]
+enabled = true
+
+[plugins."productivity@claude-cowork"]
+enabled = true
+
+[plugins."sales@claude-cowork"]
+enabled = true
+
+[plugins."slack-by-salesforce@claude-cowork"]
+enabled = true
+
+[plugins."computer-use@openai-bundled"]
+enabled = true
+
+[plugins."chrome@openai-bundled"]
+enabled = true
+
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/hashiiiii/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+CODEX_HOME = "/Users/hashiiiii/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "323bc3e687e17d7e377238d9f4c69111c4d0e6219103b6316d8c52082489533b"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.803.41515"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+
+[mcp_servers.computer-use]
+command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+args = [ "mcp" ]
+cwd = "."
+enabled = false
+
+[mcp_servers.context7]
+command = "npx"
+args = [ "-y", "@upstash/context7-mcp@latest" ]
+
+[mcp_servers.deepwiki]
+command = "npx"
+args = [ "-y", "mcp-deepwiki@latest" ]
+
+[mcp_servers.playwright]
+command = "npx"
+args = [ "-y", "@playwright/mcp@latest" ]
+
+[shell_environment_policy.set]
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "323bc3e687e17d7e377238d9f4c69111c4d0e6219103b6316d8c52082489533b"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/hashiiiii/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
+
+[desktop]
+external-agent-import-sync-enabled = true

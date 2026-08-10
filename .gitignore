@@ -1,7 +1,7 @@
 # macOS
 .DS_Store
 
-# ~/.config → this repo (public). Deny secrets/runtime only; everything else is tracked.
+# ~/.config → this repo (public). Deny its secrets and runtime paths.
 .config/gh/hosts.yml
 .config/karabiner/automatic_backups/
 .config/mise/*
@@ -26,3 +26,7 @@ exercism/
 
 .idea/
 .vscode/
+
+# Local agent planning artifacts
+docs/
+.superpowers/
