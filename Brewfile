@@ -43,6 +43,7 @@ brew "libpq"                  # PostgreSQL interface
 brew "buf"                    # Protocol Buffers tooling
 brew "bun"                    # JavaScript runtime
 brew "herdr"                  # Agent multiplexer for terminal AI agents
+brew "ccusage"                # Agent cost visualizer
 
 # Security (commit-time secret-leak guard; see .pre-commit-config.yaml)
 brew "gitleaks"               # Secret scanner used by the pre-commit hook
