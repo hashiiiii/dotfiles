@@ -199,17 +199,6 @@ args = [
     "@playwright/mcp@latest",
 ]
 
-[mcp_servers.figma-console]
-command = "npx"
-args = [
-    "-y",
-    "figma-console-mcp@latest",
-]
-env_vars = ["FIGMA_ACCESS_TOKEN"]
-
-[mcp_servers.figma-console.env]
-ENABLE_MCP_APPS = "true"
-
 [shell_environment_policy.set]
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "323bc3e687e17d7e377238d9f4c69111c4d0e6219103b6316d8c52082489533b"
