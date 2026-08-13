@@ -34,7 +34,7 @@ source_type = "local"
 source = "/Users/hashiiiii/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-08-09T07:57:08Z"
+last_updated = "2026-08-12T20:18:27Z"
 source_type = "local"
 source = "/Users/hashiiiii/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -51,7 +51,7 @@ source_type = "git"
 source = "https://github.com/hashiiiii/rules-for-ai.git"
 
 [marketplaces.claude-cowork]
-last_updated = "2026-08-11T07:26:43Z"
+last_updated = "2026-08-11T16:00:11Z"
 source_type = "local"
 source = "/Users/hashiiiii/.codex/plugins/cache/claude-cowork"
 
@@ -219,6 +219,9 @@ followUpQueueMode = "queue"
 conversationDetailMode = "STEPS_COMMANDS"
 git-pull-request-merge-method = "squash"
 git-branch-prefix = ""
+keepRemoteControlAwakeWhilePluggedIn = true
+open-link-in-target-preference = "external-browser"
+open-local-url-in-target-preference = "external-browser"
 
 [desktop.open-in-target-preferences]
 global = "cursor"
