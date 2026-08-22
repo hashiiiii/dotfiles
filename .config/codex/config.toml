@@ -36,18 +36,17 @@ memories = true
 js_repl = false
 
 [marketplaces.openai-bundled]
-last_updated = "2026-08-19T01:27:37Z"
 source_type = "local"
 source = "/Users/hashiiiii/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-08-19T01:18:11Z"
+last_updated = "2026-08-20T03:00:01Z"
 source_type = "local"
 source = "/Users/hashiiiii/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
 [marketplaces.claude-plugins-official]
-last_updated = "2026-08-19T01:26:31Z"
-last_revision = "49b5ab1a022e9f7daa72e35ec10bff3ee20a4a52"
+last_updated = "2026-08-20T02:59:30Z"
+last_revision = "0fc2bb13a805969c14b0fe9398bad41db346d84e"
 source_type = "git"
 source = "https://github.com/anthropics/claude-plugins-official.git"
 
@@ -179,12 +178,13 @@ NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/hashiiiii/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 CODEX_HOME = "/Users/hashiiiii/.codex"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_TINYSKY_ENABLED = "0"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.814.41407"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.814.41407/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.818.31338"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.818.31338/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 

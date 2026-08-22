@@ -74,6 +74,7 @@ cask "cursor"                 # AI code editor
 cask "cursor-cli"             # Command-line agent for Cursor
 cask "codex"                  # AI coding agent by OpenAI
 cask "chatgpt"                # AI assistant
+cask "macshot"                # Screen shot tool
 
 # Fonts
 cask "font-jetbrains-mono-nerd-font"
