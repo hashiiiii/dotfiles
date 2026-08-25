@@ -29,6 +29,9 @@ trust_level = "trusted"
 [projects."/Users/hashiiiii/workspace/jukki/openmoney-infra"]
 trust_level = "trusted"
 
+[projects."/Users/hashiiiii/workspace/life-plan"]
+trust_level = "trusted"
+
 [features]
 hooks = true
 prevent_idle_sleep = true
@@ -57,7 +60,6 @@ source_type = "git"
 source = "https://github.com/hashiiiii/rules-for-ai.git"
 
 [marketplaces.claude-cowork]
-last_updated = "2026-08-11T16:00:11Z"
 source_type = "local"
 source = "/Users/hashiiiii/.codex/plugins/cache/claude-cowork"
 
@@ -183,8 +185,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunc
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = "Control desktop apps on macOS through Computer Use."
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.818.41509"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.818.41509/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.818.61809"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.818.61809/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
 
@@ -224,7 +226,7 @@ notifications-turn-mode = "always"
 hotkey-window-projectless-default-enabled = true
 show-context-window-usage = true
 followUpQueueMode = "queue"
-conversationDetailMode = "STEPS_PROSE"
+conversationDetailMode = "STEPS_COMMANDS"
 git-pull-request-merge-method = "squash"
 git-branch-prefix = ""
 keepRemoteControlAwakeWhilePluggedIn = true
