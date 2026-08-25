@@ -34,7 +34,8 @@ Vendored personal skills live in `.agents/skills/`.
 Codex and Cursor load them through `~/.agents/skills/`.
 Claude Code loads the same sources through `~/.claude/skills/`.
 The `stop-ai-slop-jp` snapshot uses [upstream revision `e09d327`](https://github.com/iKora128/stop-ai-slop-jp/commit/e09d32796f253a62693885757cea484c275d06f2).
-Its directory keeps the upstream MIT license.
+The `show-me` snapshot uses [upstream revision `3c26291`](https://github.com/humanlayer/skills/commit/3c2629142c5d437428269b1b722b08c0b87f574d).
+Each directory keeps its upstream MIT license.
 
 Portable rules also come from the [rules-for-ai](https://github.com/hashiiiii/rules-for-ai) plugin.
 `.config/claude/settings.json` pins this plugin for Claude Code.
