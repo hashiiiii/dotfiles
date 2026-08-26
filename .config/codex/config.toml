@@ -32,6 +32,12 @@ trust_level = "trusted"
 [projects."/Users/hashiiiii/workspace/life-plan"]
 trust_level = "trusted"
 
+[projects."/Users/hashiiiii/Documents/Codex/2026-08-26/ogp-rails-cache-valkey-s3-ogp"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-08-26/cl"]
+trust_level = "trusted"
+
 [features]
 hooks = true
 prevent_idle_sleep = true
@@ -189,12 +195,6 @@ BROWSER_USE_CODEX_APP_VERSION = "26.818.61809"
 NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.818.61809/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
-
-[mcp_servers.computer-use]
-command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
-args = ["mcp"]
-cwd = "."
-enabled = false
 
 [mcp_servers.context7]
 command = "npx"
