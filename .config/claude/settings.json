@@ -20,10 +20,13 @@
     "ask": [],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
+  "model": "fable[1m]",
   "fallbackModel": [
     "claude-opus-4-8"
   ],
+  "skillOverrides": {
+    "find-skills": "off"
+  },
   "hooks": {
     "SessionStart": [
       {
@@ -61,9 +64,6 @@
     "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": false,
     "rules-for-ai@hashiiiii": true
-  },
-  "skillOverrides": {
-    "find-skills": "off"
   },
   "extraKnownMarketplaces": {
     "hashiiiii": {

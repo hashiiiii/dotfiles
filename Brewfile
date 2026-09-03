@@ -55,6 +55,7 @@ cask "google-chrome"          # Web browser
 cask "zed"                    # Code editor
 cask "jetbrains-toolbox"      # JetBrains tools manager
 cask "unity-hub"              # Unity game engine manager
+cask "unity-cli"              # Homebrew keeps the Unity CLI current
 cask "slack"                  # Team communication
 cask "discord"                # Voice and text chat
 cask "karabiner-elements"     # Keyboard customization tool

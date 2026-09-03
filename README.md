@@ -35,6 +35,7 @@ Codex and Cursor load them through `~/.agents/skills/`.
 Claude Code loads the same sources through `~/.claude/skills/`.
 The `stop-ai-slop-jp` snapshot uses [upstream revision `e09d327`](https://github.com/iKora128/stop-ai-slop-jp/commit/e09d32796f253a62693885757cea484c275d06f2).
 The `show-me` snapshot uses [upstream revision `3c26291`](https://github.com/humanlayer/skills/commit/3c2629142c5d437428269b1b722b08c0b87f574d).
+The `hallmark` snapshot uses [upstream revision `13ac0ec`](https://github.com/Nutlope/hallmark/commit/13ac0ec7e148655948100b6396439e481361d690).
 Each directory keeps its upstream MIT license.
 
 Portable rules also come from the [rules-for-ai](https://github.com/hashiiiii/rules-for-ai) plugin.
