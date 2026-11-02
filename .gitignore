@@ -14,10 +14,14 @@
 .config/gcloud/
 .config/op/
 .config/cagent/
+.config/origin-cli/
 .config/configstore/
 .config/github-copilot/
 .config/exercism/
 .config/jgit/
+
+# Neovim is a separate checkout with its own Git history.
+.config/nvim/
 
 exercism/
 

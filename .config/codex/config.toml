@@ -2,16 +2,16 @@ notify = [
     "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient",
     "turn-ended",
 ]
-model = "gpt-6-astra"
+model = "gpt-6.1-sol"
 model_reasoning_effort = "max"
 approval_policy = "never"
 sandbox_mode = "danger-full-access"
 approvals_reviewer = "user"
 personality = "pragmatic"
-service_tier = "default"
+service_tier = "priority"
 
 [agents]
-default_subagent_model = "gpt-5.6-luna"
+default_subagent_model = "gpt-6-luna"
 default_subagent_reasoning_effort = "max"
 
 [projects."/Users/hashiiiii/workspace/dotfiles"]
@@ -44,11 +44,60 @@ trust_level = "trusted"
 [projects."/Users/hashiiiii/workspace/unidog/nade"]
 trust_level = "trusted"
 
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-07/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-07/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-09/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-11/rails-env-sidekiq-role"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-11/new-chat"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/prefablens-merge-check/repo"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/Documents/Codex/2026-09-14/realtime-voice-chat"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/recruitment"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/LeetCode"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/Lantana"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/zig-keymap"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/homepage"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/Handy"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/tokyo-menkyo-notifier"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/aquarium"]
+trust_level = "trusted"
+
+[projects."/Users/hashiiiii/workspace/reknotes"]
+trust_level = "trusted"
+
 [features]
 hooks = true
 prevent_idle_sleep = true
 memories = true
 js_repl = false
+analytics_plan_history = true
 
 [marketplaces.openai-bundled]
 source_type = "local"
@@ -73,9 +122,6 @@ source = "https://github.com/hashiiiii/rules-for-ai.git"
 [marketplaces.claude-cowork]
 source_type = "local"
 source = "/Users/hashiiiii/.codex/plugins/cache/claude-cowork"
-
-[plugins."sites@openai-bundled"]
-enabled = true
 
 [plugins."browser@openai-bundled"]
 enabled = true
@@ -108,9 +154,6 @@ enabled = true
 enabled = false
 
 [plugins."superpowers@claude-plugins-official"]
-enabled = true
-
-[plugins."rules-for-ai@hashiiiii"]
 enabled = true
 
 [plugins."apollo@claude-cowork"]
@@ -182,9 +225,13 @@ enabled = true
 [plugins."unified-computer-use@openai-bundled"]
 enabled = true
 
+[plugins."rules-for-ai@hashiiiii"]
+enabled = true
+
 [mcp_servers.node_repl]
 args = []
 command = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node_repl"
+env_vars = ["BROWSER_USE_ACCESS_EXECUTOR_ID", "BROWSER_USE_ACCESS_PIPE_PATH", "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"]
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
@@ -193,16 +240,16 @@ NODE_REPL_NODE_MODULE_DIRS = "/Applications/ChatGPT.app/Contents/Resources/cua_n
 NODE_REPL_NODE_PATH = "/Applications/ChatGPT.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/hashiiiii/.codex:/Applications/ChatGPT.app/Contents/Resources/cua_node/lib/node_modules"
 CODEX_HOME = "/Users/hashiiiii/.codex"
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
 BROWSER_USE_TINYSKY_ENABLED = "1"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.901.31953"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.901.31953/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1027.51404"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.1027.51404/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
-CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex"
+CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
 [mcp_servers.context7]
 command = "npx"
@@ -210,6 +257,7 @@ args = [
     "-y",
     "@upstash/context7-mcp@latest",
 ]
+enabled = false
 
 [mcp_servers.deepwiki]
 command = "npx"
@@ -217,6 +265,7 @@ args = [
     "-y",
     "mcp-deepwiki@latest",
 ]
+enabled = false
 
 [mcp_servers.playwright]
 command = "npx"
@@ -224,12 +273,13 @@ args = [
     "-y",
     "@playwright/mcp@latest",
 ]
+enabled = false
 
 [mcp_servers.computer-use]
 command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
 args = ["mcp"]
 cwd = "."
-enabled = false
+enabled = true
 
 [shell_environment_policy.set]
 NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "9230e2bd8b24b7ac7a0ba6774c64bf0d78ecdabbdd91d0ed627b02a587bae2df"
@@ -240,13 +290,14 @@ notifications-turn-mode = "always"
 hotkey-window-projectless-default-enabled = true
 show-context-window-usage = true
 followUpQueueMode = "queue"
-conversationDetailMode = "STEPS_COMMANDS"
+conversationDetailMode = "STEPS_PROSE"
 git-pull-request-merge-method = "squash"
 git-branch-prefix = ""
 keepRemoteControlAwakeWhilePluggedIn = true
 open-link-in-target-preference = "external-browser"
 open-local-url-in-target-preference = "external-browser"
 enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "persistent", "max"]
+avatar-overlay-pet-visible = false
 
 [desktop.open-in-target-preferences]
 global = "cursor"
@@ -270,8 +321,14 @@ trusted_hash = "sha256:13ab4d2d78aebb1ae8caccebb7ac81cd1756dd3a644b05691ea877006
 trusted_hash = "sha256:65798b364eebf0aeaea46ac57a9c1d5a3b72ee8ba5d94bbd0eaa056185f0b3ca"
 enabled = true
 
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "model", "reasoning", "git-branch", "pull-request-number", "branch-changes", "run-state", "context-remaining", "fast-mode"]
+status_line_use_colors = true
+screen_reader_detection_done = true
+
 [tui.model_availability_nux]
 gpt-6-astra = 4
+"gpt-6.1-sol" = 4
 
 [notice]
 hide_rate_limit_model_nudge = true

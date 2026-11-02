@@ -82,3 +82,6 @@ FAST_HIGHLIGHT_STYLES[redirection]='fg=#89ddff'
 FAST_HIGHLIGHT_STYLES[variable]='fg=#bb9af7'
 FAST_HIGHLIGHT_STYLES[mathnum]='fg=#ff9e64'
 FAST_HIGHLIGHT_STYLES[comment]='fg=#565f89'
+
+# Unity CLI
+. "/Users/hashiiiii/.unity/env"

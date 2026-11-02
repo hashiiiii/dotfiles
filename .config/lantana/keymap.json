@@ -1,0 +1,31 @@
+{
+  "global": {
+    "quit": ["q"],
+    "back": ["Escape"],
+    "focus_next": ["Tab"],
+    "toggle_render_mode": ["Shift+r"]
+  },
+  "tree": {
+    "move_up": ["Up", "k"],
+    "move_down": ["Down", "j"],
+    "collapse_or_focus_parent": ["Left", "h"],
+    "expand_folder": ["Right", "l"],
+    "activate": ["Enter"],
+    "toggle_folder": ["c"]
+  },
+  "content": {
+    "scroll_up": ["Up", "k"],
+    "scroll_down": ["Down", "j"],
+    "page_up": ["PageUp"],
+    "page_down": ["PageDown"],
+    "pan_left": ["Left", "h"],
+    "pan_right": ["Right", "l"]
+  },
+  "dialog": {
+    "cancel": ["Escape", "n"],
+    "confirm": ["y"],
+    "choose_cancel": ["Left"],
+    "choose_quit": ["Right"],
+    "activate_choice": ["Enter"]
+  }
+}

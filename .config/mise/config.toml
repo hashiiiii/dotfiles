@@ -2,12 +2,33 @@
 dotnet = '9'
 python = '3.10'
 ruby = '3.4.2'
-go = '1.26.0'
+go = '1.26.10'
 rust = "1.91.1"
+node = "24.22.1"
+bun = "canary"
+deno = "2.9.8"
 
 [env]
 _.python.venv = '{{env.HOME}}/.venv'
 _.path = ["/opt/homebrew/opt/libpq/bin"]
+
+# Keep SDKs on the maintained CA bundle.
+SSL_CERT_FILE = "/opt/homebrew/etc/ca-certificates/cert.pem"
+CURL_CA_BUNDLE = "/opt/homebrew/etc/ca-certificates/cert.pem"
+REQUESTS_CA_BUNDLE = "/opt/homebrew/etc/ca-certificates/cert.pem"
+PIP_CERT = "/opt/homebrew/etc/ca-certificates/cert.pem"
+AWS_CA_BUNDLE = "/opt/homebrew/etc/ca-certificates/cert.pem"
+CLOUDSDK_CORE_CUSTOM_CA_CERTS_FILE = "/opt/homebrew/etc/ca-certificates/cert.pem"
+GRPC_DEFAULT_SSL_ROOTS_FILE_PATH = "/opt/homebrew/etc/ca-certificates/cert.pem"
+# The patched Java store is generated separately from bootstrap.
+JAVA_TOOL_OPTIONS = """
+{%- set truststore = env.HOME ~ '/.local/share/security-runtimes/java/cacerts-emudhra-fixed' -%}
+{%- if truststore is file -%}
+-Djavax.net.ssl.trustStore={{truststore}} -Djavax.net.ssl.trustStorePassword=changeit
+{%- else -%}
+{{ env.JAVA_TOOL_OPTIONS | default(value='') }}
+{%- endif -%}
+"""
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
