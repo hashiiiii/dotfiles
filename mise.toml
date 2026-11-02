@@ -5,6 +5,7 @@ experimental = true
 
 [dotfiles]
 "~/.config"   = ".config"
+"~/.zshenv"   = ".zshenv"
 "~/.zshrc"    = ".zshrc"
 "~/.zprofile" = ".zprofile"
 # Link portable agent settings individually because their runtime directories

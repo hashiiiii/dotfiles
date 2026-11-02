@@ -1,0 +1,1 @@
+export UNITY_NO_CRASH_REPORT=1
