@@ -246,8 +246,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.1027.51404"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.1027.51404/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1103.60933"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.1103.60933/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
@@ -276,7 +276,7 @@ args = [
 enabled = false
 
 [mcp_servers.computer-use]
-command = "./Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
+command = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient"
 args = ["mcp"]
 cwd = "."
 enabled = true
@@ -289,7 +289,6 @@ external-agent-import-sync-enabled = false
 notifications-turn-mode = "always"
 hotkey-window-projectless-default-enabled = true
 show-context-window-usage = true
-followUpQueueMode = "queue"
 conversationDetailMode = "STEPS_PROSE"
 git-pull-request-merge-method = "squash"
 git-branch-prefix = ""
@@ -298,6 +297,7 @@ open-link-in-target-preference = "external-browser"
 open-local-url-in-target-preference = "external-browser"
 enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "persistent", "max"]
 avatar-overlay-pet-visible = false
+migratedFollowUpQueueToSteer = true
 
 [desktop.open-in-target-preferences]
 global = "cursor"
