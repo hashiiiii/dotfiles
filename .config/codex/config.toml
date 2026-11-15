@@ -92,6 +92,9 @@ trust_level = "trusted"
 [projects."/Users/hashiiiii/workspace/reknotes"]
 trust_level = "trusted"
 
+[projects."/Users/hashiiiii/workspace/Junior-Programmer-Starter-Files-U6"]
+trust_level = "trusted"
+
 [features]
 hooks = true
 prevent_idle_sleep = true
@@ -246,8 +249,8 @@ NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_COMPUTER_USE = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.1103.60933"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.1103.60933/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.1106.51428"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/Users/hashiiiii/.codex/plugins/cache/openai-bundled/browser/26.1106.51428/scripts/browser-service.mjs","sky":"@oai/sky/service"}'
 SKY_CUA_SERVICE_PATH = "/Users/hashiiiii/.codex/computer-use/Codex Computer Use.app"
 CODEX_CLI_PATH = "/Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex"
 
@@ -313,9 +316,11 @@ trusted_hash = "sha256:6348ee05b4efcca4770ca4f3b8ba84c20d9563d320cabcb88fd5936d2
 
 [hooks.state."rules-for-ai@hashiiiii:hooks/hooks.json:pre_tool_use:0:0"]
 trusted_hash = "sha256:6fc6a5623a7eb288596f532cbdd29f48dc181eb3fd854b84fc461f504e908294"
+trusted_content_hash = "sha256:eb97bfa545f32af96eb0db514849717c9c078e7e84354bdd2d9b4178d41aa75a"
 
 [hooks.state."rules-for-ai@hashiiiii:hooks/hooks.json:session_start:0:0"]
 trusted_hash = "sha256:13ab4d2d78aebb1ae8caccebb7ac81cd1756dd3a644b05691ea8770060d3df75"
+trusted_content_hash = "sha256:eb97bfa545f32af96eb0db514849717c9c078e7e84354bdd2d9b4178d41aa75a"
 
 [hooks.state."/Users/hashiiiii/workspace/jukki/openmoney/.codex/hooks.json:session_start:0:0"]
 trusted_hash = "sha256:65798b364eebf0aeaea46ac57a9c1d5a3b72ee8ba5d94bbd0eaa056185f0b3ca"
