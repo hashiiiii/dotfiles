@@ -5,6 +5,7 @@ ruby = '3.4.2'
 go = '1.26.10'
 rust = "1.91.1"
 node = "24.22.1"
+"npm:skills" = "1.7.6"
 bun = "canary"
 deno = "2.9.8"
 

@@ -13,6 +13,7 @@ brew "bat"                    # Cat replacement with syntax highlighting
 brew "fd"                     # Fast and user-friendly find replacement
 brew "git-delta"              # Better git diff viewer with syntax highlighting
 brew "ripgrep"                # Fast search tool
+brew "librsvg"                # Provides rsvg-convert for the portable image skill
 brew "zsh-autosuggestions"    # Fish-like history autosuggestions (sourced in .zshrc)
 brew "zsh-fast-syntax-highlighting" # Command-line syntax highlighting (sourced in .zshrc)
 brew "wget"                   # Internet file retriever
