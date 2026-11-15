@@ -10,12 +10,8 @@ experimental = true
 "~/.zprofile" = ".zprofile"
 # Link portable agent settings individually because their runtime directories
 # also contain credentials, history, caches, and generated state.
-"~/.agents/skills/hallmark"           = ".agents/skills/hallmark"
-"~/.agents/skills/show-me"            = ".agents/skills/show-me"
 "~/.claude/hooks"                     = ".config/claude/hooks"
 "~/.claude/settings.json"             = ".config/claude/settings.json"
-"~/.claude/skills/hallmark"           = ".agents/skills/hallmark"
-"~/.claude/skills/show-me"            = ".agents/skills/show-me"
 "~/.claude/statusline-command.sh"     = ".config/claude/statusline-command.sh"
 "~/.codex/config.toml"                = ".config/codex/config.toml"
 "~/.codex/herdr-agent-state.sh"       = ".config/codex/herdr-agent-state.sh"
